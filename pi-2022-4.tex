@@ -8,7 +8,7 @@
 \usepackage{wrapfig}
 \usepackage{listings}
 
-\title{The Power of Mathematical Reasoning}
+\title{The Power of Mathematical Reasoning - Part One}
 \author{Nghia Doan \& Catherine Doan}
 \date{\today}
 
@@ -16,33 +16,7 @@
 
 \maketitle
 
-\section*{What is a mathematical statement?}
-
 In this article, we discuss mathematical reasoning by a number of examples.
-A \textbf{mathematical statement} is a declarative sentence that is \textit{either objectively true or false but not both.}
-The key is that there must be \textit{no ambiguity.}
-So, a sentence such as “\textit{The weather is beautiful}” is not a mathematical statement, since
-whether the sentence is true or not is a matter of opinion.
-A question such as “\textit{Is it raining?}” is not a mathematical statement
-because it is a question, which is not declaring or asserting that something is true or false.
-A mathematical statement is also sometimes called a \textbf{proposition.}
-
-\begin{remark*}
-    There are many examples of ambiguous statements. A famous example is \textit{the liar paradox.}
-    
-    \textit{A person said "I am a liar."
-    If this was true then he was a liar, thus what he said was not true, therefore he was a truth-teller.
-    This is a contradiction because he could not be both liar and truth-teller at the same time.
-    If this was untrue, then he told the truth, which meant that he was a liar. The same contradiction applies.}
-\end{remark*}
-
-\begin{exercise*}[Unstoppable cannonball hits an immovable post]
-    \label{exercise:pi-2022-4-p0}
-    By unstoppable cannonball we shall mean a cannonball which knocks over everything in its way.
-    By an immovable post we shall mean a post which cannot be knocked over by anything.
-    
-    What happens if a unstoppable cannonball hits an immovable post?
-\end{exercise*}
 
 \section*{It is so obvious, $\ldots$ or is it?}
 
@@ -60,9 +34,9 @@ These problems are simple, but don't let them fool you.
 \end{example*}
 
 \begin{soln}[\nameref{example:pi-2022-4-p1}]
-    The fact that the big Indian was smoking should not lead to the assumption that the big Indian was a male.
-    Since the little Indian was the son of the big Indian,
-    therefore the big Indian was \framebox{the mother} of the little Indian.
+    The fact that the big Indian was smoking does not mean that the big Indian was a man.
+    Now, the little Indian was the son of the big Indian, and if the big Indian was not his father
+    then the big Indian was \framebox{his mother}.
 \end{soln}
 
 \begin{example*}[Whose picture I am looking at?]
@@ -76,11 +50,10 @@ These problems are simple, but don't let them fool you.
 
 \begin{soln}[\nameref{example:pi-2022-4-p2}]
     The man made a statement that contains two parts, each a seperate statement.
-    In the first one, he stated that he had neither brothers nor sisters.
-    In the second one, the phrase "\textit{my father's son}" implies that the person in the phrase
-    is one of his brother or himself.
-    However, the first statement says he has no brother, therefore that person is himself.
-    Thus, he is the man's father and the person in the painting is \framebox{his son.}
+    The first one means that he had neither brothers nor sisters.
+    The second one means that the father in his sentence is a son of his father, meaning one of his brothers or himself.
+    Because he has no brother, therefore the father is himself.
+    Thus, he is the father of the man in the paintng and the man in the painting is \framebox{his son.}
 \end{soln}
 
 \begin{example*}[How could she set the clock?]
@@ -95,66 +68,50 @@ These problems are simple, but don't let them fool you.
 \end{example*}
 
 \begin{soln} \nameref{example:pi-2022-4-p3}
-    Lilian checked the time displayed on her clock twice: when she left the house and when she came back.
-    The difference of these two values will be equal to the total time when she was away.
-    Assume that she walked to Bianca house, took a look at the clock and promptly left,
-    the difference above is \textit{twice the length of the trip} between the two houses.
-    By marking the time shown on Bianca's clock,
-    she should add that to the length of the trip and set the time on her clock.
+    Lilian checked the time displayed on her clock twice: \textit{when she left the house} and \textit{when she came back.}
+    The difference of these two will be equal to the total time when she was away,
+    which is \textit{twice the length of the trip in time} between the two houses.
+    By dividing by two, she had \textit{the time needed for a trip}. 
+
+    Now, lets assume that she walked to Bianca house, took a look at the clock and promptly left.
+    This way, Lilian knew \textit{what time it was she left Bianca's house}.
+    By adding the time needed for a trip to that she knew what time it was and then set the clock.
 \end{soln}
 
 \begin{example*}[Defeat King Haggard]
     \label{example:pi-2022-4-p4}
-    There are ten death-water wells in the far, far away Dark Forest.
+    There are ten wells in the far, far away Dark Forest.
     The wells are marked by signs with number from 1 to 10.
     The water from these wells look and taste like normal water;
-    however, even a single gulp of it is lethal - unless one has an antidote.
+    however, they were all poisoned.
     The only known antidote is water from a higher-numbered well.
     (\textit{For example, if you had a sip of water from the well number 6,
-    you could save yourself by drinking from the well 7, 8, 9, or 10.})    
-    Unfortunately, there is no antidote for the water from the tenth well.
-    While the first nine wells are easily accessible,
-    the tenth one is located in the castle of King Haggard, the ruler of the Dark Forest.
+    you could save yourself by drinking from the well 7, 8, 9, or 10.})
+
+    Unfortunately, there is no antidote for the water from the $10^{\text{th}}$ well.
+    While the first nine wells can be easily visited,
+    the $10^{\text{th}}$ well is inside the castle of King Haggard, the ruler of the Dark Forest.
     
-    Prince Martin challenged the King to the death-water duel.
-    By the rules of the duel, each participant should drink a cup of water offered by the opponent.
-    King Haggard eagerly agreed. His plan was to use his tenth death well;
-    he reasoned that water from this well will neutralize any drink offer by Martin,
-    and will definitely kill the prince.
-    The duel took place as planned. Each participant drank the liquid offered by the opponent.
-    To everybody surprise and delight. Prince Martin lived and King Haggard died.
+    Prince Martin challenged the King to a duel:
+    \textit{Each participant should drink a cup of water offered by the opponent.}
+    Of course, King Haggard agreed. His plan was to use his $10^{\text{th}}$ well;
+    because the water from this well help him survive any drink offered by Prince Martin,
+    and it will definitely kill the prince.
+
+    The duel took place as planned. Each participant drank the cup of water offered by the opponent.
+    Everybody surprised and delighted to see that Prince Martin lived and King Haggard died.
     
     How did this happen?
 \end{example*}
 
 \begin{soln} \nameref{example:pi-2022-4-p4}
     Prince Martin \textit{gave King Haggard a drink of clear water.}
-    Thus instead of curing him, the water from the tenth well poisons him.
-    Prince Martin, before the duel, drank some water from a death well with a number smaller than 10.
-    Therefore \textit{Haggard's drink worked as antidote for Prince Martin.}
+    Thus instead of curing him, the water from the $10^{\text{th}}$ well he drank then poisoned him.
+    Prince Martin, before the duel, drank some water from any of the wells with a number smaller than $10.$
+    Therefore \textit{Haggard's cup of water from the $10^{\text{th}}$ well actually cured Prince Martin.}
 \end{soln}
 
-\bigbreak
-
-\begin{exercise*}[Which one is correct?]
-    \label{exercise:pi-2022-4-p5}
-    Which phrase is correct: "the yolk \textit{is} white" or "the yolk \textit{are} white."?
-\end{exercise*}
-
-\begin{exercise*}[How can they see each other?]
-    \label{exercise:pi-2022-4-p6}
-    Two camels were facing in the opposite direction.
-    One was facing due east and the other one was facing due west.
-
-    How can they manage to see each other, without walking, turning around, or even moving their heads?
-\end{exercise*}
-
-\newpage 
-
-\section*{If this then that}
-
-Life is not always simple. Sometimes, when the problem at hand is more complicated, 
-looking at all possible cases, or caseworking, can help to find the correct answer.
+\section*{If this is true then $\ldots$, if this is false then $\ldots$}
 
 \begin{example*}[Who is younger?]
     \label{example:pi-2022-4-p7}
@@ -165,201 +122,50 @@ looking at all possible cases, or caseworking, can help to find the correct answ
     then who was younger?
 \end{example*}
 
-\begin{soln}[\nameref{example:pi-2022-4-p7}]
-    There are two different approaches to this problem.
+There are two different approaches to this problem.
 
+\begin{soln}[\nameref{example:pi-2022-4-p7}]
     The first one is to \textit{evaluate all possible truths} and see which one matches the given conditions.
     There are two cases: the brother was younger, or the sister was younger.  
-    \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
-        \ii \textit{Case 1:} If the brother was younger, then the brother lied, and so did the sister.
-        \ii \textit{Case 2:} If the sister was younger, then both of them told the truth, which would not be possible.
-    \end{itemize}    
-    Thus, the first case is correct, the brother was younger, and they both lied.
     
+    If the brother was younger, then the brother lied, and so did the sister.
+    If the sister was younger, then both of them told the truth, which would not be possible.
+
+    Thus, \framebox{the brother was younger, and they both lied.}
+\end{soln}
+
+\begin{soln}[\nameref{example:pi-2022-4-p7}]
     Now, the second approach is to \textit{evaluate all possible assumptions},
     in this case whether the brother (and then the sister) told the truth.
-    \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
-        \ii \textit{Case 1:} If the brother told the truth, then the sister did too.
-        This contradicts the condition that at least one of them lied.
-        \ii \textit{Case 2:} If the brother lied, then the sister lied too.
-        This satisfies the condition, and therefore it is the correct one.
-    \end{itemize}    
+    
+    If the brother told the truth, then the sister did too, then
+    this contradicts the condition that at least one of them lied.
+    If the brother lied, then the sister lied too, so
+    this satisfies the condition, and therefore it is the correct one.
 
-    Thus, \framebox{the brother was younger.}
+    Thus, \framebox{the brother was younger, and they both lied.}
 \end{soln}
 
-\begin{example*}[Who stole what?]
-    \label{example:pi-2022-4-p8}
-    Father was not happy when he heard that Mother could not make his favourite cake because butter, eggs and milk all were stolen.
-    Mother recalled seeing Chipmunk, Groundhog, and Sparrow sneaking out of the kitchen when she came into it.
-    Everyone was carrying something, but she couldn't tell who was carrying what.
-    After a brief investigation all the ingredients were found at the homes of Chipmunk, Groundhog, and Sparrow.
-    Here were what they said,
-    \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
-        \ii Chipmunk: Groundhog stole the butter.
-        \ii Groundhog: Sparrow stole the eggs.
-        \ii Sparrow: I stole the milk.
-    \end{itemize}
-    As it happened, \textit{the one who stole the butter told the truth} and \textit{the one who stole the eggs lied.}
+\section*{Exercises}
 
-    Who stole what?
-\end{example*}
-
-\begin{soln} \nameref{example:pi-2022-4-p8}
-    Let's try casework on \textit{who stole the butter.}
-    \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
-        \ii \textit{Case 1:} Assume that Sparrow have stolen the butter. 
-        Then she would be the truth-teller, but she said she stole the milk.
-        \ii \textit{Case 2:} If Chipmunk stole the butter, then what she said about Groundhog is true,
-        thus Groundhog stole the butter, which is a contradiction.
-        \ii \textit{Case 3:} Groundhog must have stolen the butter. 
-        Thus what Groundhog said was true, so Sparrow stole the eggs, therefore Chipmunk stole the milk.
-    \end{itemize}    
-    The answer is \framebox{Groundhog stole the butter, Sparrow stole the eggs, and Chipmunk stole the milk.}
-\end{soln}
-
-\bigbreak
-
-\begin{exercise*}[Which room has the tiger?]
-    \label{exercise:pi-2022-4-p9}
-    Karl was captured while sneaking into the Kingdom of the Hungry Tigers.
-    He was lead in front of three rooms, each with a separate door marked with a sign,
-    as shown below in \Cref{fig:pi-2022-4-p9}.
-    \begin{figure}[h]
-        \centering
-        \begin{tabular}{|c|c|c|}
-        \hline
-        I & II & III \\
-        Room III is empty & The tiger is in Room I & This room is empty \\ \hline
-        \end{tabular}
-        \caption{\nameref{exercise:pi-2022-4-p9}}
-        \label{fig:pi-2022-4-p9}
-    \end{figure}
-    A large treasure chest was placed in one of the rooms and a hungry tiger in another.
-    A beautiful girl told him that,
-    \begin{enumerate}[topsep=0pt, partopsep=0pt, itemsep=0pt]
-        \ii The sign on the door of the room containing the treasure was true,
-        \ii The sign on the door of the room with the tiger was false, and
-        \ii The sign on the door of the empty room could be either true or false.
-        \ii If he opens the room with the tiger, he will be eaten.
-        \ii If he opens the room with the chest, they will set him free and give him the chest.
-    \end{enumerate}
-
-    Which room has the tiger?
+\begin{exercise*}[Which one is correct?]
+    \label{exercise:pi-2022-4-p5}
+    Which phrase is correct: "the yolk \textit{is} white" or "the yolk \textit{are} white."?
 \end{exercise*}
-
-\newpage 
-
-\section*{Knights and Liars, Patients and Doctors, and other stories}
-
-Classic stories have some twists. Inductive reasoning leads us to a general conclusion.
-Deductive reasoning applies a general assumption to a specific case.
-
-\begin{example*}[Who killed the dragon?]
-    \label{example:pi-2022-4-p10}
-    On the Island of Knights and Liars, there are two types of people:
-    the knights who always tell the truth and the liars who always lie.
-    Three mighty warriors live on the island.
-    Their names are Albert, David, and Victor.
-    Two of them are Liars, and one is a Knight.
-    The friends keep their affiliations secret (so nobody know who's what).
-
-    One of their great deeds was a battle with a terrible dragon
-    that was terrorizing the students of the Math, Chess, and Codding Club.
-    Not much is known about this battle except that the dragon was slayed by a Knight.
-    In a recently discovered letter, Albert stated that Victor had slayed the dragon
-    and David were merely watching.
-
-    Who actually killed the dragon?
-\end{example*}
-
-\begin{soln} \nameref{example:pi-2022-4-p10}
-    If Albert is a Knight, then Victor slayed the dragon.
-    Because the dragon slayer was a Knight, this would make Victor a Knight,
-    which is impossible because only one of them is a Knight.
-    Therefore Albert is a Liar, which means that Victor did not kill the dragon.
-    
-    Thus, \framebox{David was the dragon-slayer.}
-\end{soln}
-
-\begin{example*}[Who were removed?]
-    \label{example:pi-2022-4-p11}
-    In the Mental Hospital of Geniuses there are only doctors and patients.
-    Each of these inhabitants is sane or insane, but cannot be both.
-    The sane people were a hundred percent accurate in all of their beliefs, 
-    and the insane people were a hundred percent inaccurate in all of their beliefs.
-    After being in the hospital for a while, some patients got cured and became sane.
-    Unfortunately some doctors lost their minds and became insane.
-    The sane patients and insane doctors, if found, were removed from the hospital.
-    
-    One day, Inspector Melanie visited the hospital in order to determine who should be removed.
-    She interviewed three people $A$, $B$, and $C$:
-    \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
-        \ii $A$ said $B$ was insane.
-        \ii $B$ said $A$ is a doctor.
-        \ii $C$ said $B$ is a patient and $A$ is insane.
-    \end{itemize}
-
-    Did Inspector Melanie remove $A$, $B$, or both of them?
-\end{example*}
-
-\begin{soln} \nameref{example:pi-2022-4-p11}
-    Suppose that $A$ was sane. Then, what $A$ said was true, so $B$ was insane, and therefore $B$'s belief that $A$ was a doctor
-    was false, thus, $A$ is a sane patient and should be removed.
-    $C$ said $A$ was insane, so $C$ was insane, thus $B$ was a doctor, thus $B$ should be removed as well.
-    
-    Now, if $A$ was insane, then $B$ was sane, and therefore $A$ was a insane doctor and should be removed.
-    $C$ said $A$ was insane, so $C$ was sane, thus $B$ was patient, so $B$ should also be removed.
-    
-    Thus, \framebox{both $A$ and $B$ should be removed.}
-\end{soln}
-
-\bigbreak
-
-\begin{exercise*}[Was Sam awake?]
-    \label{exercise:pi-2022-4-p12}
-    Whenever Rob the bandit is asleep, everything he believes is wrong.
-    In other words, everything Rob believes in his sleep is false.
-    On the other hand, everything he believes while he is awake is true.
-    Last night at $10$ o'clock sharp,
-    while guarding the newly captured treasure chest,
-    Rob believed that he and Sam the thug were asleep at that time.
-    
-    Was Sam asleep or awake at that time?
-\end{exercise*}
-
-\newpage 
-
-\section*{Solutions to the Exercises}
-
-\begin{soln} \nameref{exercise:pi-2022-4-p0}
-    This is an example of a statement that cannot be determined as true or false. 
-\end{soln}
 
 \begin{soln} \nameref{exercise:pi-2022-4-p5}
     Actually, the yolk is \textit{yellow.}
 \end{soln}
 
+\begin{exercise*}[How can they see each other?]
+    \label{exercise:pi-2022-4-p6}
+    Two camels were facing in the opposite direction.
+    One was facing due east and the other one was facing due west.
+    How can they manage to see each other, without walking, turning around, or even moving their heads?
+\end{exercise*}
+
 \begin{soln} \nameref{exercise:pi-2022-4-p6}
     The two camels were \textit{facing each other} the whole time, hence facing in opposite directions.
-\end{soln}
-
-\begin{soln} \nameref{exercise:pi-2022-4-p9}
-    Instead of looking for the tiger, let's \textit{look for the treasure, because the sign on its room is true.}
-    
-    It cannot be in room II, because then according to the sign, room I has the tiger, room III is empty.
-    Thus, the sign on room I is true, which contradicts that the sign on the room with the tiger is false.
-    
-    It cannot be in room III, because the according to the sign, room III is empty.
-    Therefore the treasure is in room I, room III is empty, and the tiger is in room II.
-\end{soln}
-
-\begin{soln} \nameref{exercise:pi-2022-4-p12}
-    If Rob the bandit was awake at the time, he could not have had \textit{the false belief
-    that both he and Sam the thug were asleep.}
-    Therefore he was asleep. This means that his belief was false,
-    so it is not true that both were asleep.
-    Therefore Sam was awake.
 \end{soln}
 
 \end{document}
