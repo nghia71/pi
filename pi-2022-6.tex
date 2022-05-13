@@ -1,0 +1,266 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\title{Sequence}
+\author{Ngo Van Minh}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+A sequence is an enumerated collection of objects (numbers, letters, functions, etc) in which repetitions are allowed and the order of their apperance matters
+\[
+    1,\ 2,\ 3,\ 4,\ 5, ...
+\]
+
+The members of a sequence are called terms or elements.
+The sequence is called a finite sequence, if there are a \textit{finite} amount of terms in a sequence. 
+In other words, the sequence ends. Not all sequence ends, such sequence is called \textit{infinite.}
+When using variables to represent a sequence,
+we often use the same letter with different subscripts to represent the terms.
+For example, we might represent a sequence with $5$ terms as 
+\[ 
+    a_1, a_2, a_3, a_4, a_5.
+\]
+
+The expression $\{a_n\}$ denotes the sequence,
+where $a_n$ denotes a generic $n^{\text{th}}$ element of the sequence.
+
+Some sequences have obvious patterns, such as
+
+\textbf{The sequence of natural numbers}: $0,\ 1,\ 2,\ 3,\ 4, \ldots$
+
+\textbf{The sequence of odd numbers}: $1,\ 3,\ 5,\ 7,\ 9, \ldots$
+
+\textbf{The sequence of prime numbers}: $1,\ 3,\ 5,\ 7,\ 9, \ldots$
+
+\textbf{The sequence of square numbers}: $1,\ 4,\ 9,\ 16,\ 25,\ 36, \ldots$ The $i^{\text{th}}$ is $a_i = i^2.$
+
+\textbf{The sequence of cubic numbers}: $1,\ 8,\ 27,\ 64,\ 125, \ldots$ The $i^{\text{th}}$ is $a_i = i^3.$
+
+\textbf{Fibonacci sequence}: $1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 21, \ldots$ The sequence starts with two terms $1$ and $1,$
+then each following term is equal to the sum of two previous terms.
+
+\textbf{Arithmetic sequence}: $\{a_i\},$ where $a_i = a_1 + (i-1) \times d.$
+$d$ is the common difference between two consecutive terms.
+\textit{For example, $2,\ 5,\ 8,\ 11,\ 14, \ldots$ is an arithmetic sequence with $a_1 = 2$ and $d=3.$}
+
+\textbf{Geometric sequence}: $\{a_i\},$ where $a_i = a_{i-1} \times r.$
+$r$ is the common ratio between two consecutive terms.
+It is easy to see that $a_i = a_1 \times r^{i-1}.$
+
+\textbf{Sequence as a combination of twin numbers sequences}: a combination of two sequences $a_1,\ a_2,\ a_3, \ldots,$
+and $b_1,\ b_2,\ b_3, \ldots$ results in $a_1,\ b_1,\ a_2,\ b_2,\ a_3,\ b_3, \ldots.$
+
+\textbf{Mixed sequence}: a sequence without any particular rule or pattern.
+
+\textbf{Sequence of words}: a sequence of words that has some logics based on their meanings.
+
+\newpage
+
+\begin{problem*} \textbf{What is the missing number?}
+    \[
+        \_,\ 1,\ 2,\ 6,\ 24,\ 120,\ 720.
+    \]
+\end{problem*}
+
+\begin{soln}
+    By observation
+    \[
+        \begin{aligned}
+            &1 = 1!,\ 2 = 1 \times 2 = 2!,\ 6 = 1 \times 2 \times 3 = 3!, 24 = 1 \times 2 \times 3 \times 4 = 4!,\\
+            &120 = 1 \times 2 \times 3 \times 4 \times 5 = 5!, 720 = 1 \times 2 \times 3 \times 4 \times 5 \times 6 = 6!, 
+        \end{aligned}
+    \]
+    
+    Thus, the missing term is $0!.$ The answer is $\boxed{1.}$
+\end{soln}
+
+\begin{problem*} \textbf{What is the missing letter?}
+    \[
+        \_,\ \text{O},\ \text{T},\ \text{T},\ \text{F},\ \text{F},\ \text{S},\ \text{S},\ \text{E},\ \text{N},\ \text{T}.
+    \]
+\end{problem*}
+
+\begin{soln}
+    By observation, from the second term, each letter is the first letter of each word representing the first ten postitive integers
+    \[
+        \underline{\text{O}}\text{ne},\ \underline{\text{T}}\text{wo},\ \underline{\text{T}}\text{hree},\ \underline{\text{F}}\text{our},\
+        \underline{\text{F}}\text{ive},\ \underline{\text{S}}\text{ix},\ \underline{\text{S}}\text{even},\ \underline{\text{E}}\text{ight},\
+        \underline{\text{N}}\text{ine},\ \underline{\text{T}}\text{en.}
+    \]
+    
+    Thus, the missing term is Zero. The answer is \boxed{Z.}
+\end{soln}
+
+\begin{problem*} \textbf{Find the next term of the sequence}
+    \[
+        13,\ 57,\ 91,\ 11,\ 31,\ 51,\ \_
+    \]
+\end{problem*}
+
+\begin{soln}
+    By placing the terms one after another, we obtain
+    \[
+        \underline{1}\ \underline{3}\ \underline{5}\ \underline{7}\ \underline{9}\ \underline{11}\ \underline{13}\ \underline{15}\ 1\ldots
+    \]
+    
+    By observation, it is a sequence of odd numbers.
+    Thus, the missing term is $71$. The answer is $\boxed{71.}$
+\end{soln}
+
+\begin{problem*} \textbf{What is the missing letter?}
+    \[
+        \text{B},\ \text{C},\ \text{E},\ \text{G},\ \text{K},\ \text{M}, \_
+    \]
+\end{problem*}
+
+\begin{soln}
+    The letters in the alphabet form a sequence with their positions in the sequence shown as below
+    \begin{figure}[h]
+        \centering
+        \begin{minipage}[t]{6.5cm}
+            \begin{tabular}{c|c|c|c|c}
+                \text{A} & \text{B} & \text{C} & $\ldots$ & \text{Z} \\ \hline
+                $1$ & $2$ & $3$ & $\ldots$ & $26$
+            \end{tabular}
+        \end{minipage}
+    \end{figure}
+
+    Now, by looking at the letters in the given sequence with their position in the alphabet
+    \begin{figure}[h]
+        \centering
+        \begin{minipage}[t]{6.5cm}
+            \begin{tabular}{c|c|c|c|c|c}
+                \text{B} & \text{C} & \text{E} & \text{G} & \text{K} & \text{M} \\ \hline
+                $2$ & $3$ & $5$ & $7$ & $11$ & $13$
+            \end{tabular}
+        \end{minipage}
+    \end{figure}
+
+    It is easy to see that the sequence of their positions in the alphabet is a sequence of consecutive prime numbers, starting from $2.$
+    Thus, the missing letter is the one at the position $17$ in the alphabet, which is Q. The answer is \boxed{Q.}
+\end{soln}
+
+\begin{problem*} \textbf{Find the next term of the sequence}
+    \[
+        311,\ 220,\ 233,\ 112,\ 202,\ 331,\ \_
+    \]
+\end{problem*}
+
+\begin{soln}
+    By placing the terms one after another, we obtain
+    \[
+        \underline{31122023}\ \underline{31122023}\ \underline{31}\ldots
+    \]
+    
+    The pattern $31122023$ (December, 31, 2023) seems to repeat. 
+    Thus, by this observation, the missing term is $122$. The answer is $\boxed{122.}$
+\end{soln}
+
+\begin{problem*} \textbf{Find the next term of the sequence}
+    \[
+        1,\ 1,\ 1,\ 3,\ 2,\ 5,\ 3,\ 7,\ 5,\ 9,\ 8,\ 11,\ 13,\ 13,\ \_
+    \]
+\end{problem*}
+
+\begin{soln}
+    By observation, it can be seen that the sequence is a combination of twin numbers sequences
+    \[
+        \begin{aligned}
+            &1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13, \ldots\\
+            &1,\ 3,\ 5,\ 7,\ 9,\ 11,\ 13, \ldots
+        \end{aligned}
+    \]
+    
+    The first sequence is the Fibonacci sequence and the second one is the sequence of consecutive odd numbers.
+    Thus, by this observation, the missing term is the term after $13$ in the Fibonacci sequence, which is $8+13=21$.
+    The answer is $\boxed{21.}$
+\end{soln}
+
+\begin{problem*} \textbf{Find the missing term of the sequence}
+    \[
+        365824,\ \_ ,\ 85636,\ 5617,\ 658,\ 613,\ 64
+    \]
+\end{problem*}
+
+\begin{soln}
+    By observation, the first term in the sequence can be split at the tens digits the into two parts,
+    \[
+        3658 \mid 24
+    \]
+
+    By reversing the digits of the first part and adding the digits of the second part, we obtain
+    \[
+        8563 \mid 6 \Longrightarrow 85636
+    \]
+
+    This is the second term. Using this observation for the terms we have
+    \[
+        \begin{aligned}
+            &5617 \rightarrow 56 \mid 17 \rightarrow 65 \mid 8 \Longrightarrow 658\\
+            &658 \rightarrow 6 \mid 58 \rightarrow 6 \mid 13 \Longrightarrow 613\\
+            &613 \rightarrow 6 \mid 13 \rightarrow 6 \mid 4 \Longrightarrow 64
+        \end{aligned}
+    \]
+
+    So the discovered rule seems to hold. Now, by applying this to the second term
+    \[
+        85636 \rightarrow 856 \mid 36 \rightarrow 658 \mid 9 \Longrightarrow 6589
+    \]
+    
+    Thus, the missing term is $6589.$ The answer is $\boxed{6589.}$
+\end{soln}
+
+\begin{problem*} \textbf{Find the next term of the sequence}
+    \[
+        5,\ 6,\ 6,\ 7,\ 8,\ 10,\ 13,\ 18,\ \_
+    \]
+\end{problem*}
+
+\begin{soln}[First solution]
+    By observation, from the second term, by subtracting each term from the previous one, we obtain
+    \[
+        1,\ 0,\ 1,\ 1,\ 2,\ 3,\ 5,\ \ldots
+    \]
+    
+    This is a Fibonacci sequence. The next term in this sequence is $8.$ 
+    Thus missing term in the original sequence is $18+8=26.$
+    The answer is $\boxed{26.}$
+\end{soln}
+
+\begin{soln}[Second solution]
+    By observation, by subtracting $5$ from each term, we obtain
+    \[
+        0,\ 1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ \ldots
+    \]
+    
+    This is a Fibonacci sequence. The next term in this sequence is $8+13=21.$ 
+    Thus missing term in the original sequence is $21+5=26.$
+    The answer is $\boxed{26.}$
+\end{soln}
+
+Now, lets try to complete some sequences.
+
+\begin{exercise*}
+    Find the missing term in each of the sequence below
+    \[
+        \begin{aligned}
+            &1,\ 2,\ 4,\ 7,\ 12,\ \_\\
+            &0,\ 2,\ 6,\ 12,\ 22,\ 38,\ \_\\
+            &0,\ 1,\ 10,\ 11,\ 100,\ 101,\ 110,\ 111,\ \_\\
+            &6,\ 12,\ 15,\ 21,\ 24,\ 30,\ 33,\ 39,\ \_\\
+            &1,\ 11,\ 21,\ 1211,\ 111221,\ 312211,\ \_
+        \end{aligned}
+    \]
+\end{exercise*}
+
+\end{document}
