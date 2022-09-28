@@ -1,0 +1,184 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Digits of a number}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+In this article, we look at some problems with digits of number and the approaches to solve them using different methods.
+
+\section{Divisibility rules}
+
+In this section, we use the divisibility rules,
+i.e. what digits should a number have in order to be divisible by $3, 4,$ or $8,$ and so on.
+
+\begin{example*}[One]
+    What is the greatest multiple of $8$ whose digits are all different?
+\end{example*}
+
+\begin{soln}
+    The \textit{divisibility rule for $8$} states that
+    the last three digits of a multiple of $8$ must be divisible by $8$.
+    To create the largest $8-$digit number, the last three digits must be $0, 1,$ and $2.$
+    Thus, the largest $3-$digit multiple of $8$ with those digits is $120.$
+    Thus the desired number is $\boxed{9876543120.}$
+\end{soln}
+    
+\begin{example*}[Two]
+    What is the least multiple of $36$ that contains only digits $4$ and $5.$
+\end{example*}
+
+\begin{soln}
+    Divisibility rule for $9$ state that the sum of digits of the number must be $9, 18, \ldots.$
+    Let examine the sum of the digits from the least possible value $9$ and then going up.
+    If the sum is $9,$ then $45$ or $54$ are not divisible by $4,$ so $9=4+5$ is not a possible sum.
+    If the sum is $18,$ the $2-$digit multiple of $4$ can be made from two pairs of $4$ and $5$ is $44.$
+    Thus the number is $\boxed{5544}.$
+\end{soln}
+
+\bigbreak
+
+\noindent\rule{16.5cm}{0.4pt}
+
+\begin{exercise*}[Three]
+    \label{exercise:three}
+    Find a $7-$digit number containing only digits $2$ or digits $3$ such that 
+    there are more of digits $2$ than of digits $3$ and the number is divisible by both $3$ and $4.$
+\end{exercise*}
+
+\newpage
+
+\section{Remainders of a perfect powers}
+
+In this section, we look at the remainders of a perfect power - a perfect square, a perfect cube, or a higher power of integer
+- when divided by an integer such as $3, 4, 8,$ or $9,$ and so on.
+
+\begin{example*}[Four]
+    Is there a $5-$digit perfect square whose sum of digits is $29$?
+\end{example*}
+
+\begin{soln}
+    A perfect square is divisible by $3$ or has a remainder of $1$ when divided by $3$ (why?).
+    Since the remainder of a number when divided by $3$ is the same as the remainder of its sum of digits when divided by $3,$
+    and $29$ has a remainder of $2$ when divided by $3$ so there is no such number.
+\end{soln}
+
+\begin{example*}[Five]
+    Find the perfect cube \textbf{n} such that all digits of $n$ are $9$ except the unit digit, which is $5.$
+\end{example*}
+
+\begin{soln}
+    There is no such perfect cube since a perfect cube has a remainder $0, 1,$ or $8$ when divided by $9.$
+\end{soln}
+
+\bigbreak
+
+\noindent\rule{16.5cm}{0.4pt}
+
+\begin{exercise*}[Six]
+    \label{exercise:six}
+    Find $\textbf{n} > 3$ such that the $(n+1)$-digit binary number $\overline{10\ldots01_2}$ is a perfect power of $3.$
+\end{exercise*}
+
+\section{Digits as variables}
+
+In this section, we use some algebra tools to establish equations for the digits of a number,
+then solving those equations to obtain the value for them.
+
+\begin{example*}[Seven]
+    Digits \textbf{a}, \textbf{b}, and \textbf{c} are used to form $3-$digit numbers $\overline{abc}, \overline{bca},$ and $\overline{cab}.$
+    The sum of these numbers is $1332,$ find $a+b+c.$
+\end{example*}
+
+\begin{soln}
+    $\overline{abc} = 100a + 10b + c,$ similarly with others. Their sum is $111(a+b+c)=1332,$ $a+b+c=12.$
+\end{soln}
+
+\begin{example*}[Eight]
+    Find all $4-$digit number \textbf{n} whose sum of digits is $2010-n.$
+\end{example*}
+
+\begin{soln}
+    Let $n=\overline{abcd}.$ Then $1001a+101b+11c+2d=2010.$ If $a=1,$ then $b=9,$ so $11c+2d=100,$ so $c=8,d=2.$
+    If $a=2,$ then $b=c=0,d=4.$ The solutions are $\boxed{1982,\ 2004}.$
+\end{soln}
+
+\bigbreak
+
+\noindent\rule{16.5cm}{0.4pt}
+
+\begin{exercise*}[Nine]
+    \label{exercise:nine}
+    Find a potitive integer \textbf{a} such that $(1+2+\ldots + a)- 1000a$ is a $3-$digit number. 
+\end{exercise*}
+
+\newpage
+
+\section{The last digits of a number}
+
+In this section, we show the use of so-called modular arithmetic in the easiest possible way to find the last digits of some numbers.
+
+\begin{example*}[Ten]
+    What is the last digit of $\left(... \left((7)^7\right)^7... \right)^{7}$?
+    There are $1001$ digits $7.$
+\end{example*}
+
+\begin{soln}
+    By testing $7 \equiv 7 \Mod{10}, 7^7 = (7)(7^2)^3 \equiv -7 \Mod{10}, (7^7)^7 \equiv (-7)^7 \equiv 7 \Mod{10}, \ldots$
+    By Induction Principle, it can be proved that the last digit of the generic expression is $7$ if it has an odd amount of $7,$
+    otherwise it is $3.$ The given one has an odd number of $7,$ so its last digit is $\boxed{7.}$  
+\end{soln}
+
+\begin{example*}[Eleven]
+    In how many zeros can the number $1^n+2^n+3^n+4^n$ end for \textbf{n} positive integer?
+\end{example*}
+
+\begin{soln}
+    For $n=1,$ and $2,$ the sum ends in one and two zeros.
+    Now, for all $n \ge 3,$ $2^n, 4^n$ are divisible by $8,$
+    and $1^n + 3^n$ congruent to $2$ or $4$ modulo $8$.
+    Thus, the sum cannot end in three or more zeros.
+\end{soln}
+
+\bigbreak
+
+\noindent\rule{16.5cm}{0.4pt}
+
+\begin{exercise*}[Twelf]
+    \label{exercise:twelf}
+    Find the last five digit of $5^{1981}.$
+\end{exercise*}
+
+\section{Hints to the exercises}
+
+\begin{hint}[\nameref{exercise:three}]
+    First find the last two digits based on divisibility rule for $4.$
+    Then find the number of digits $2$ in the first five digits.
+\end{hint}
+
+\begin{hint}[\nameref{exercise:six}]
+    Let $\overline{10\ldots01_2} = 2^n + 1 = 3^m.$ Then casework based on the parity of $m.$
+\end{hint}
+
+\begin{hint}[\nameref{exercise:nine}]
+    Investigate two cases, $a < 1999$ and $a \ge 2000.$
+\end{hint}
+
+\begin{hint}[\nameref{exercise:twelf}]
+    Find the last $5$ digits of $5^{1981} - 5^5 = 5^5(5^{1976}-1).$
+\end{hint}
+
+\end{document}
