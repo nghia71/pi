@@ -1,0 +1,159 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Games in a board}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+In this article, we discuss a few games and principles associated with solutions to the problems posed by the games.
+
+\begin{example*}[Two equal sums]
+
+    Each square of a $3 \times 3$ board is filled with one of the numbers $-1, 0, $+1$.$ See the figure below for an example.
+    Viet calculates the sums of the rows, columns, and two main diagonals. He found that there are at least two equal sums.
+    For example, in the example below, both the sums of the second and third rows are 0.
+    Is it always true that there are at least two equal sums?
+\end{example*}
+
+\begin{figure}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        $-1$ & $$+1$$ & $$+1$$ \\ \hline
+        $0$  & $-1$ & $$+1$$ \\ \hline
+        $-1$ & $$+1$$ & $0$  \\ \hline
+    \end{tabular}
+\end{figure}
+
+\begin{soln}
+    The answer is yes. The largest possible sum is $3$ and the smallest is $-3.$
+    So there are0 $7$ possible values $-3,-2,\ldots,2,3$ for $8$ sums, so two of them should be the same and therefore equal.
+
+    In above we applied the \textit{Pigeonhole principle: if $n+1$ or more pigeons are placed in $n$ holes,
+    then one hole must contain two or more pigeons.} 
+\end{soln}
+
+\begin{example*}[Change all signs to $+$]
+
+    Each square of the  board contains a $+$ or $-$ signs, see the board the left,
+    which contains a single $-$ at the square intersection of the first row and second column.
+
+    At each step, you can change all the signs in a row, a column, or a diagonal to their opposite ones, i.e. $+$ to $-$, and $-$  to $+$.
+    An example of how a column is changed shown as below in the board on the right.
+\end{example*}
+
+\begin{figure}[h]
+    \centering
+    \begin{tabular}{|c|
+        >{\columncolor[HTML]{EFEFEF}}c |c|c|l|c|
+        >{\columncolor[HTML]{EFEFEF}}c |c|c|}
+        \cline{1-4} \cline{6-9}
+        $+$ & $-$ & $+$ & $+$ &  & $+$ & $+$ & $+$ & $+$ \\ \cline{1-4} \cline{6-9}
+        $+$ & $+$ & $+$ & $+$ &  & $+$ & $-$ & $+$ & $+$ \\ \cline{1-4} \cline{6-9}
+        $+$ & $+$ & $+$ & $+$ &  & $+$ & $-$ & $+$ & $+$ \\ \cline{1-4} \cline{6-9}
+        $+$ & $+$ & $+$ & $+$ &  & $+$ & $-$ & $+$ & $+$ \\ \cline{1-4} \cline{6-9}
+    \end{tabular}
+\end{figure}
+
+\begin{soln}
+    Take a look at the squares colored \textcolor{red}{red}.
+
+    \begin{figure}[h]
+        \centering
+        \begin{tabular}{|c|
+            >{\columncolor[HTML]{FD6864}}c |c|c|l|c|
+            >{\columncolor[HTML]{EFEFEF}}c |c|c|}
+            \cline{1-4} \cline{6-9}
+            $+1$                         & $-1$                         & \cellcolor[HTML]{FD6864}$+1$ & $+1$                         &  & $+1$ & \cellcolor[HTML]{EFEFEF}$+1$ & $+1$ & $+1$ \\ \cline{1-4} \cline{6-9} 
+            \cellcolor[HTML]{FD6864}$+1$ & \cellcolor[HTML]{EFEFEF}$+1$ & $+1$                         & \cellcolor[HTML]{FD6864}$+1$ &  & $+1$ & $-1$                         & $+1$ & $+1$ \\ \cline{1-4} \cline{6-9} 
+            \cellcolor[HTML]{FD6864}$+1$ & \cellcolor[HTML]{EFEFEF}$+1$ & $+1$                         & \cellcolor[HTML]{FD6864}$+1$ &  & $+1$ & $-1$                         & $+1$ & $+1$ \\ \cline{1-4} \cline{6-9} 
+            $+1$                         & $+1$                         & \cellcolor[HTML]{FD6864}$+1$ & $+1$                         &  & $+1$ & $-1$                         & $+1$ & $+1$ \\ \cline{1-4} \cline{6-9} 
+        \end{tabular}
+    \end{figure}
+
+    If we replace the $+$ sign by $+1$ and the $-$ sign by $-1$, then at the beginning the product of all numbers in these red square is $-1.$ 
+	Easy to see that each operation to change all the signs in a row, a column or a diagonal shall change exactly two red squares.
+    Whatever the numbers in the two red squares, the product of their negates remain same.
+    Since the product of the red squares at the beginning is $-1,$ so it cannot be changed at all.
+
+    In above we applied the \textit{Invariant Principle: In mathematics, an invariant is a property of a mathematical object
+    (or a class of mathematical objects) which remains unchanged after operations or transformations of a certain type are applied to the objects.} 
+\end{soln}
+
+\begin{example*}[Find a pair of shoes with the right size]
+
+    On a stormy night, ten students from the \textit{Math, Chess, and Coding Club in Ottawa} went to a party.
+    They left their shoes in the foyer in order to keep the carpet clean. After the dinner, there was a power outage.
+    So the students, leaving one by one, put on, at random, any pair of shoes big enough for their feet (each pair of shoes stay together).
+    Any student who couldn't find a pair of shoes big enough spent the night at the place of the party.
+	
+    What is the largest number of students who might have had to spend the night? Show an example for this number.
+    \textit{Note that no two students wear the same size shoes.}
+\end{example*}
+
+\begin{soln}
+    Easy to see that if the five students with smallest feet left first wearing all five largest pairs of shoes
+    then none of the remaining student can find a pair of shoes to leave.
+	Now let assume that there were 6 students who would have to spent the night and there were 6 pairs of shoes left,
+    then because $6 + 6 > 10,$ so there is a student with his pair of shoes is still at the place of the party. This is not possible!
+
+    In above we applied the \textit{Well-Ordering Principle: the positive integers are well-ordered.
+    An ordered set is said to be well-ordered if each and every nonempty subset has a smallest or least element.} 
+\end{soln}
+
+\begin{example*}[Turn heads to tails]
+
+    In a darkroom there are two tables. The first one is empty and the second one is cover by a layer of nickels
+    (one nickel thick, so no coin is on top of another), in which $31$ coins are tails up and the rest are heads up.
+    Minh enters the room with the task of transferring some coins from the second table to the first table
+    (he wears gloves, so he cannot feel the faces of the coins). He can flip over any number of coins when transferring them.
+
+    Is that possible when he leaves the room the number of nickels that are tails up is the same on both tables?
+\end{example*}
+
+\begin{soln}
+    If Minh turns a coin on the second table during transfer to the first one,
+    then the number of coins $tails-up$ on the second table will be reduce by one if it was a $tails-$p coin,
+    or the number of coins $tails-up$ on the first table is increased by one if it was a $heads-up$ coin.
+    In any case, the difference between the $tails-up$ coins on the second and first tables will be reduced by one.
+    (this is an \textit{invariant}.) Hence, after $31$ moves, they will be the same.
+\end{soln}
+
+\begin{example*}[Same number of prime factors]
+
+    The distinct prime factors of an integer are its prime factors listed without repetition.
+    For example, the distinct prime factors of 40 are 2 and 5.
+    Let $A=2^k-2,$ $B=2^k A$, where $k >1$ is an integer.
+    
+    Show that $A$ and $B1$ have the same set of distinct prime factors.
+    Prove that $A+1$ and $B+1$ also have the same set of distinct prime factors.
+\end{example*}
+
+\begin{soln}
+    Since $B$ is given as a multiple of $A$, every prime that divides $A$ also divides $B.$
+    Conversely, suppose $p$ is a prime that divides B. Because, either $p$ divides $2^k$ or $p$ divides $A.$
+    If $p$ divides $2^k,$ then $p=2$. But then $p$ divides $A$ anyway.
+    This shows that every prime that divides $B$ also divides $A.$
+    Since every prime that divides $A$ also divides $B$, and vice versa, $A$ and $B$ have the same set of distinct prime factors. 
+
+	$A+1 = 2^k-1, B_1=2^k(2^k-2)+1=(2^k-1)^2=(A+1)^2.$
+    So every prime that divides $A+1$ divides $B+1$ and vice versa. Hence, they have the same set of distinct prime factors. 
+ 
+    In above we construct the \textit{bijection or one-on-one correspondence between the prime factors of $A$ and the prime factors of $B.$} 
+\end{soln}
+
+
+\end{document}
