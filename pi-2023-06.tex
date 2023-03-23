@@ -1,0 +1,162 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Making the right statement}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{example*}[Angels and Demons]
+
+    On the Island of Knights and Liars, there are two types of people:
+    the Knights, who always tell the truth, the Liars, who always lie.
+    On the day of the Festival of Life, some angels and demons visited the Island of Knights and Liars.
+    It is known that the angels always tell the truth and the demons always lie.
+
+    It was a coincidence that Lan visited the island on that same day.
+    She met someone who made a statement so that she knew for sure that he was an angel
+    (perhaps because he is really handsome?)
+
+    What was the statement?
+\end{example*}
+
+\begin{soln}
+    The statement is \textit{I am not a Knight.}
+    Neither a Liar, a Knight, nor a demon could make such statement.
+    Thus the one who made the statement should be an angel.
+\end{soln}
+
+\begin{example*}[Three-word question]
+
+    Four brothers named An, Binh, Chi, and Danh are quadruplets indistinguishable in apperance.
+    \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
+        \ii An is an \textit{acurrate truth-teller.}
+        \ii Binh is an \textit{inacurrate truth-teller}, meaning
+        he is totally deluded in all his beliefs but always states honestly what he does believe.
+        \ii Chi is an \textit{acurrate lier,} meaning
+        all of his beliefs are correct, but he lies about every one of them.
+        \ii Danh is an \textit{inacurrate lier}, he is both deluded and dishonest, meaning
+        he will try to give you false information but is unable to.
+    \end{itemize} 
+
+    An and Binh are both married; the other two brothers are not.
+    An and Chi are both rich; the other two brothers are not. 
+    One day you meet one of the brothers. 
+
+    Your task to find out whether he is married by asking a three-word question.
+    \textit{For example, "are you married?" would be such a question.}
+\end{example*}
+
+\begin{soln}
+    One of the solutions would be \boxed{\textit{Are you rich?}}
+    Note that An and Binh both answer it with \textit{Yes},
+    while Chi and Danh would answer with \textit{No}.
+    So if the answer is \textit{Yes}, then that brother is married, otherwise he is unmarried.
+\end{soln}
+
+Now, lets change a bit the situation to make it more challenging.
+Lets assume that on the Island of Knights and Liars,
+there are exactly three types of people:
+the Knights, who always tell the truth, the Liars, who always lie,
+and normals, who sometimes lie and sometimes tell the truth.
+
+\begin{example*}[Marrying the right prince]
+    
+    Mai visited the island and met three handsome princes.
+    It is known that \textit{one of them is a Knight}, \textit{one of them is a normal},
+    and \textit{one of them is a Liar.}
+    It is known that the normal one is a \textit{werewolf},
+    who used to devour people at full moon.
+    It is also known that \textit{the Liar is younger than the normal},
+    and \textit{the normal is younger than the Knight.}
+    
+    All three princes ask for Mai's hand.
+    She would agree for the Knight one or even the Liar one, but want to avoid the normal one at any cost.
+    She can \textbf{only ask a single question} from \textit{only one of the princes}
+    who she can freely choose among the three,
+    and the question can only be answered with \textit{Yes} or \textit{No.}
+
+    What would be her question?
+\end{example*}
+
+\begin{soln}
+    First, let sort the princes by age, 
+    \[ 
+        \text{Knight\ } > \text{\ normal\ } > \text{\ Liar}.
+    \]
+    
+    Now, Mai can ask any of the princes, let say $A,$ by pointing to the two princes,
+    indicating them $B$ and $C,$ 
+    \[
+        \boxed{\text{Is B older then C?}}
+    \]
+
+    \textit{Case 1:} if $A$ is a Knight.
+    The answer is \textit{Yes} if $B$ is normal, $C$ is a Liar;
+    \textit{No} if $B$ is a Liar, $C$ is normal.
+
+    \textit{Case 2:} if $A$ is a Liar.
+    The answer is \textit{Yes} if $B$ is normal, $C$ is a Knight;
+    \textit{No} if $B$ is a Knight, $C$ is normal.
+
+    From the analysis of the answers in the first two cases,
+    Mai can safely marry $C$ if the answer is \textit{Yes},
+    and marry $B$ if the answer is \textit{No.} 
+
+    \textit{Case 3:} if $A$ is a normal. It does not matter what she said.
+    Mai can marry any of the other two.
+\end{soln}
+
+\begin{example*}[Vampires in Transylvania]
+    In Transylvania, about half of the inhabitants are humans and another half are vampires.
+    An ongoing infection made some of inhabitants insane. The rest are still sane.
+    All inhabitants look pretty much alike.
+    The only difference is the distinct behavior in belief and truth-telling:
+    \begin{enumerate}[topsep=0pt, partopsep=0pt, itemsep=0pt]
+        \ii sane humans make only true statements,
+        \ii insane humans uncontrollably lie,
+        \ii sane vampires always lie, and
+        \ii insane vampires always tell the truth.
+    \end{enumerate}
+    
+    \textit{For example, if you ask the inhabitants whether the earth is round,
+    a sane human knows the earth is round and truthfully say so,
+    an insane human believes the earth is not round and says it is not round,
+    a sane vampire knows the earth is round, but will then lie and say it isn't,
+    and an insane vampire believes the earth is not round and then lies and say it is round.}
+
+    Detective Benny goes to Transylvania.
+    What question should he ask a Transylvanian to be answered with a \textit{Yes}
+    regardless of the type the inhabitant is? 
+\end{example*}
+
+\begin{soln}
+    The question \textit{Do you believe you are a human?} will have \textit{Yes} as an answer.
+
+    \begin{enumerate}[topsep=0pt, partopsep=0pt, itemsep=0pt]
+        \ii sane humans make only true statements, so the answer must be \textit{Yes.}
+        \ii insane humans uncontrollably lie, he thought that he is not a human, so he lies,
+        thus the answer must be \textit{Yes.}
+        \ii sane vampires always lie, he knew that he is not a human, so he lies,
+        thus the answer must be \textit{Yes.}
+        \ii insane vampires always tell the truth, he thought that he is not a vampire,
+        he tells the truth, hence the answer must be \textit{Yes.}
+    \end{enumerate}
+
+    Another cool solution is to ask \textit{Are you truthful?}.
+    It is interesting, but all of them will answer this question with a \textit{Yes.}
+\end{soln}
+
+\end{document}

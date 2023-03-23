@@ -1,0 +1,225 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Paths on grids}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+In this article, some problems of paths on boards are discussed.
+They highlight the relations of cells in same column or row.
+
+\begin{example*}[Who is the taller one?]
+
+    One hundred students are positioned in $10 \times 10$ grids,
+    each of the rows and columns contains exactly $10$ students.
+    From each of the $10$ columns the \textit{shortest} student is selected,
+    and the \textit{tallest} of these $10$ students is tagged as $T$.
+    Next the \textit{tallest} student from each rows is selected,
+    and from these $10$ students the \textit{shortest} is tagged as $S$.
+    Which of the two tagged students is the taller if they are two different people?
+\end{example*}
+
+\begin{soln}
+    If $S$ and $T$ are in the same column, then $T$ is among the shortests of each column,
+    so $T$ is the shortest in its own column, thus $T$ is shorter than $S$.
+    If $S$ and $T$ are in the same row, then $S$ is among the tallests of each column,
+    so it is the tallest in its own row, thus $T$ is shorter than $S$.
+
+    \begin{figure}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            {\color[HTML]{FFFFFF} X} &                                                  &                          &                                                  &                          \\ \hline
+                                    &                                                  &                          & \cellcolor[HTML]{FFFFFF}{\color[HTML]{3531FF} T} &                          \\ \hline
+            {\color[HTML]{FFFFFF} X} &                                                  &                          &                                                  &                          \\ \hline
+                                    & \cellcolor[HTML]{FFFFFF}{\color[HTML]{FE0000} S} &                          & \cellcolor[HTML]{EFEFEF}I                        &                          \\ \hline
+            {\color[HTML]{FFFFFF} X} &                                                  & {\color[HTML]{FFFFFF} X} &                                                  & {\color[HTML]{FFFFFF} X} \\ \hline
+        \end{tabular}
+    \end{figure}
+
+    If $S$ and $T$ are in different rows and colums,
+    then there exists $I$ at the intersection of the row of $S$ and the column of $T$.
+    By definition, $T$ is shorter than $I$ and $I$ is shorter than $S$,
+    thus $T$ is shorter than $S$.
+
+    Therefore, $\boxed{S}$ is the taller one.
+\end{soln}
+
+\newpage
+
+\begin{example*}[How many ways to form the name?]
+
+    Thanh filled a triangle of squares with the letters of her name, as shown below.
+    She counted all the $5-$letter paths that form her name T-H-A-N-H,
+    each starts from the T letter in the middle of the bottom row,
+    then goes left, right, or up. An example is also shown in the diagram.
+    What number did she get?
+\end{example*}
+
+\begin{figure}[h]
+    \centering
+    \begin{tabular}{ccccccccc}
+        &   &   &   & H                                                &                                                  &                                                  &   &   \\
+        &   &   & H & N                                                & H                                                &                                                  &   &   \\
+        &   & H & N & A                                                & \cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF}  N } & \cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF}  H } &   &   \\
+        & H & N & A & \cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF}  H } & \cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF}  A } & N                                                & H &   \\
+        H & N & A & H & \cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF}  T } & H                                                & A                                                & N &  H 
+    \end{tabular}  
+\end{figure}
+
+\begin{soln}
+    Consider the \textit{"half"} triangle shown in the diagram below.
+    It is easy to see that in each path, there is two choices at each steps.
+    One example is shown in the figure, when two As can be chosen after a $H$.
+
+    \begin{figure}[h]
+        \centering
+        \begin{tabular}{ccccl}
+            &   &                                                  &                                                  &  H                                                 \\
+            &   &                                                  &  H                                                 &  N                                                 \\
+            &   &  H                                                 &  N                                                 &  A                                                 \\
+            &  H  &  N                                                 & \cellcolor[HTML]{FD6864}{\color[HTML]{FFFFFF}  A } &  H                                                 \\
+            H  &  N  & \cellcolor[HTML]{FD6864}{\color[HTML]{FFFFFF}  A } & \cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF}  H } & \cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF}  T }
+        \end{tabular}
+    \end{figure}
+
+    Therefore there are $2^4=16$ paths for a half triangle.
+    In total there are $2\cdot 16-1=31,$
+    because the vertical path formed by all the squares in the $T$ column
+    is shared by both half triangles.
+
+    Thus, the number that Thanh got is \framebox{$31.$}
+\end{soln}
+
+\newpage
+
+\begin{example*}[What would be the largest number?]
+
+    In each square of the $n \times n$, $n \ge 4$ chessboard,
+    Antoine writes a number according to the following rules:
+    \begin{enumerate}[label=\roman*.,topsep=0pt, partopsep=0pt, itemsep=0pt]
+        \ii The number in each square is one of $1,2,\ldots,n^2$.
+        \ii The two numbers, in two neighbouring squares that share the same side, differ less than 3.
+        \ii The number $3$ is written in one of the square.
+    \end{enumerate}
+    
+    What is the largest number could Antoine writes on the board?
+\end{example*}
+
+\begin{soln}
+    Let $m$ be the maximal number that can be written on the board.
+
+    \begin{figure}[h]
+        \centering
+        \begin{tabular}{|
+            >{\columncolor[HTML]{FFFFFF}}c |
+            >{\columncolor[HTML]{FFFFFF}}c |
+            >{\columncolor[HTML]{FFFFFF}}c |
+            >{\columncolor[HTML]{96FFFB}}c |
+            >{\columncolor[HTML]{FFFFFF}}c |}
+            \hline
+            {\color[HTML]{FFFFFF} X} &                                                           &                          &                                   &                          \\ \hline
+            \cellcolor[HTML]{96FFFB} & \cellcolor[HTML]{96FFFB}{\color[HTML]{3531FF} \textbf{3}} & \cellcolor[HTML]{96FFFB} & {\color[HTML]{3531FF} \textbf{i}} & \cellcolor[HTML]{96FFFB} \\ \hline
+            {\color[HTML]{FFFFFF} X} &                                                           &                          &                                   &                          \\ \hline
+                                    &                                                           &                          & {\color[HTML]{3531FF} \textbf{m}} &                          \\ \hline
+            {\color[HTML]{FFFFFF} X} &                                                           & {\color[HTML]{FFFFFF} X} &                                   & {\color[HTML]{FFFFFF} X} \\ \hline
+        \end{tabular}
+    \end{figure}
+    
+    In the figure above, there are atmost $n-1$ squares on the row of $3$,
+    not including the square containing $3$, 
+    from the number $3$ to the intersection $i$ with the column of $m$,
+    Similarly there are atmost $n-1$ squares on the column of $m$,
+    not including the square containing $m$, 
+    from the intersection $i$ with the column of $m$ to the number $m$.
+    Thus the difference between $m$ and $3$ can not be more than
+    $2\cdot (n-1)+ 2\cdot (n-1)=4(n-1)$.
+    
+    Therefore, the largest value of $m$ can be $3+4(n-1)=\boxed{4n-1.}$
+\end{soln}
+
+\newpage
+
+\begin{example*}[Colouring the paths]
+
+    In the $4 \times 4$ grid below each cell at row $i$ and column $j$ contains the value equal to $i \times j.$
+    A \textit{path} in the grid is a sequence of squares,
+    such that consecutive squares share an edge and no square occurs twice in the sequence.
+    Furthermore, the \textit{score} of a path is the sum of the point values of all squares in the path.
+
+    Determine the highest possible score of a path that begins with the bottom left corner of the grid 
+    (where the number $1$ stands) and ends with the top right corner (where the number $16$ stands.)
+\end{example*}
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}[t]{6.5cm}
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \cellcolor[HTML]{EFEFEF}4 & 8                         & \cellcolor[HTML]{EFEFEF}12 & 16                         \\ \hline
+            3                         & \cellcolor[HTML]{EFEFEF}6 & 9                          & \cellcolor[HTML]{EFEFEF}12 \\ \hline
+            \cellcolor[HTML]{EFEFEF}2 & 4                         & \cellcolor[HTML]{EFEFEF}6  & 8                          \\ \hline
+            1                         & \cellcolor[HTML]{EFEFEF}2 & 3                          & \cellcolor[HTML]{EFEFEF}4  \\ \hline
+        \end{tabular}
+    \end{minipage}
+\end{figure}
+
+\begin{soln}
+    Let us colour the squares of the grid with a chessboard pattern of black and white,
+    starting with black in the bottom left-hand corner, as show below on the left diagram.
+    A path in the grid will alternate between black and white squares,
+    beginning and ending on black.
+    Thus, any path cannot contain all $8$ white squares.
+
+    \begin{figure}[h]
+        \centering
+        \begin{minipage}[t]{7cm}
+            \centering
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                4                         & \cellcolor[HTML]{C0C0C0}8 & 12                        & \cellcolor[HTML]{C0C0C0}16 \\ \hline
+                \cellcolor[HTML]{C0C0C0}3 & 6                         & \cellcolor[HTML]{C0C0C0}9 & 12                         \\ \hline
+                2                         & \cellcolor[HTML]{C0C0C0}4 & 6                         & \cellcolor[HTML]{C0C0C0}8  \\ \hline
+                \cellcolor[HTML]{C0C0C0}1 & 2                         & \cellcolor[HTML]{C0C0C0}3 & 4                          \\ \hline
+            \end{tabular}
+            \caption{Alternate colouring}
+        \end{minipage}
+        \quad
+        \begin{minipage}[t]{6cm}
+            \centering
+            \begin{tabular}{|cccc|}
+                \hline
+                4                       & 8                      & 12                     & 16 \\ \cline{2-4} 
+                3                       & 6                      & 9                      & 12 \\ \cline{1-3}
+                2                       & 4                      & \multicolumn{1}{c|}{6} & 8  \\ \cline{2-2}
+                \multicolumn{1}{|c|}{1} & \multicolumn{1}{c|}{2} & 3                      & 4  \\ \hline
+                \end{tabular}
+            \caption{Path with maximal value}
+        \end{minipage}     
+    \end{figure}
+
+    The path from $1$ to $16$ with highest possible score should contains all squares
+    except for the square containing $2$ at the bottom row, as show above in the right diagram.
+    The sum of the values for all the squares in this path is 
+    \[ 
+        (1+2+3+4)+(2+4+6+8)+(3+6+9+12)+(4+8+12+16) = (1+2+3+4)(1+2+3+4) = 10^2 = 100,
+    \]
+    
+    Thus, the score of the path is $100-2=\boxed{98}.$
+\end{soln}
+
+\end{document}
