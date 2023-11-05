@@ -1,0 +1,127 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Perfect squares are everywhere - Part 2}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+This article is the second part of the series on expedition to find \textit{Perfect Squares}.
+
+\begin{example*}[Example 6]
+    $a, b, c$ are positive integers such that $ab$ and $bc$ are perfect squares.
+    Prove that $ca$ is also a perfect square.
+\end{example*}
+
+\begin{soln}
+    Let $ab=m^2, bc=n^2,$ then $(ab)(bc) = (mn)^2,$ so $(ac)b^2=(mn)^2.$
+    It is easy to see that if $p$ is a prime factor of $b$, then it is also a prime factor of $mn,$
+    thus by canceling these prime factors of $b,$ then $\frac{(mn)^2}{b^2}$ is an integer and a perfect square.
+    Hence $ac$ must be a perfect square.
+\end{soln}
+
+\begin{example*}[Example 7]
+    Prove that if $x$ and $y$ are sum of two perfect squares, then $xy$ is also a sum of two perfect squares.
+    In other words, if $a,b,c,d$ integers such that $x=a^2+b^2,$ $y=c^2+d^2$ then $xy=(a^2+b^2)(c^2+d^2)$ 
+    can be written as a sum of two perfect squares.
+    
+    Prove that if $x$ and $y$ are sum of a perfect square and twice of another perfect square,
+    then $xy$ is also a sum of a perfect square and twice of another perfect square.
+    In other words, if $a,b,c,d$ integers such that $x=a^2+2b^2,$ $y=c^2+2d^2$ then $xy(a^2+2b^2)(c^2+2d^2)$ 
+    can be written as a sum of a perfect square and twice of another perfect square.
+\end{example*}
+
+\begin{soln}
+    See below,
+    \[
+        \begin{aligned}
+            &(a^2+b^2)(c^2+d^2) = (ac+bd)^2 + (ac-bd)^2\\
+            &(a^2+2b^2)(c^2+2d^2) = (ac+2bd)^2 + 2(ac-bd)^2
+        \end{aligned}
+    \]
+\end{soln}
+
+\newpage
+
+\begin{example*}[Example 8]
+    $x, y, z$ are positive integers and their greatest common divisor is $1,$ such that
+    \[
+        \frac{1}{x} + \frac{1}{y} = \frac{1}{z}.
+    \]
+
+    Prove that $x+y$ is a perfect square.
+\end{example*}
+
+\begin{soln}
+    It is easy to transform the given equation as follow,
+    \[
+        \frac{1}{x} + \frac{1}{y} = \frac{1}{z} \Rightarrow z(x+y)  = xy \Rightarrow z^2 = (x-z)(x-y).
+    \]
+
+    Let $d$ be a common dividor of $x-z$ and $y-z$, then $d^2$ is a common divisor of $z^2,$ thus $d \mid z.$
+
+    But $x = (x-z) + z,\ y= (y-z) + z,$ therefore $d \mid x, d\mid y,$ which means that $d$ is a common divisor of $x,y,z.$
+    Therefore $\gcd(x-z, y-z) = 1.$
+
+    Thus, there exist $k, l$ positive integers such that $x-z=k^2,$ $y-z=l^2,$ or $(kl)^2=z^2,$ so $kl=z,$ which means that:
+    \[
+        x+y = (z+k^2)+(z+l^2) = k^2+l^2 + 2kl = \boxed{(k+l)^2.}
+    \]
+\end{soln}
+
+\begin{example*}[Example 9]
+    $n$ is called \textit{interesting} number if it can be written as $3x^2 + 32y^2,$ where $x, y$ are integers.
+    Prove that if $n$ is an \textit{interesting} number, then $97n$ is \textit{interesting} number too.
+\end{example*}
+
+\begin{soln}
+    Note that
+    \[
+        96n = 96\cdot 3x^2 + 96 \cdot 32 y^2 = 3(32)y^2 + 32(3x^2).
+    \]
+
+    Thus, $96n$ is an \textit{interesting} number. Now,
+    \[
+        \begin{aligned}
+            &97n = n+96n = \left[ 3x^2 + 32y^2 \right] + \left[ 3(32)y^2 + 32(3x^2)\right]
+            = 3[x^2 + (32y)^2] + 32[y^2 + (3x)^2]\\
+            &= 3[x^2 + 64xy + (32y)^2] + 32(y^2-6yx+(3x)^2]
+            = 3(x+32y)^2 + 32(y-3x)^2.
+        \end{aligned}
+    \]
+    Thus $97n$ is an \textit{interesting} number too.
+\end{soln}
+
+\begin{example*}[Example 10]
+    Determine all perfect squares in the sequence $\{a_1, a_2, \ldots\},$ where
+    \[
+        a_3 = 91,\ a_{n+1} = 10a_n + (-1)^n,\ \forall n\ge 0.
+    \]
+\end{example*}
+
+\begin{soln}
+    Note that $a_2 = 9,\ a_1 = 1,\ a_0 = 0$ are perfect square. By induction we can prove that, for all $n \ge 2,$
+    \[
+        \begin{cases}
+            a_2n \equiv 5 \Mod{8}\\
+            a_{2n + 1} \equiv 3 \Mod{8}\\
+        \end{cases}
+    \]
+    
+    Since every odd perfect square is congruent to 1 mod 8, thus none of them can be a perfect square.
+    The answer is $\boxed{a_2 = 9,\ a_1 = 1,\ a_0 = 0}.$
+\end{soln}
+    
+\end{document}

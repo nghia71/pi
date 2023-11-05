@@ -1,0 +1,123 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Perfect squares are everywhere - Part 1}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+In this article, we will discuss properties of perfect squares through a number of interesting examples.
+
+\begin{example*}[Example 1]
+    \textit{Cancelling the exponents} yields
+    \[
+        \frac{37^3+13^3}{37^3+24^3} = \frac{37+13}{37+24} = \frac{50}{61}.
+    \]
+    which is correct.
+    
+    Find the necessary and sufficient conditions for the positive integer triple $(A,B,C)$ to satisfy
+    \[
+        \frac{A^3+B^3}{A^3+C^3} = \frac{A+B}{A+C}.
+    \]
+\end{example*}
+
+\begin{soln}
+    For $A, B,$ and $C$ positive real numbers,
+    \[
+        \begin{aligned}
+            &\frac{A^3+B^3}{A^3+C^3} = \frac{A+B}{A+C} \Leftrightarrow \frac{A^3+B^3}{A+B} = \frac{A^3+C^3}{A+C}
+            \Leftrightarrow A^2 - AB + B^2 = A^2 - AC + C^2\\
+            &\Leftrightarrow (B-C)(A-B-C) = 0 \Leftrightarrow \boxed{B=C} \text{\ or\ } \boxed{A = B+C.}
+        \end{aligned}
+    \]
+\end{soln}
+
+\begin{example*}[Example 2]
+    For which natural number $n$ is $2^8 + 2^{11} + 2^n$ a perfect square?
+\end{example*}
+
+\begin{soln}
+    Let $m$ be an integer such that $m^2 = 2^8 + 2^{11} + 2^n.$ Note that:
+    \[
+        2^8 + 2^{11} = 2^8(1+2^3) = 2^8 \cdot 3^2 = 48^2.
+    \]
+
+    Thus,
+    \[
+        2^n = m^2 - 48^2 = (m-48)(m+48).
+    \]
+
+    Therefore there exists positive integers $k, \ell,$ such that
+    \[
+        \left.
+            \begin{aligned}
+                m-48 &= 2^k \quad (1)\\
+                m+48 &= 2^{\ell} \quad (2)\\
+                k + \ell &= n
+            \end{aligned}
+        \right\}
+        (2) - (1) \Rightarrow 96 = 2^5 \cdot 3 = 2^k(2^{\ell-k}-1)
+        \Rightarrow k = 5, \ell = 7 \Rightarrow \boxed{n = 12.}
+    \]
+\end{soln}
+
+\begin{example*}[Example 3]
+    Prove that for $n$ positive integer the following number is a perfect square:
+    \[
+        m = \underbrace{99 \ldots 9}_{n}\underbrace{00 \ldots 0}_{n}25.
+    \]
+\end{example*}
+
+\begin{soln}
+    Note that $\underbrace{99 \ldots 9}_{n} = 10^n-1,$ thus:
+    \[
+        m = \underbrace{99 \ldots 9}_{n} 10^{n+2} + 25 = 10^{2n+2} - 10^{n+2} + 25 = \boxed{(10^{n+1} - 5)^2.}
+    \]
+\end{soln}
+
+\begin{example*}[Example 4]
+    Find all prime $p$ such that $2p^4-p^2 + 16$ is a perfect square.
+\end{example*}
+
+\begin{soln}
+    Note that a perfect square has a remainder 0 or 1 when divided by 3.
+    Thus 
+    \[
+        2p^4 \equiv 2p^2 \Mod{3} \Rightarrow 2p^4-p^2 + 16 \equiv p^2 + 1 \Mod{3}.
+    \]
+
+    Since $2p^4-p^2 + 16$ is a perfect square, so $p^2 + 1 \equiv 0 \text{\ or\ } 1 \Mod{3} \Rightarrow \boxed{p = 3.}$
+    In this case $2p^4-p^2 + 16 = 169 = 13^2.$
+\end{soln}
+
+\begin{example*}[Example 5]
+    Prove that the sum of the squares of $1984$ consecutive positive integers cannot be the square of an integer.
+\end{example*}
+
+\begin{soln}
+    Let $n \ge 0$ be an integer. Let $S(n, k) = (n+1)^2 + (n+2)^2 + \cdot + (n+k)^2,$ where $k$ is a positive integer, then:
+    \[
+        S(n, k) = kn^2 + 2n(1+2+\cdot +k)+(1^2+2^2+\cdots+k^2)
+        = kn^2 + nk(k+1) + \frac{k(k+1)(2k+1)}{6}
+    \]
+
+    With $k=1984,$ 
+    \[
+        S(n, 1984) = 992 (2n^2+(2\cdot 1985)n+ 1985\cdot 1323)
+    \]
+    Since the second term of $S(n, 1984)$ is an odd number and $992 = 2^5 \cdot 31,$ $S(n, 1984)$ is divisible by $2^5,$ 
+    but not by $2^6.$ Hence, it is not a perfect square.
+\end{soln}
+\end{document}

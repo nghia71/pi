@@ -1,0 +1,193 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Perfect squares are everywhere - Part 3}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+This article is the third part of the series on expedition to find \textit{Perfect Squares}.
+
+\begin{example*}[Example 11]
+    Prove that, for all distinct values of $a, b,$ and $c,$ such that 
+    \[
+        \frac{1}{b-c} + \frac{1}{c-a} + \frac{1}{a-b}
+    \]
+    is an integer (not necessarily positive), then the expression
+    \[
+        \frac{1}{(b-c)^2} + \frac{1}{(c-a)^2} + \frac{1}{(a-b)^2}
+    \]
+    is a perfect square.
+\end{example*}
+
+\begin{soln}[Solution 1]
+    Let $x = \dfrac{1}{b-c},\ y = \dfrac{1}{c-a},\ z = \dfrac{1}{a-b},$ then
+    \[
+        \begin{aligned}
+            &xy + yz + zx = \frac{(a-b)+(b-c)+(c-a)}{(a-b)(b-c)(c-a)} =0
+            \Rightarrow x^2 + y^2 + z^2 = (x+y+z)^2.\\
+            &\Rightarrow \frac{1}{(b-c)^2} + \frac{1}{(c-a)^2} + \frac{1}{(a-b)^2} = \boxed{\left(\frac{1}{b-c} + \frac{1}{c-a} + \frac{1}{a-b}\right)^2.}
+        \end{aligned}
+    \]
+\end{soln}
+
+\begin{soln}[Solution 2]
+    Let $A = b-c, B= c-a, C=a-b,$ then $A+B+C=0,$ therefore:
+    \[
+        \begin{aligned}
+            &\left(\frac{1}{A} + \frac{1}{B} +\frac{1}{C} \right)^2 = \frac{1}{A^2} + \frac{1}{B^2} +\frac{1}{C^2} + \frac{2ABC(A+B+C)}{(ABC)^2}\\
+            &= \frac{1}{A^2} + \frac{1}{B^2} +\frac{1}{C^2} = \frac{1}{(b-c)^2} + \frac{1}{(c-a)^2} + \frac{1}{(a-b)^2}.
+        \end{aligned}
+    \]
+    The conclusion follows.
+\end{soln}
+
+\newpage
+
+\begin{example*}[Example 12]
+    Find all (including negative) integer solutions of 
+    \[
+        n^2(n-1)^2=4(m^2-1).
+    \]
+\end{example*}
+
+\begin{soln}[Solution 1]
+    The left hand side of the equation is a perfect square, thus the right hand side must be a perfect square, too.
+    It means that $m^2 - 1$ is a perfect square. Since $m^2$ is a perfect square and the only pair of perfect square with difference 1 is $(0,1).$
+    Therefore $m^2=1,$ or $m= \pm 1.$
+    Now, $n^2(n-1)^2 = 0,$ so $n^2 = 0,$ or $(n -1)^2 = 0,$ thus $n = 1.$
+
+    Hence, the solutions are $\boxed{\{ (m,n) \} = \{(0, -1), (0, 1), (1, -1), (1, 1).\}.}$
+\end{soln}
+
+\begin{soln}[Solution 2]
+    \[
+        n^2(n^2-1) = 4(m^2-1) \Rightarrow (n(n-1))^2 - (2m)^2=4 \Rightarrow (n(n-1)-2m)(n(n-1)+2m)=4.
+    \]
+
+    Note that both $n(n-1)$ and $2m$ are even, thus their sum and difference are even, too. Therefore
+    \[
+        \begin{cases}
+            n(n-1)-2m = 2, n(n-1)+2m=-2, \text{\ or}\\
+            n(n-1)-2m = -2, n(n-1)+2m=2, \text{\ or}\\
+        \end{cases}
+        \Rightarrow
+        \begin{cases}
+            n(n-1)=0,m = -1\text{\ or}\\
+            n(n-1)=0,m = 1\\
+        \end{cases}
+    \]
+    Hence, the solutions are $\boxed{\{ (m,n) \} = \{(0, -1), (0, 1), (1, -1), (1, 1).\}.}$
+\end{soln}
+
+\begin{example*}[Example 13]
+    Prove that for $n$ positive integer the following number is a perfect square:
+    \[
+        m = 1\underbrace{77 \ldots 7}_{n}92\underbrace{88 \ldots 8}_{n-1}921.
+    \]
+\end{example*}
+
+\begin{soln}
+    Note that, 
+    \[
+        \begin{aligned}
+            &\underbrace{77 \ldots 7}_{n} = \frac{7}{9} \underbrace{99 \ldots 9}_{n} = \frac{7}{9}(10^n-1),\ 
+            \underbrace{88 \ldots 8}_{n-1} = \frac{8}{9}(10^{n-1}-1)\\
+            &m=1 \cdot 10^{2n+4} + \frac{7}{9}(10^n-1)\cdot 10^{n+4} + 92 \cdot 10^{n+2} + \frac{8}{9}(10^{n-1}-1)\cdot 10^3 + 921\\
+            &=\frac{1}{9}(16 \cdot 10^{2n+4} + 136 \cdot 10^{n+2} + 289) = \frac{1}{9}\left(4\cdot 10^{n+2} + 17\right)^2.
+        \end{aligned}
+    \]
+
+    $4\cdot 10^{n+2} + 17$ is divisible by $3,$ $(4\cdot 10^{n+2} + 17)^2$ is divisible by $9,$
+    thus \framebox{$\frac{(4\cdot 10^{n+2} + 17)^2}{9}$ is a perfect square.}
+\end{soln}
+
+\newpage
+
+\begin{example*}[Example 14]
+    $N$ is $4-$digit perfect square all of whose decimal digits are less than seven.
+    Increasing each digit by three we obtain a perfect square again. Find $N.$
+\end{example*}
+
+\begin{soln}[Solution 1]
+    Let $n^2 = N = \overline{abcd} = 10^3a + 10^2b + 10c + d,$ where $a,b,c,d$ are integers and $1\le a \le 6,$ $0\le b,c,d \ le 6,$
+    then there exists integer $m$ such that:
+    \[
+        \begin{aligned}
+            m^2 = 10^3 (a+3) + 10^2 (b+3) + 10(c+3) + (d+3) = n^2 + 3333 \Rightarrow (m-n)(m+n) = 3 \cdot 11 \cdot 101.
+        \end{aligned}
+    \]
+
+    Since $m < 99,$ $n^2 \le 6666 \Rightarrow n \le 61,$ thus $m+n=101, m-n=33,$ or $n=34,$ hence $\boxed{N=1156.}$
+\end{soln}
+
+\begin{soln}[Solution 2]
+    Note that the unit digit of the perfect square $N$ must be one of $0,1,4,6,9.$
+    Since $N+3333$ is also a perfect square thus the unit digit of $N$ must be $1$ or $6$.
+    By testing all 4-digit perfect numbers between 1000 and 9999 where its unit digit is one of 1, 6
+    and none of its other digits can be larger than 6, we find $\boxed{N=1156.}$
+\end{soln}
+
+\begin{example*}[Example 15]
+    $n$ is a non-negative integer, prove that
+    \[
+        3^n + 2\cdot 17^n
+    \]
+    is never a perfect square.
+\end{example*}
+
+\begin{soln}[Solution 1]
+    First $3^n + 2\cdot 17^n = 3$ if $n=0,$ so it is not a perfect square.
+    
+    For $n \ge 1,$ $17^n \equiv 1 \Mod{8},$ $3^{2k} \equiv 1 \Mod{8},$ $3^{2k+1} \equiv 3 \Mod{8},$ thus
+    \[
+        3^n + 2\cdot 17^n \equiv
+        \begin{cases}
+            3 \Mod{8}, \text{\ if\ } n \text{\ is even}\\
+            5 \Mod{8}, \text{\ if\ } n \text{\ is odd.}\\
+        \end{cases}
+    \]
+    
+    However, for $m$ integer,
+    \[
+        m^2 \equiv
+        \begin{cases}
+            0 \Mod{8}, \text{\ if\ } 4 \mid k\\
+            4 \Mod{8}, \text{\ if\ } 2 \mid k,\ 4 \not |\ k\\
+            1 \Mod{8}, \text{\ if\ } 2 \not |\ k\\
+        \end{cases}
+    \]
+
+    Hence, \framebox{$3^n + 2\cdot 17^n$ is never a perfect square.}
+\end{soln}
+
+\begin{soln}[Solution 2]
+    First $3^n + 2\cdot 17^n = 3$ if $n=0,$ so it is not a perfect square.
+    
+    For $n \ge 1,$ $17^n \equiv 2^n \Mod{5},$ thus the sequence of remainders of $2\cdot 17^n$ when divided by 5 is periodic:
+    \[
+        \underbrace{4, 3, 1, 2}_{\text{period}}, 4, 3, 1, 2, 4
+    \]
+
+    The sequence of remainders of $3^n$ when divided by 5 is also periodic with period $3, 4, 2, 1.$
+    
+    Therefore the sequence of remainders of $3^n + 2\cdot 17^n$ when divided by 5 is periodic with period $2, 2, 3, 3.$
+
+    However any perfect square when divided by 5 leaves a remainder of $0, 1,$ or $4.$ 
+
+    Hence, \framebox{$3^n + 2\cdot 17^n$ is never a perfect square.}
+\end{soln}
+
+\end{document}

@@ -1,0 +1,177 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Perfect squares are everywhere - Part 4}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+This article is the fourth part of the series on expedition to find \textit{Perfect Squares}.
+
+\begin{example*}[Example 16]
+    $n$ is an arbitrary positive integer. Find positive integer $m$ such that
+    \[
+        \binom{m}{2} = 3\binom{n}{4}.
+    \]
+\end{example*}
+
+\begin{soln}
+    First we prove the claim,
+    \begin{claim*}
+        The product of 4 consecutive positive integers plus one is always a perfect square.
+    \end{claim*}
+    \begin{subproof}
+        Let $n$ be an arbitrary positive integer
+        \[
+            n(n-1)(n-2)(n-3) +1 = n(n-3)\cdot (n-1)(n-2) +1 = (n^2-3n) (n^2-3n+2) +1 = \left( (n^2-3n) + 1\right)^2.
+        \]
+    \end{subproof}
+
+    Now, by the given condition, then by the claim:
+    \[
+        \begin{aligned}
+            &\binom{m}{2} = 3\binom{n}{4} \Leftrightarrow \frac{m(m-1)}{2} = \frac{3n(n-1)(n-2)(n-3)}{1\cdot2\cdot3\cdot4}\\
+            &\Leftrightarrow 4m(m-1) = n(n-1)(n-2)(n-3) = \left( (n^2-3n) + 1\right)^2 - 1\\
+            &\Leftrightarrow (2m-1)^2 = \left( (n^2-3n) + 1\right)^2 \Leftrightarrow m = \half(n^2-3n + 2) = \frac{(n-1)(n-2)}{2} = \boxed{\binom{n-1}{2}.}
+        \end{aligned}
+    \]
+\end{soln}
+
+\newpage
+
+\begin{example*}[Example 17]
+    Prove that if the sum $x + y$ can be written as sum of a perfect square and thrice of another perfect square,
+    then the sum $x^3 + y^3$ can also be written as sum of a perfect square and thrice of another perfect square.
+    In other words, if there exist $a,b$ integers such that $x+y=a^2+3b^2,$ then there exist $c,d$ integers, such that
+    \[
+        x^3+y^3 = c^2+3d^2.
+    \]
+\end{example*}
+
+\begin{soln}
+    First we prove the claim,
+    \begin{claim*}
+        Prove that if $x$ and $y$ are sum of a perfect square and thrice of another perfect square,
+        then $xy$ is also a sum of a perfect square and thrice of another perfect square.
+        In other words, if $a,b,c,d$ integers such that $x=a^2+3b^2,$ $y=c^2+2=3d^2$ then $xy=(a^2+3b^2)(c^2+3d^2)$ 
+        can be written as a sum of a perfect square and thrice of another perfect square.
+    \end{claim*}
+    \begin{subproof}
+        It is easy to verify that $(a^2+3b^2)(c^2+3d^2) = (ac+2=3bd)^2 + 3(ac-bd)^2.$
+    \end{subproof}
+
+    Now, let $x+y=a^2+3b^2,$ we have $x^3+y^3 = (x+y)(x^2-xy+y^2),$ where:
+    \[
+        \begin{aligned}
+            x^2-xy+y^2 
+            \begin{cases}
+                \left( \frac{x+y}{2} \right)^2 + 3 \left( \frac{x-y}{2} \right)^2, \text{\ if\ } x, y \text{\ have the same parity}\\
+                \left( \frac{x}{2} - y \right)^2 + 3 \left( \frac{y}{2} \right)^2, \text{\ if\ } x, y \text{\ have different parity}
+            \end{cases}
+        \end{aligned}
+    \]
+    
+    Thus, $x^2-xy+y^2,$ can be written as sum of a perfect square and thrice of another perfect square.
+    Hence, $x^3+y^3$ can be written as sum of a perfect square and thrice of another perfect square.
+\end{soln}
+
+\begin{example*}[Example 18]
+    Prove that for integers $x, y$ such that 
+    \[
+        2x^2 + x = 3y^2 + y,
+    \]
+    then $2x+2y+1$ and $3x+3y+1$ are perfect squares.
+\end{example*}
+
+\begin{soln}
+    First, note that:
+    \[
+        \begin{aligned}
+            &(2x+2y+1)(x-y) = 2x^2 - 2xy + 2yx -2y^2 + x - y = 2x^2 - 2y^2 + 3y^2 - 2x^2 = y^2\\
+            &(3x+3y+1)(x-y) = 3x^2 - 3xy + 3yx -3y^2 + x - y = 3x^2 - 3y^2 + 3y^2 - 2x^2 = x^2\\
+        \end{aligned}
+    \]
+
+    Now, $(2x+2y+1)(3x+3y+1)(x-y)^2 = (xy)^2.$ If $xy=0$, then one of $x=0$ or $y=0,$
+    which means from the given equality that then the other one of $x=0$ or $y=0$ is also $0$ (why?)
+    In any case both $2x+2y+1$ and $3x+3y+1$ are 1 and thus are perfect squares.
+    
+    Now, suppose that $xy \ne 0.$ Let $d \mid \gcd(2x+2y+1, 3x+3y+1),$ then $d \mid (3x+3y+1) - (2x+2y+1) = x+y.$
+    Which means that $d \mid (2x+2y+1) - 2(x+y) = 1.$
+    Therefore $\gcd(2x+2y+1, 3x+3y+1) = 1,$ and since $(2x+2y+1)(3x+3y+1)(x-y)^2 = (xy)^2,$
+    hence each of $2x+2y+1$ and $3x+3y+1$ is a perfect square.
+\end{soln}
+
+\newpage
+
+\begin{example*}[Example 19]
+    Prove that the sum of squares of twelve positive consecutive integers is not divisible by the sum of them.
+    In other words, if $n$ non-negative integers, then
+    \[
+        (n+1) + (n+2) + \cdots + (n+12) \not |\ (n+1)^2 + (n+2)^2 + \cdots + (n+12)^2 
+    \]
+\end{example*}
+
+\begin{soln}[Solution 1]
+    First, note that the sum of any three positive consecutive integers is divisible by $3$,
+    thus the sum of twelve positive consecutive integers is divisible by $3$, too.
+    On the other hand, the sum of squares of three consecutive integers when divided by $3$ leaves a remainder of $2,$
+    the sum of twelve positive consecutive integers when divided by $3$ has a remainder $2.$ 
+    The conclusion follows.
+\end{soln}
+
+\begin{soln}[Solution 2]
+    Note that 
+    \[
+        \begin{aligned}
+            &(n+1) + (n+2) + \cdots + (n+12) = 12n+78\\
+            &(n+1)^2 + (n+2)^2 + \cdots + (n+12)^2 = 12n^2+156n+650\\
+            &\Rightarrow \frac{12n^2 + 156n + 650}{12n+78} = \left( n+ \frac{13}{2} \right)(12n+78) + 143\\
+        \end{aligned}
+    \]
+
+    The last expression shows that it cannot be an integer for any non-negative integer $n.$
+\end{soln}
+
+\begin{example*}[Example 20]
+    Let $N$ be a $16-$digit number, where none of its digits can be $0, 1, 4,$ or $9.$
+    Prove that there exist some of its consecutive digits such that their product is a perfect square.
+\end{example*}
+
+\begin{soln}
+    Let $N = \overline{a_1a_2 \ldots a_{16}}.$ Consider the following sequence of 16 terms:
+    \[
+        a_1,\ a_1a_2,\ ldots,\ a_1a_2 \ldots a_{16} \quad (*)
+    \]
+
+    Note that since each of $a_1, a_2, \ldots, a_{16}$ can only be $2,3,5,6,7,8,$ thus each of the term can only be factored as
+    \[
+        2^{2\alpha_2}+\beta_2 \cdot 3^{2\alpha_3}+\beta_3 \cdot 5^{2\alpha_5}+\beta_5 \cdot 7^{2\alpha_7}+\beta_7,
+    \]
+    where $\alpha_i$ ($i=2,3,5,7$) are non-negative integers, $\beta_i$ ($i=2,3,5,7$) are 0 or 1.
+
+    Thus, the (*) sequence has a one-on-one correspondence map to a sequence of four-digit binaries $\beta_2 \beta_3 \beta_5 \beta_7.$
+    If there is a $0000$ binary, then it is the term in (*) which is the desired sequence of consecutive digits, whose product is a perfect square.
+    If there is no such binary, then among 16 terms, two should have the same four-digit binaries $\beta_2 \beta_3 \beta_5 \beta_7.$
+    Let assume that they are $a_1a_2 \ldots a_{i}$ and $a_1a_2 \ldots a_{j},$ where $i<j$, then
+    \[
+        \frac{a_1a_2 \ldots a_{j}}{a_1a_2 \ldots a_{i}} = a_{i+1}a_{i+2} \ldots a_{j}
+    \]
+    has a $0000$ binary representation of its prime factorization. This product is a perfect square.
+
+    Note that $16$ is the best possible lower limit. For 15, the following number $232523272325232$ is a counter example.
+\end{soln}
+
+\end{document}
