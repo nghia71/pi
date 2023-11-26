@@ -237,8 +237,8 @@
     \]
 \end{problem*}
 
-\begin{soln}
-    In this first approach, \textbf{let's use the result from (2b) for a specific function $f = \ln,$}
+\begin{soln}[Solution 1]
+    From the result from (2b),
     \[
         \theta = \frac{h - x \ln(x+h) + x \ln(x)}{h(\ln(x+h) - \ln(x))} = \frac{ h - x \ln(x+h) + x \ln(x) }{h^2} \cdot \frac{h}{\ln(x+h) - \ln(x)}
     \]
@@ -258,18 +258,24 @@
     \[
         \lim_{h \rightarrow 0} \theta(x,h) = \frac{1}{2x} \cdot x = \boxed{\frac{1}{2}}
     \]
+\end{soln}
 
-    Now, consider the generic case, \textbf{assuming that the second derivative $f''$ exists,}
+\begin{soln}[Solution 2]
+    Consider the generic case \textbf{with the assumption that the second derivative $f''$ exists} (which is obvious for (2b) since $f''(x) = -\frac{1}{x^2}$)
     \[
         \frac{f(x+h) - f(x) - hf'(x)}{h^2} = \frac{f'(x + \theta h) - f(x)}{h}  = \theta \cdot \frac{f'(x + \theta h) - f'(x)}{\theta h}
     \]
 
     By L'Hopital rule,
     \[
-        \begin{aligned}
-            &\lim_{h \rightarrow 0} \frac{f(x+h) - f(x) - hf'(x)}{h^2} = \lim_{h \rightarrow 0} \frac{f'(x+h)-f'(x)}{2h} = \frac{1}{2} f''(x)\\
-            &\lim_{h \rightarrow 0} \theta \cdot \frac{f'(x + \theta h) - f'(x)}{\theta h} = &\lim_{h \rightarrow 0} \theta \cdot f''(x)\\
-        \end{aligned}
+        \left\{
+            \begin{aligned}
+                &\lim_{h \rightarrow 0} \frac{f(x+h) - f(x) - hf'(x)}{h^2} = \lim_{h \rightarrow 0} \frac{f'(x+h)-f'(x)}{2h} = \frac{1}{2} f''(x)\\
+                &\lim_{h \rightarrow 0} \theta \cdot \frac{f'(x + \theta h) - f'(x)}{\theta h} = 
+                \lim_{h \rightarrow 0} \theta \cdot \lim_{(\theta h) \rightarrow 0} \frac{f'(x + (\theta h)) - f'(x)}{(\theta h)} = 
+                \lim_{h \rightarrow 0} \theta \cdot f''(x)\\
+            \end{aligned}
+        \right.
     \]
 
     Thus $\theta = \boxed{\frac{1}{2}.}$
@@ -325,12 +331,17 @@
     \includegraphics[width=7cm]{./svg/pdf/derivative-2-3c.pdf}
 \end{center}
 
-\begin{soln}[Solution 1]
-    First, note that $\tan(3x)$ is strictly increasing from $0$ to $+\infty$ on $\left[ 0, \frac{\pi}{6} \right),$
-    and stricly increasing from $-\infty$ to $\tan(1) \approx -0.142 < 0$ on $\left( \frac{\pi}{6}, 1 \right].$
-    On the other hand $\sqrt{2x + 1}$ is strictly increasing from $1$ to $\sqrt{3}$ on the whole interval $[0,1].$
+\begin{soln}
+    First, note that :
+    \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
+        \ii The function $\tan(3x)$ is strictly increasing from $0$ to $+\infty$ on $\left[ 0, \frac{\pi}{6} \right),$
+        and stricly increasing from $-\infty$ to $\tan(1) \approx -0.142 < 0$ on $\left( \frac{\pi}{6}, 1 \right].$
+        \ii On the other hand the function $\sqrt{2x + 1}$ is strictly increasing from $1$ to $\sqrt{3}$ on the whole interval $[0,1].$
+    \end{itemize}
 
-    Thus we shall only consider to find the unique solution on the interval $I = \left[ 0, \frac{\pi}{6} \right].$
+    Therefore $\sqrt{2x + 1} > \tan(3x),\ \forall x \in \left( \frac{\pi}{6}, 1\right].$
+
+    Thus we shall only consider to find the unique solution only on the interval $I = \left[ 0, \frac{\pi}{6} \right).$
     Let
     \[
         f(x) = \tan(3x) - \sqrt{2x + 1}.
@@ -344,7 +355,11 @@
         f'(d) = \frac{f(c_1) - f(c)}{c_1 - c} = 0 \quad (*)
     \]
     
-    Note that $ f'(x) = \dfrac{3}{\cos^2(3x)} - \dfrac{1}{2x+1},$ and since $3\sqrt{2x + 1} > 3 > \cos^2(3x),$ $f'(x) > 0 \forall x\in I.$
+    Note that
+    \[
+        f'(x) = \dfrac{3}{\cos^2(3x)} - \dfrac{1}{2x+1}, \text{\ and since\ } 3\sqrt{2x + 1} > 3 > \cos^2(3x) \Rightarrow f'(x) > 0,\ \forall x\in I.
+    \]
+
     Thus (*) is a contradiction. Hence $c$ is unique.
 \end{soln}
 
