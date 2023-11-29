@@ -37,11 +37,11 @@
 
     Since $\cos(x)$ strictly decreases from $1$ to $0$ on $\left[ 0, \frac{\pi}{2} \right),$ 
     thus $f(x)$ strictly increases from $1$ to $+\infty$ on this interval.
-    Similarly $f(x)$ strictly increases from $-1$ to $0$ on $\left[ \pi, \frac{3\pi}{2} \right),$ 
+    Similarly $\cos(x)$ strictly increases from $-1$ to $0$ on $\left[ \pi, \frac{3\pi}{2} \right),$ 
     thus $f(x)$ strictly decreases from $-1$ to $-\infty$ on this interval.
     Thus, $f(x)$ is a one-to-one function.
 
-    Since $f$s is a one-on-one function, the domain of $f^{-1}$ is the range of $f,$ and vice versa,
+    Since $f$ is a one-on-one function, the domain of $f^{-1}$ is the range of $f,$ and vice versa,
     \[
         D_{f^{-1}} = R_f = \left( -\infty, -1 \right] \cup \left[ 1, +\infty \right),\
         R_{f^{-1}} = D_f = \left[ 0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2} \right).
@@ -94,7 +94,7 @@
 \begin{soln}
     Note that the graph of $\sec \circ f^{-1}$ consists of two rays
     \[
-        (sec \circ f^{-1})(x)
+        (sec \circ f^{-1})(x) = 
         \begin{cases}
             &r_1:\ \left( -\infty, -1 \right] \rightarrow \RR,\ r_1(x) = x\\
             &r_2:\ \left[ +1, +\infty \right) \rightarrow \RR,\ r_2(x) = x\\
@@ -291,7 +291,7 @@
 
 \begin{problem*}[3a]
     Suppose that $f$ is continuous on $[a,b]$ and that $a < f(x) < b$ for all $x \in [a,b].$
-    Prove that there exists $c \int (a, b)$ such that $c = f(c).$ 
+    Prove that there exists $c \in (a, b)$ such that $c = f(c).$ 
     \textit{Hint: Consider the function $g(x) = x - f (x).$}
 \end{problem*}
 
@@ -347,17 +347,18 @@
         f(x) = \tan(3x) - \sqrt{2x + 1}.
     \]
     
-    Then $f$ is continuous on $I$ and $-1 < f(x) < +\infty,\ \forall x \in I,$
+    Then $f$ is continuous on $I$ and $-1 \le f(x) < +\infty,\ \forall x \in I,$
     by \nameref{theorem:intermediate-value-theorem} $\exists c \in I: f(c) = 0.$
 
-    If there exists $c_1 \ne c,$ $0 = f(c_1),$ then there exists some real number $d \in (c,c_1)$ such that 
+    If there exists $c_1 \ne c,$ $0 = f(c_1),$ then by \nameref{theorem:mean-value-theorem} for then interval $(c, c_1),$
+    there exists some real number $d \in (c,c_1)$ such that 
     \[
         f'(d) = \frac{f(c_1) - f(c)}{c_1 - c} = 0 \quad (*)
     \]
     
     Note that
     \[
-        f'(x) = \dfrac{3}{\cos^2(3x)} - \dfrac{1}{2x+1}, \text{\ and since\ } 3\sqrt{2x + 1} > 3 > \cos^2(3x) \Rightarrow f'(x) > 0,\ \forall x\in I.
+        f'(x) = \dfrac{3}{\cos^2(3x)} - \dfrac{1}{\sqrt{2x + 1}}, \text{\ and since\ } 3\sqrt{2x + 1} > 3 > \cos^2(3x) \Rightarrow f'(x) > 0,\ \forall x\in I.
     \]
 
     Thus (*) is a contradiction. Hence $c$ is unique.
