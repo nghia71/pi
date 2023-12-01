@@ -25,81 +25,31 @@
     Find the domain and range of $f^{-1}.$
 \end{problem*}
 
-\begin{center}
-    \includegraphics[width=12cm]{./svg/pdf/derivative-2-1a.pdf}
-\end{center}
-
 \begin{soln}
-    First,
-    \[
-        f(x) = \sec(x) = \frac{1}{\cos(x)}.
-    \]
-
-    Since $\cos(x)$ strictly decreases from $1$ to $0$ on $\left[ 0, \frac{\pi}{2} \right),$ 
-    thus $f(x)$ strictly increases from $1$ to $+\infty$ on this interval.
-    Similarly $\cos(x)$ strictly increases from $-1$ to $0$ on $\left[ \pi, \frac{3\pi}{2} \right),$ 
-    thus $f(x)$ strictly decreases from $-1$ to $-\infty$ on this interval.
-    Thus, $f(x)$ is a one-to-one function.
-
-    Since $f$ is a one-on-one function, the domain of $f^{-1}$ is the range of $f,$ and vice versa,
-    \[
-        D_{f^{-1}} = R_f = \left( -\infty, -1 \right] \cup \left[ 1, +\infty \right),\
-        R_{f^{-1}} = D_f = \left[ 0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2} \right).
-    \]
+    The domain of $f^{-1}$ is $\left( -\infty, -1 \right] \cup \left[ 1, +\infty \right).$
+    The range of $f^{-1}$ is $\left[ 0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2} \right).$
 \end{soln}
 
 \begin{problem*}[1b]
     Compute $f^{-1}(sec(5))$ and $sec(f^{-1}(5)).$
 \end{problem*}
 
-\begin{center}
-    \includegraphics[width=15cm]{./svg/pdf/derivative-2-1b.pdf}
-\end{center}
-
 \begin{soln}
-    First,
-    \[
-        \begin{aligned}
-            &\sec(5) \approx 3.525 \Rightarrow f^{-1}(\sec(5)) \approx 1.28 \quad (B_4\ \text{green})\\
-            &f^{-1}(5) \approx 1.37 \Rightarrow \sec(f^{-1}(5)) = \sec(1.37) \approx 5.01 \quad (C_4\ \text{purple})\\
-        \end{aligned}
-    \]
-
-    \textit{For $f^{-1}(\sec(5)),$} follow the chain of points:
-    \[
-        (5,0) \rightarrow B_1 = (5, \sec(5)) \rightarrow B_2 = (0, \sec(5)) \rightarrow B_3 = (\sec(5), 0)
-        \rightarrow B_4 =  (\sec(5), f^{-1}(\sec(5))),
-    \]
-    which does not lead to $f^{-1}(\sec(5))=5.$
-    The reason is that $\frac{3\pi}{2} < 5,$ outside of $D_f,$ thus for the value $\sec(5) = 3.525$ the function $f^{-1}$ returns $1.28$ instead.
-    Consider $\sec^{-1}$ ($B_4$ blue) for that value, it shall returns $\sec^{-1}(\sec(5)) = 5.$
-
-    \textit{For $\sec(f^{-1}(5)),$}  follow the chain of points:
-    \[
-        (5,0) \rightarrow C_1 = (5, f^{-1}(5)) \rightarrow C_2 = (0, f^{-1}(5)) \rightarrow C_3 = (f^{-1}(5), 0)
-        \rightarrow C_4 =  (f^{-1}(5), \sec(f^{-1}(5), 0)) \rightarrow (5,5)
-    \]
+    $f^{-1}(sec(5)) = 1.28,\ sec(f^{-1}(5)) = 5.$
 \end{soln}
-
-\newpage
 
 \begin{problem*}[1c]
     Sketch the graph of $\sec \circ f^{-1}.$ Make sure to label your axes and that you have the correct domain.
 \end{problem*}
 
 \begin{center}
-    \includegraphics[width=16cm]{./svg/pdf/derivative-2-1c.pdf}
+    \includegraphics[width=10cm]{./svg/pdf/derivative-2-1c-f.pdf}
 \end{center}
 
 \begin{soln}
-    Note that the graph of $\sec \circ f^{-1}$ consists of two rays
-    \[
-        (sec \circ f^{-1})(x) = 
-        \begin{cases}
-            &r_1:\ \left( -\infty, -1 \right] \rightarrow \RR,\ r_1(x) = x\\
-            &r_2:\ \left[ +1, +\infty \right) \rightarrow \RR,\ r_2(x) = x\\
-        \end{cases}
-    \]
+    Both the domain and the range of $\sec \circ f^{-1}$ are the same: $(-\infty, -1] \cup [+1, +\infty).$
+
+    $\sec \circ f^{-1}(x) = x,\ \forall x \in (-\infty, -1] \cup [+1, +\infty).$
 \end{soln}
 
 \newpage
@@ -109,19 +59,21 @@
 \end{problem*}
 
 \begin{center}
-    \includegraphics[width=16cm]{./svg/pdf/derivative-2-1d.pdf}
+    \includegraphics[width=14cm]{./svg/pdf/derivative-2-1d-f.pdf}
 \end{center}
 
 \begin{soln}
-    Note that the graph of $\sec \circ f^{-1}$ consists of multiple functions
+    $f^{-1} \circ \sec:\ \RR \setminus \{ \frac{\pi}{2} + k \pi \mid k \in \ZZ \} \rightarrow \left[0, \frac{\pi}{2} \right) \cup \left[\pi, \frac{3\pi}{2} \right)$:
     \[
         (f^{-1} \circ \sec)(x) = 
-        \begin{cases}
-            -x + 2k\pi& \forall x \in \left( \frac{(4k-1) \pi}{2}, \frac{(4k) \pi}{2} \right]\\
-            x - 2k\pi,& \forall x \in \left[ \frac{(4k) \pi}{2}, \frac{(4k+1) \pi}{2} \right)\\
-            -x + 2(k+1)\pi,& \forall x \in \left( \frac{(4k+1) \pi}{2}, \frac{(4k + 2) \pi}{2} \right]\\
-            x - 2k\pi,& \forall x \in \left[ \frac{(4k + 2) \pi}{2}, \frac{(4k+3) \pi}{2} \right)
-        \end{cases}
+        \left\{
+            \begin{aligned}
+                -x + 2k\pi, &\ \forall x \in \left( -\frac{\pi}{2} + 2k\pi,\ 2k\pi \right]\\
+                x - 2k\pi, &\ \forall x \in \left[ 2k\pi,\ \frac{\pi}{2} + 2k\pi \right)\\
+                -x + 2(k+1)\pi, &\ \forall x \in \left( \frac{\pi}{2} + 2k\pi,\ \pi + 2k\pi \right]\\
+                x - 2k\pi, &\ \forall x \in \left[ \pi + 2k\pi,\ \dfrac{3\pi}{2} + 2k\pi \right)
+            \end{aligned}
+        \right.
     \]
 \end{soln}
 
@@ -132,12 +84,12 @@
 \end{problem*}
 
 \begin{soln}
-    Now let
+    Let $I_1 = \left( -\infty, -1 \right] \cup \left[ 1, +\infty \right),$ $I_2 = \left[ 0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2} \right),$
     \[
-        y = f^{-1}(x) = \sec^{-1}(x) \Rightarrow \sec(y) = x.
+        y:\ I_1 \rightarrow I_2: y(x) = f^{-1}(x) \Rightarrow y(x) = \sec^{-1}(x) \Rightarrow \sec(y(x)) = x \quad (*)
     \]
 
-    Note that
+    $\forall x \in \left[ 0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2} \right):$
     \[
         \begin{aligned}
             &\frac{d}{dx} \sec(x) = \frac{d}{dx} \frac{1}{\cos{x}} = - \frac{1}{(\cos{x})^2} \cdot \frac{d}{dx} \cos(x)
@@ -145,39 +97,36 @@
         \end{aligned}
     \]
 
-    Differentiating both sides with respect to the variable $x,$
+    $\forall x \in \left( -\infty, -1 \right] \cup \left[ 1, +\infty \right):$
     \[
-        \frac{d}{dx} \sec(y) = \frac{d}{dx} (x) 
-        \Rightarrow \sec(y) \tan(y) \cdot \frac{dy}{dx} = 1
-        \Rightarrow \frac{dy}{dx} = \frac{1}{\sec(y) \tan(y)}
+        sec(y(x)) = x \Rightarrow \frac{d}{dx} \sec(y(x)) = \frac{d}{dx} (x) 
+        \Rightarrow \sec(y(x)) \tan(y(x)) \cdot \frac{dy(x)}{dx} = 1 \quad (**)
     \]
 
-    Note that from (1a),
-    \[
-        y \in R_{f^{-1}} = D_f = \left[ 0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2} \right)
-        \Rightarrow \cos{y}, \sin{y} \text{\ have same sign\ }
-        \Rightarrow \tan(y) > 0.
-    \]
-
-    Note that $\sec(y) = x,$ hence
+    $\forall x \in \left( -\infty, -1 \right) \cup \left( 1, +\infty \right):$
     \[
         \begin{aligned}
-            &\tan^2(y) = \dfrac{\sin^2(y)}{\cos^2(y)} = 1- \dfrac{1}{\cos^2(y)} = 1 - \sec^2(y)\\
-            &\Rightarrow \frac{dy}{dx} = \frac{1}{\sec(y) \tan(y)} = \frac{1}{\sec(y) \sqrt{1-\sec^2(y)}} = \boxed{\frac{1}{x \sqrt{1-x^2}}.}
+            &x \in \left( -\infty, -1 \right) \Rightarrow y(x) \in \left( \pi, \frac{3\pi}{2} \right) \Rightarrow \cos{y(x)} < 0, \sin{y(x)} < 0 \Rightarrow \tan(y(x)) > 0\\
+            &x \in \left( +1, +\infty \right) \Rightarrow y(x) \in \left( 0, \frac{\pi}{2} \right) \Rightarrow \cos{y(x)} > 0, \sin{y(x)} > 0 \Rightarrow \tan(y(x)) > 0\\
+            &\Rightarrow \tan(y(x)) > 0 \quad (***)
+        \end{aligned}        
+    \]
+
+    $\forall x \in \left( -\infty, -1 \right) \cup \left( 1, +\infty \right),$ from (*), (**), and (**):
+    \[
+        \begin{aligned}
+            &\tan^2(y(x)) = \frac{\sin^2(y(x))}{\cos^2(y(x))} = 1- \dfrac{1}{\cos^2(y(x))} = 1 - \sec^2(y(x))\\
+            &\frac{d y(x)}{dx} = \frac{1}{\sec(y(x)) \tan(y(x))} = \frac{1}{\sec(y(x)) \sqrt{1-\sec^2(y(x))}} = \frac{1}{x \sqrt{1-x^2}}.
         \end{aligned}
+    \]
+
+    Hence, $\forall x \in \left( -\infty, -1 \right) \cup \left( 1, +\infty \right),$ 
+    \[
+        \frac{d f^{-1}(x)}{dx} = \frac{1}{x \sqrt{1-x^2}}.
     \]
 \end{soln}
 
 \newpage
-
-\begin{theorem*}[Mean Value Theorem]
-    \label{theorem:mean-value-theorem}
-    If $f$ is a continuous function on the closed interval $[a,b]$, with $a<b$, and $f$ is differentiable on $(a,b)$,
-    then there exists some real number $c \in (a,b)$ such that 
-    \[
-        f'(c) = \frac{f(b)-f(a)}{b-a}.
-    \]
-\end{theorem*}
 
 \begin{problem*}[2a]
     Let $a<b$ and $f$ be a function defined on $[a,b].$ Suppose that $f$ is a continuous function on $[a,b]$, and $f$ is differentiable on $(a,b)$, 
@@ -189,23 +138,25 @@
 \end{problem*}
 
 \begin{soln}
-    First, note that $f$ is a continuous function on $[a,b]$, and $f$ is differentiable on $(a,b)$, and $[x, x+h] \subseteq [a,b],$
-    thus $f$ is continuous on $[x, x+h]$ and $f$ is differentiable on $(x, x+h).$ 
+    First, $f$ is a continuous function on $[a,b]$, and $f$ is differentiable on $(a,b)$, and $[x, x+h] \subseteq [a,b],$
+    therefore $f$ is continuous on $[x, x+h]$ and $f$ is differentiable on $(x, x+h).$ 
 
-    Second, by the \nameref{theorem:mean-value-theorem} for $f$ is continuous on $[x, x+h]$ and $f$ is differentiable on $(x, x+h),$ 
-    there exists $c \in (x, x+h),$ such that:
+    Second, by the Mean-Value Theorem for $f$ is continuous on $[x, x+h],$ $f$ is differentiable on $(x, x+h),$ there exists $c \in (x, x+h),$ such that:
     \[
         f'(c) = \frac{f(x+h)-f(x)}{(x+h) - x} = \frac{f(x+h) - f(x)}{h}.
     \]
 
-    Now, by choosing 
-    \[ 
-        \theta = \dfrac{c-x}{h} \Rightarrow 0 = \dfrac{x-x}{h} < \theta = \dfrac{c-x}{h} < \dfrac{(x+h)-x}{h} = 1,\ x + \theta h = x + \dfrac{c-x}{h} \cdot h = c.
-    \]        
+    By choosing $\theta = \dfrac{c-x}{h},$ then
+    \[
+        \begin{aligned}
+            &c > x \Rightarrow \theta > \frac{x-x}{h} = 0,\ c < x+h \Rightarrow \theta < \frac{(x+h)-x}{h} = 1 \Rightarrow \theta \in (0, 1),\ \text{and}\\
+            &x + \theta h = x + \dfrac{c-x}{h}  = c \Rightarrow f'(x+ \theta h) = \frac{f(x+h) - f(x)}{h}.
+        \end{aligned}
+    \]
 
     Hence, there exists $\theta \in (0,1)$ such that, 
     \[
-        f'(x + \theta h) = f'(c) = \dfrac{f(x+h) - f(x)}{h}.
+        \frac{f(x+h) - f(x)}{h} = f'(x + \theta h).
     \]
 \end{soln}
 
@@ -216,14 +167,14 @@
 \end{problem*}
 
 \begin{soln}
-    First, it is easy to verify that $f=\ln$ is a continuous function on $[x,x+h]$, and is differentiable on $(x, x+h),$
-    thus the conditions of the previous question apply.
-    
-    Now let $\theta$ be such that
+    $x > 0, h > 0,$ $f(x)=\ln(x)$ is a continuous function on $[x,x+h]$, and is differentiable on $(x, x+h).$
+
+    Note that $\ln(x+h) \ne \ln(x),$ by result of (2a), there exists $\theta \in (0,1)$  such that
     \[
         \begin{aligned}
-            &(\ln(x + \theta h))' = \frac{\ln(x+h) - \ln(x)}{h} \Rightarrow \frac{1}{x + \theta h} = \frac{\ln(x+h) - \ln(x)}{h}\\
-            &\Rightarrow x + \theta h = \frac{h}{\ln(x+h) - \ln(x)} \Rightarrow \theta = \boxed{\frac{h - x \ln(x+h) + x \ln(x)}{h(\ln(x+h) - \ln(x))}.}
+            &\frac{f(x+h) - f(x)}{h} = f'(x + \theta h) \Rightarrow (\ln(x + \theta h))' = \frac{\ln(x+h) - \ln(x)}{h}\\
+            &\Rightarrow \frac{1}{x + \theta h} = \frac{\ln(x+h) - \ln(x)}{h} \Rightarrow x + \theta h = \frac{h}{\ln(x+h) - \ln(x)}\\
+            &\Rightarrow \theta = \boxed{\frac{h - x \ln(x+h) + x \ln(x)}{h(\ln(x+h) - \ln(x))}.}
         \end{aligned}
     \]
 \end{soln}
@@ -237,10 +188,10 @@
     \]
 \end{problem*}
 
-\begin{soln}[Solution 1]
-    From the result from (2b),
+\begin{soln}
+    From the result from (2b), for $x > 0, h > 0:$ 
     \[
-        \theta = \frac{h - x \ln(x+h) + x \ln(x)}{h(\ln(x+h) - \ln(x))} = \frac{ h - x \ln(x+h) + x \ln(x) }{h^2} \cdot \frac{h}{\ln(x+h) - \ln(x)}
+        \theta(x,h) = \frac{h - x \ln(x+h) + x \ln(x)}{h(\ln(x+h) - \ln(x))} = \frac{ h - x \ln(x+h) + x \ln(x) }{h^2} \cdot \frac{h}{\ln(x+h) - \ln(x)}
     \]
 
     By L'Hopital rule,
@@ -249,7 +200,7 @@
         = \lim_{h \rightarrow 0 } \frac{1 - \frac{x}{x+h}}{2h} = \lim_{h \rightarrow 0 } \frac{1}{2(x+h)} = \frac{1}{2x}.
     \]
 
-    On the other hand,
+    On the other hand, for $x >0:$
     \[
         \lim_{h \rightarrow 0} \frac{h}{\ln(x+h) - \ln(x)} = \frac{1}{(\ln (x))'} = x.
     \]
@@ -260,34 +211,7 @@
     \]
 \end{soln}
 
-\begin{soln}[Solution 2]
-    Consider the generic case \textbf{with the assumption that the second derivative $f''$ exists} (which is obvious for (2b) since $f''(x) = -\frac{1}{x^2}$)
-    \[
-        \frac{f(x+h) - f(x) - hf'(x)}{h^2} = \frac{f'(x + \theta h) - f(x)}{h}  = \theta \cdot \frac{f'(x + \theta h) - f'(x)}{\theta h}
-    \]
-
-    By L'Hopital rule,
-    \[
-        \left\{
-            \begin{aligned}
-                &\lim_{h \rightarrow 0} \frac{f(x+h) - f(x) - hf'(x)}{h^2} = \lim_{h \rightarrow 0} \frac{f'(x+h)-f'(x)}{2h} = \frac{1}{2} f''(x)\\
-                &\lim_{h \rightarrow 0} \theta \cdot \frac{f'(x + \theta h) - f'(x)}{\theta h} = 
-                \lim_{h \rightarrow 0} \theta \cdot \lim_{(\theta h) \rightarrow 0} \frac{f'(x + (\theta h)) - f'(x)}{(\theta h)} = 
-                \lim_{h \rightarrow 0} \theta \cdot f''(x)\\
-            \end{aligned}
-        \right.
-    \]
-
-    Thus $\theta = \boxed{\frac{1}{2}.}$
-\end{soln}
-
 \newpage
-
-\begin{theorem*}[Intermediate Value Theorem]
-    \label{theorem:intermediate-value-theorem}
-    If $f$ is a continuous, real-valued function defined on an interval $[a,b]$, with $f(a) \not= f(b)$,
-    and $y$ is a real number between $f(a)$ and $f(b)$, then there exists some $c \in (a,b)$ such that $f(c) = y$.
-\end{theorem*}
 
 \begin{problem*}[3a]
     Suppose that $f$ is continuous on $[a,b]$ and that $a < f(x) < b$ for all $x \in [a,b].$
@@ -296,8 +220,9 @@
 \end{problem*}
 
 \begin{soln}
-    Consider $g(x) = x - f(x),$ then $g$ is continuous on $(a,b),$ $g(a) = a - f(a) < 0$ and $g(b) = b - f(b) > 0.$
-    By \nameref{theorem:intermediate-value-theorem}, there exits $c \in (a,b)$ such that $g(c) = 0,$ or $\boxed{c = f(c).}$
+    Consider the function $g: [a,b] \rightarrow \RR: g(x) = x - f(x),$
+    then $g$ is continuous on $(a,b),$ $g(a) = a - f(a) < 0$ and $g(b) = b - f(b) > 0.$
+    By the Intermediate-Value Theorem, there exits $c \in (a,b)$ such that $g(c) = 0,$ or $\boxed{c = f(c).}$
 \end{soln}
 
 \bigbreak
@@ -309,15 +234,26 @@
 \end{problem*}
 
 \begin{soln}
-    From (3a) there exists a $c$ such that $c = f(c).$ We prove that it is unique.
-    Assume the contrary, then exists $c_1 \ne c,$ $c_1 = f(c_1).$ WLOG, let $c < c_1.$
-
-    By \nameref{theorem:mean-value-theorem} for then interval $(c, c_1),$ then there exists some real number $d \in (c,c_1)$ such that 
-    \[
-        f'(d) = \frac{f(c_1) - f(c)}{c_1 - c} = 1, \text{\ a contradiction since\ } |f'(x)| < 1,\ \forall x \in (c, c_1).
-    \]
+    From (3a) there exists a $c \in (a,b)$ such that $c = f(c).$
+    We prove that $c$ is the only value in $(a,b)$ such that $c = f(c).$
+    Assume the contrary, then exists $c_1 \in (a,b), c_1 \ne c,$ such that $c_1 = f(c_1).$ 
     
-    Hence, $c$ is unique.
+    Since the roles of $c$ and $c_1$ are the same, so without loss of generality, let's assume that $c < c_1.$
+
+    $f$ is continuous on $[a,b],$ $f$ is differentiable on $(a,b),$ and since $a < c < c_1 < b,$
+    thus $f$ is continuous on $[c,c_1],$ and $f$ is differentiable on $(c,c_1).$
+    
+    By the Mean-Value Theorem there exists some real number $d \in (c,c_1)$ such that 
+    \[
+        f'(d) = \frac{f(c_1) - f(c)}{c_1 - c}.
+    \]
+
+    Then $f(c_1) = c1, f(c) = c, c\ne c_1,$ thus $f'(d) = 1.$
+    However $|f'(x)| < 1,\ \forall x \in (a,b),$ $(c,c_1) \subseteq (a,b),$ so $|f'(x)| < 1,\ \forall x \in (c, c_1),$
+    this is a contraction to the existence of $d \in (a,b)$
+    
+    (*) contradicts (**), the assumption was wrong.
+    Hence, $c$ is the only value in $(a,b)$ such that $c = f(c).$
 \end{soln}
 
 \newpage
@@ -327,41 +263,61 @@
     \textit{Formulate this equation as $x = f(x)$ for some function $f(x).$ Then use the results from part (a) and part (b)}
 \end{problem*}
 
-\begin{center}
-    \includegraphics[width=7cm]{./svg/pdf/derivative-2-3c.pdf}
-\end{center}
-
 \begin{soln}
-    First, note that :
-    \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
-        \ii The function $\tan(3x)$ is strictly increasing from $0$ to $+\infty$ on $\left[ 0, \frac{\pi}{6} \right),$
-        and stricly increasing from $-\infty$ to $\tan(1) \approx -0.142 < 0$ on $\left( \frac{\pi}{6}, 1 \right].$
-        \ii On the other hand the function $\sqrt{2x + 1}$ is strictly increasing from $1$ to $\sqrt{3}$ on the whole interval $[0,1].$
-    \end{itemize}
+    First, we prove that the equation $\tan(3x) = \sqrt{2x + 1}$ has a solution on $(0, 1).$
+    
+    Note that $\cos(3(\frac{\pi}{6})) = 0,$ so $\tan(3x)$ does not exist if $x = \frac{pi}{6}.$
 
-    Therefore $\sqrt{2x + 1} > \tan(3x),\ \forall x \in \left( \frac{\pi}{6}, 1\right].$
-
-    Thus we shall only consider to find the unique solution only on the interval $I = \left[ 0, \frac{\pi}{6} \right).$
-    Let
+    Let $f: \left[0,  1 \right] \setminus \{ \frac{pi}{6} \} \rightarrow \RR:$
     \[
         f(x) = \tan(3x) - \sqrt{2x + 1}.
     \]
-    
-    Then $f$ is continuous on $I$ and $-1 \le f(x) < +\infty,\ \forall x \in I,$
-    by \nameref{theorem:intermediate-value-theorem} $\exists c \in I: f(c) = 0.$
 
-    If there exists $c_1 \ne c,$ $0 = f(c_1),$ then by \nameref{theorem:mean-value-theorem} for then interval $(c, c_1),$
-    there exists some real number $d \in (c,c_1)$ such that 
     \[
-        f'(d) = \frac{f(c_1) - f(c)}{c_1 - c} = 0 \quad (*)
-    \]
-    
-    Note that
-    \[
-        f'(x) = \dfrac{3}{\cos^2(3x)} - \dfrac{1}{\sqrt{2x + 1}}, \text{\ and since\ } 3\sqrt{2x + 1} > 3 > \cos^2(3x) \Rightarrow f'(x) > 0,\ \forall x\in I.
+        \begin{cases}
+            &0.5 < \frac{\pi}{6} \approx 0.52,\ \tan(3\cdot 0.5) - \sqrt{2*0.5+1} \approx 12.68\\
+            &\tan(0)- \sqrt{2\cdot 0 + 1} = -1.
+        \end{cases}
     \]
 
-    Thus (*) is a contradiction. Hence $c$ is unique.
+    $f$ is continuous on $[0, 0.5],$ by the Intermediate-Value Theorem, there exists $c \in (0, 0.5),$ such that $f(c) = 0.$
+    Therefore $c$ is a solution on $(0,1)$ of the given equation.
+
+    Now, we prove that $c$ is the only solution on $(0,1)$ of the equation $\tan(3x) = \sqrt{2x + 1}.$
+    Assume the contrary that there exists some real number $c \in (0, 1)$ such that $\tan(3c) - \sqrt{2c + 1} = 0.$
+
+    The function $f$ is continuous and is differentiable on $\left[0,  1 \right] \setminus \{ \frac{\pi}{6} \},$ its derivative is 
+    \[
+        f'(x) = \dfrac{3}{\cos^2(3x)} - \dfrac{1}{\sqrt{2x + 1}}.
+    \]
+
+    For all $x \in \left[0,  1 \right] \setminus \{ \frac{\pi}{6} \},$ then $3\sqrt{2x + 1} > 3 > \cos^2(3x) > 0,\ $ thus $f'(x) > 0,$ \quad (*)
+
+    \textit{Case 1:} If $c \in \left[0,  \frac{\pi}{6} \right).$ 
+    The roles of $c$ and $c_1$ are the same, without loss of generality, let's assume $c < c_1.$
+    
+    The function $f(x) = \tan(3x) - \sqrt{2x + 1}$ is continuous $\left[0,  \frac{\pi}{6} \right),$ so it is continuous on $(c, c_1).$.
+    $f$ is differentiable on $\left[0,  \frac{\pi}{6} \right),$ thus it is differentiable on $(c, c_1).$
+
+    By the Mean-Value Theorem there exists some real number $d \in (c,c_1)$ such that 
+    \[
+        f'(d) = \frac{f(c_1) - f(c)}{c_1 - c} = 0 \quad (**)
+    \]
+    
+    (**) contradicts (*), thus $c \not \in \left[0,  \frac{\pi}{6} \right)$ \quad (1)  
+
+    \textit{Case 2:} If $c \in \left(\frac{\pi}{6}, 1 \right].$ 
+    Note that $f(1) = \tan(3) - \sqrt{3} \approx -1.874 < -1.87.$
+
+    Since $f$ is continuous on $[c_1, 1],$ differentiable on $[c_1, 1],$ by the Mean-Value Theorem there exists some real number $d \in (c_1, 1)$ such that:
+    \[
+        f'(d) = \frac{f(1) - f(c_1)}{1 - c_1} < \frac{-1.87 - c_1}{1-c_1} < 0 \quad (***)
+    \]
+
+    (***) contradicts (*), thus $c \not \in \left(\frac{\pi}{6}, 1 \right]$ \quad (2)
+    
+    From (1) and (2), there is no such $c_1 \ne c$: $f(c_1) = c_1.$
+    Hence, $c$ is a unique solution.
 \end{soln}
 
 \newpage
@@ -381,25 +337,25 @@
     \] 
 
     If we consider $t$ as the variable of time, then $h$ is a function of $t,$ and $r$ can simply be calculated from $h$
-    (the height and radius of the cone formed by the water are proportional to $h$ and $r$) 
+    (the height and radius of the cone formed by the water are proportional to $h$ and $r$ by similar triangles):
     \[
-        V_1(t) = \frac{1}{3} \pi r(t)^2 h(t) = \frac{\pi}{3} \left(\frac{1}{3} h(t) \right)^2 h(t) =  \frac{\pi}{27} h^3(t) \quad (*)
+        V_1 = \frac{1}{3} \pi r^2 h = \frac{\pi}{3} \left(\frac{1}{3} h \right)^2 h =  \frac{\pi}{27} h^3 \quad (*)
     \]
 
-    When the water level is $12$ ($h(t) = 12$), the change in rate of the water level $h(t)$ in the conic tank is $-1,$ which means that $\dfrac{dh}{dt} = -1.$
-    Thus the rate of change in water volume at the time $t$ ($h(t)=12$) is
+    When the water level is $12$ ($h = 12$), the change in rate of the water level $h$ in the conic tank is $-1,$ which means that $\dfrac{dh}{dt} = -1.$
+    Thus the rate of change in water volume at the time $t$ (when $h=12$) is
     \[
-        \frac{dV_1}{dt} = \frac{d}{dt} \left( \frac{\pi}{27} h^3(t) \right) = \frac{\pi}{9} h^2(t) \dfrac{dh}{dt} = \frac{\pi}{9} h^2(t) (-1)
+        \frac{dV_1}{dt} = \frac{d}{dt} \left( \frac{\pi}{27} h^3 \right) = \frac{\pi}{9} h^2 \dfrac{dh}{dt} = \frac{\pi}{9} h^2 (-1)
         \Rightarrow \frac{dV_1}{dt} = - \frac{12^2 \pi}{9} = - 16\pi.
     \]
 
     This is the volume of water discharged from the conic tank into the cylindrical tank under it.
     The water volume that the cylindrical tank received must be the opposite of what the conic tank discharged:
     \[
-        \frac{dV_2}{dt}(t) = - \frac{dV_1}{dt}(t) = 16\pi.
+        \frac{dV_2}{dt} = - \frac{dV_1}{dt} = 16\pi.
     \]
 
-    The cylindrical tank volume function with radius $r_2 = \frac{10}{2}  = 5$ is $V_2(t) = \pi r_2^2 h(t),$ therefore:
+    The cylindrical tank volume function with radius $r_2 = \frac{10}{2}  = 5$ is $V_2 = \pi r_2^2 h,$ therefore:
     \[
         \frac{dV_2}{dt} = 25 \pi \frac{dh}{dt} \Rightarrow 16\pi = 25 \pi \frac{dh}{dt}  \rightarrow \frac{dh}{dt}  = \boxed{\frac{16}{25}} \text{\ m/s.}
     \]
@@ -445,23 +401,18 @@
         [ABCE] = AB \cdot \half(BC + AE) = (b-a)\frac{4c - a - b}{2c^2}
     \]
 
-    Now, let 
+    Note that,
     \[
-        f(c) = \frac{4c - a - b}{2c^2} = \frac{2}{c} - \frac{a+b}{2c^2} 
-        \Rightarrow \frac{df}{dc} = -\frac{2}{c^2} + \frac{a+b}{c^3} = \frac{1}{c^2}(a+b-2c) \quad(*)
+        (2c -a -b)^2 \ge 0 \Leftrightarrow  4c^2 - 4c(a+b) + (a+b)^2 \ge 0 \Leftrightarrow 4c^2 \ge (a+b) (4c-a-b) \Leftrightarrow \frac{2}{a+b} \ge \frac{4c - a - b}{2c^2}
     \]
 
-    Note that if $\dfrac{1}{c^2}(a+b-2c)$ is positive if $c < \half(a+b),$ and negative otherwise.
-    Thus $f$ increase from $c = a$ until $c= \half(a+b)$, then $f$ decreases from $c= \half(a+b)$ until $c=b.$
-    Therefore 
+    Thus 
     \[
-        f_{max} = f\left(\frac{a+b}{2}\right) = \frac{2(a+b) - a - b}{\half(a+b)^2} = \boxed{\frac{2}{a+b}.}
+        [ABCE] = (b-a)\frac{4c - a - b}{2c^2} \le \frac{2(b-a)}{a+b}.
     \]
 
-    \textit{Note: We can also give a direct proof for the upper limit, and then show that $f\left(\frac{a+b}{2}\right)$ is equal to this limit;}
-    \[
-        \frac{4c - a - b}{2c^2}  \le \frac{2}{a+b} \Leftrightarrow 4c(a+b) - (a+b)^2 \le 4c^2 \Leftrightarrow (2c -a -b)^2 \ge 0.
-    \]
+    The area of the trapezoid is largest when $(2c -a -b)^2 \ge 0,$ or $c = \frac{a+b}{2}.$
+    Hence point $(x,y)$ is $\left(\frac{a+b}{2}, 0\right).$
 \end{soln}
 
 
