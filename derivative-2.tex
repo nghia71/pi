@@ -31,11 +31,11 @@
 \end{soln}
 
 \begin{problem*}[1b]
-    Compute $f^{-1}(sec(5))$ and $sec(f^{-1}(5)).$
+    Compute $f^{-1}(\sec(5))$ and $\sec(f^{-1}(5)).$
 \end{problem*}
 
 \begin{soln}
-    $f^{-1}(sec(5)) = 1.28,\ sec(f^{-1}(5)) = 5.$
+    $f^{-1}(\sec(5)) = 1.28,\ \sec(f^{-1}(5)) = 5.$
 \end{soln}
 
 \begin{problem*}[1c]
@@ -43,13 +43,15 @@
 \end{problem*}
 
 \begin{center}
-    \includegraphics[width=10cm]{./svg/pdf/derivative-2-1c-f.pdf}
+    \includegraphics[width=9.5cm]{./svg/pdf/derivative-2-1c-f.pdf}
 \end{center}
 
 \begin{soln}
-    Both the domain and the range of $\sec \circ f^{-1}$ are the same: $(-\infty, -1] \cup [+1, +\infty).$
-
-    $\sec \circ f^{-1}(x) = x,\ \forall x \in (-\infty, -1] \cup [+1, +\infty).$
+    Both the domain and the range of the function $\sec \circ f^{-1}$ are the same: $(-\infty, -1] \cup [+1, +\infty).$
+    it is defined by
+    \[
+        \sec \circ f^{-1}(x) = x,\ \forall x \in (-\infty, -1] \cup [+1, +\infty).
+    \]
 \end{soln}
 
 \newpage
@@ -63,7 +65,10 @@
 \end{center}
 
 \begin{soln}
-    $f^{-1} \circ \sec:\ \RR \setminus \{ \frac{\pi}{2} + k \pi \mid k \in \ZZ \} \rightarrow \left[0, \frac{\pi}{2} \right) \cup \left[\pi, \frac{3\pi}{2} \right)$:
+    The function $f^{-1} \circ \sec$ is defined as follow:
+    \[
+        f^{-1} \circ \sec:\ \RR \setminus \{ \frac{\pi}{2} + k \pi \mid k \in \ZZ \} \rightarrow \left[0, \frac{\pi}{2} \right) \cup \left[\pi, \frac{3\pi}{2} \right), \text{\ such that:}
+    \]
     \[
         (f^{-1} \circ \sec)(x) = 
         \left\{
@@ -84,12 +89,22 @@
 \end{problem*}
 
 \begin{soln}
-    Let $I_1 = \left( -\infty, -1 \right] \cup \left[ 1, +\infty \right),$ $I_2 = \left[ 0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2} \right),$
+    Let $I_1 = \left( -\infty, -1 \right] \cup \left[1, +\infty \right),$ $I_2 = \left[ 0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2} \right),$
+    and let define
     \[
-        y:\ I_1 \rightarrow I_2: y(x) = f^{-1}(x) \Rightarrow y(x) = \sec^{-1}(x) \Rightarrow \sec(y(x)) = x \quad (*)
+        y: I_1 \rightarrow I_2 \text{\ such that\ } y(x) = f^{-1}(x).
     \]
 
-    $\forall x \in \left[ 0, \frac{\pi}{2} \right) \cup \left[ \pi, \frac{3\pi}{2} \right):$
+    Then $y$ is continuous on $I_1.$
+    
+    Let's assume that $f$ is differentiable on $\left( -\infty, -1 \right) \cup \left( 1, +\infty \right).$
+
+    Thus, by the definition of $y,$ and then the property of the inverse function,
+    \[
+        \forall x \in I_1,\  y(x) = \sec^{-1}(x) \Rightarrow \sec(y(x)) = x \quad (*)
+    \]
+
+    By the Chain Rule, $\forall x \in I_2:$
     \[
         \begin{aligned}
             &\frac{d}{dx} \sec(x) = \frac{d}{dx} \frac{1}{\cos{x}} = - \frac{1}{(\cos{x})^2} \cdot \frac{d}{dx} \cos(x)
@@ -97,33 +112,63 @@
         \end{aligned}
     \]
 
-    $\forall x \in \left( -\infty, -1 \right] \cup \left[ 1, +\infty \right):$
+    By definition of $y$ and the Chain Rule, $\forall x \in \left( -\infty, -1 \right) \cup \left(1, +\infty \right):$
     \[
         sec(y(x)) = x \Rightarrow \frac{d}{dx} \sec(y(x)) = \frac{d}{dx} (x) 
         \Rightarrow \sec(y(x)) \tan(y(x)) \cdot \frac{dy(x)}{dx} = 1 \quad (**)
     \]
 
-    $\forall x \in \left( -\infty, -1 \right) \cup \left( 1, +\infty \right):$
+    Furthermore, let consider two cases:
     \[
-        \begin{aligned}
-            &x \in \left( -\infty, -1 \right) \Rightarrow y(x) \in \left( \pi, \frac{3\pi}{2} \right) \Rightarrow \cos{y(x)} < 0, \sin{y(x)} < 0 \Rightarrow \tan(y(x)) > 0\\
-            &x \in \left( +1, +\infty \right) \Rightarrow y(x) \in \left( 0, \frac{\pi}{2} \right) \Rightarrow \cos{y(x)} > 0, \sin{y(x)} > 0 \Rightarrow \tan(y(x)) > 0\\
-            &\Rightarrow \tan(y(x)) > 0 \quad (***)
-        \end{aligned}        
+        \left.
+            \begin{aligned}
+                &x \in \left( -\infty, -1 \right) \Rightarrow y(x) \in \left( \pi, \frac{3\pi}{2} \right) \Rightarrow \cos{y(x)} < 0, \sin{y(x)} < 0 \Rightarrow \tan(y(x)) > 0\\
+                &x \in \left( +1, +\infty \right) \Rightarrow y(x) \in \left( 0, \frac{\pi}{2} \right) \Rightarrow \cos{y(x)} > 0, \sin{y(x)} > 0 \Rightarrow \tan(y(x)) > 0\\
+            \end{aligned}
+        \right\} 
+        \Rightarrow\ \tan(y(x)) > 0,\ \forall x \in I_1
     \]
 
-    $\forall x \in \left( -\infty, -1 \right) \cup \left( 1, +\infty \right),$ from (*), (**), and (**):
+    Therefore, $\tan(y(x)) > 0,$ $\forall x \in I_1,$ thus
     \[
-        \begin{aligned}
-            &\tan^2(y(x)) = \frac{\sin^2(y(x))}{\cos^2(y(x))} = 1- \dfrac{1}{\cos^2(y(x))} = 1 - \sec^2(y(x))\\
-            &\frac{d y(x)}{dx} = \frac{1}{\sec(y(x)) \tan(y(x))} = \frac{1}{\sec(y(x)) \sqrt{1-\sec^2(y(x))}} = \frac{1}{x \sqrt{1-x^2}}.
-        \end{aligned}
+        \tan^2(y(x)) = \frac{\sin^2(y(x))}{\cos^2(y(x))} = 1- \dfrac{1}{\cos^2(y(x))} = 1 - \sec^2(y(x)) \Rightarrow \tan(y(x)) = \sqrt{1-\sec^2(y(x))} \quad (***)
+    \]
+
+    Now $\forall x \in \left( -\infty, -1 \right) \cup \left(1, +\infty \right),$ note that $\sec(y(x)) \ne 0,\ \tan(y(x)) \ne 0,$ by (**)
+    \[
+        \frac{d y(x)}{dx} = \frac{1}{\sec(y(x)) \tan(y(x))}
+    \]
+
+    By applying (***) to replace $\tan(x)$ by $\sqrt{1-\sec^2(y(x))},$ and then (*) to replace $\sec(y(x))$ by $x,$
+    \[
+        \frac{d y(x)}{dx} = \frac{1}{\sec(y(x)) \tan(y(x))} = \frac{1}{\sec(y(x)) \sqrt{1-\sec^2(y(x))}} = \frac{1}{x \sqrt{1-x^2}}.
     \]
 
     Hence, $\forall x \in \left( -\infty, -1 \right) \cup \left( 1, +\infty \right),$ 
     \[
-        \frac{d f^{-1}(x)}{dx} = \frac{1}{x \sqrt{1-x^2}}.
+        \frac{d f^{-1}(x)}{dx} = \frac{1}{x \sqrt{1-x^2}} \qquad (A)
     \]
+
+\newpage
+
+    Now, if $f'(1),$ exists, 
+    \[
+        \exists f'(1) = \lim_{h \rightarrow 0} \frac{\sec^{-1}(h+1) -\sec^{-1}(1)}{h}
+    \]
+
+    By L'Hopital Rule,
+    \[
+        \begin{aligned}
+            &\lim_{h \rightarrow 0} \frac{\sec^{-1}(h+1) -\sec^{-1}(1)}{h}
+            = \lim_{h \rightarrow 0} \frac{\frac{d}{dh} \sec^{-1}(h+1) -\sec^{-1}(1)}{\frac{d}{dh} h}\\
+            &= \lim_{h \rightarrow 0} \frac{\frac{d}{dh} \sec^{-1}(h+1)}{1}
+            = \lim_{h \rightarrow 0}  \frac{1}{(h+1)\sqrt{1-(h+1)^2}} \quad (\text{by\ } (A))
+        \end{aligned}
+    \]
+
+    $\lim_{h \rightarrow 0}  \frac{1}{(h+1)\sqrt{1-(h+1)^2}}$ does not exist, thus a contradiction, the derivative of $f^{-1}$ does not exist at $x=1$.
+
+    By almost identical proof, the derivative of $f^{-1}$ does not exist at $x=-1.$
 \end{soln}
 
 \newpage
@@ -148,19 +193,21 @@
 
     By choosing $\theta = \dfrac{c-x}{h},$ then
     \[
-        \begin{aligned}
-            &c > x \Rightarrow \theta > \frac{x-x}{h} = 0,\ c < x+h \Rightarrow \theta < \frac{(x+h)-x}{h} = 1 \Rightarrow \theta \in (0, 1),\ \text{and}\\
-            &x + \theta h = x + \dfrac{c-x}{h}  = c \Rightarrow f'(x+ \theta h) = \frac{f(x+h) - f(x)}{h}.
-        \end{aligned}
+        c > x \Rightarrow \theta > \frac{x-x}{h} = 0,\ c < x+h \Rightarrow \theta < \frac{(x+h)-x}{h} = 1 \Rightarrow \theta \in (0, 1) \qquad(*)
     \]
 
-    Hence, there exists $\theta \in (0,1)$ such that, 
+    Furthermore,
+    \[
+        x + \theta h = x + \dfrac{c-x}{h} h  = c \Rightarrow f'(x+ \theta h) = f'(c) = \frac{f(x+h) - f(x)}{h} \qquad (**)
+    \]
+
+    Hence, by (*) and (**), there exists $\theta \in (0,1)$ such that, 
     \[
         \frac{f(x+h) - f(x)}{h} = f'(x + \theta h).
     \]
 \end{soln}
 
-\bigbreak
+\newpage
 
 \begin{problem*}[2b]
     Consider $f(y) = \ln(y).$ Fix $x >0$ and $h>0.$ Find $\theta$ in term of $x$ and $h,$ as in the previous formula.
@@ -168,15 +215,22 @@
 
 \begin{soln}
     $x > 0, h > 0,$ $f(x)=\ln(x)$ is a continuous function on $[x,x+h]$, and is differentiable on $(x, x+h).$
-
-    Note that $\ln(x+h) \ne \ln(x),$ by result of (2a), there exists $\theta \in (0,1)$  such that
+    By result of (2a), there exists $\theta \in (0,1)$  such that
     \[
-        \begin{aligned}
-            &\frac{f(x+h) - f(x)}{h} = f'(x + \theta h) \Rightarrow (\ln(x + \theta h))' = \frac{\ln(x+h) - \ln(x)}{h}\\
-            &\Rightarrow \frac{1}{x + \theta h} = \frac{\ln(x+h) - \ln(x)}{h} \Rightarrow x + \theta h = \frac{h}{\ln(x+h) - \ln(x)}\\
-            &\Rightarrow \theta = \boxed{\frac{h - x \ln(x+h) + x \ln(x)}{h(\ln(x+h) - \ln(x))}.}
-        \end{aligned}
+        \frac{f(x+h) - f(x)}{h} = f'(x + \theta h) = (ln(x + \theta h))'
     \]
+
+    Since $(ln(x))' = \frac(1){x},,\ \forall x > 0,$
+    \[
+        \frac{f(x+h) - f(x)}{h} = \frac{1}{x + \theta h} 
+    \]
+    
+    Note that $\ln(x+h) \ne \ln(x),\ \forall x > 0, h > 0,$
+    \[
+        x + \theta h = \frac{h}{\ln(x+h) - \ln(x)}
+        \Rightarrow \theta = \frac{h - x \ln(x+h) + x \ln(x)}{h(\ln(x+h) - \ln(x))}.
+    \]
+    
 \end{soln}
 
 \newpage
@@ -248,9 +302,10 @@
         f'(d) = \frac{f(c_1) - f(c)}{c_1 - c}.
     \]
 
-    Then $f(c_1) = c1, f(c) = c, c\ne c_1,$ thus $f'(d) = 1.$
-    However $|f'(x)| < 1,\ \forall x \in (a,b),$ $(c,c_1) \subseteq (a,b),$ so $|f'(x)| < 1,\ \forall x \in (c, c_1),$
-    this is a contraction to the existence of $d \in (a,b)$
+    Then $f(c_1) = c_1, f(c) = c, c\ne c_1,$ thus $f'(d) = 1.$
+
+    However $|f'(x)| < 1,\ \forall x \in (a,b),$ $d \in (c,c_1) \subseteq (a,b),$ so $|f'(d)| < 1.$
+    this is a contraction to $f'(d) = 1.$
     
     (*) contradicts (**), the assumption was wrong.
     Hence, $c$ is the only value in $(a,b)$ such that $c = f(c).$
@@ -266,57 +321,58 @@
 \begin{soln}
     First, we prove that the equation $\tan(3x) = \sqrt{2x + 1}$ has a solution on $(0, 1).$
     
-    Note that $\cos(3(\frac{\pi}{6})) = 0,$ so $\tan(3x)$ does not exist if $x = \frac{pi}{6}.$
+    Note that $\cos(3(\frac{\pi}{6})) = 0,$ so $\tan(3x)$ does not exist if $x = \frac{\pi}{6}.$
 
-    Let $f: \left[0,  1 \right] \setminus \{ \frac{pi}{6} \} \rightarrow \RR:$
+    Let $I = \left[0, \frac{\pi}{6} \right) \cup \left(\frac{\pi}{6}, 1\right],$
+    let $f:\ I \rightarrow \RR,$
     \[
         f(x) = \tan(3x) - \sqrt{2x + 1}.
     \]
 
+    Both $\tan(3x)$ and $\sqrt{2x + 1}$ are continuous and differentiable on $I,$ so $f$ is continuous on $[0, 0.5],$ and
     \[
-        \begin{cases}
-            &0.5 < \frac{\pi}{6} \approx 0.52,\ \tan(3\cdot 0.5) - \sqrt{2*0.5+1} \approx 12.68\\
-            &\tan(0)- \sqrt{2\cdot 0 + 1} = -1.
-        \end{cases}
+        \begin{aligned}
+            0.5 < \frac{\pi}{6} \approx 0.52 \Rightarrow 0.5 \in \left[0, \frac{\pi}{6} \right),\ f(0) = \tan(0)- \sqrt{2\cdot 0 + 1} = -1,\ f(0.5) = \tan(1.5) - \sqrt{2} \approx 12.68,
+        \end{aligned}
     \]
 
-    $f$ is continuous on $[0, 0.5],$ by the Intermediate-Value Theorem, there exists $c \in (0, 0.5),$ such that $f(c) = 0.$
-    Therefore $c$ is a solution on $(0,1)$ of the given equation.
+    Therefore, by the Intermediate-Value Theorem, there exists $c \in (0, 0.5),$ such that $f(c) = 0.$ Thus, $c$ is a solution on $(0,1)$ of the given equation.
 
-    Now, we prove that $c$ is the only solution on $(0,1)$ of the equation $\tan(3x) = \sqrt{2x + 1}.$
-    Assume the contrary that there exists some real number $c \in (0, 1)$ such that $\tan(3c) - \sqrt{2c + 1} = 0.$
-
-    The function $f$ is continuous and is differentiable on $\left[0,  1 \right] \setminus \{ \frac{\pi}{6} \},$ its derivative is 
-    \[
-        f'(x) = \dfrac{3}{\cos^2(3x)} - \dfrac{1}{\sqrt{2x + 1}}.
+    Now, we prove that $c$ is the only solution.
+    Assume the contrary: 
+    \[ 
+        \exists c_1 \in (0, 1),\ c_1 \ne c, f(c_1) = \tan(3c_1) - \sqrt{2c_1 + 1} = 0.
     \]
 
-    For all $x \in \left[0,  1 \right] \setminus \{ \frac{\pi}{6} \},$ then $3\sqrt{2x + 1} > 3 > \cos^2(3x) > 0,\ $ thus $f'(x) > 0,$ \quad (*)
+    Note that the derivative $f'(x)$ is always positive, as shown here:
+    \[
+        f'(x) = \dfrac{3}{\cos^2(3x)} - \dfrac{1}{\sqrt{2x + 1}} > \frac{3}{1} - \frac{1}{\sqrt{1}} = 2 > 0,\ \forall x \in I \qquad (*)
+    \]
 
-    \textit{Case 1:} If $c \in \left[0,  \frac{\pi}{6} \right).$ 
+    \textit{Case 1:} If $c_1 \in \left[0,  \frac{\pi}{6} \right).$ 
+
     The roles of $c$ and $c_1$ are the same, without loss of generality, let's assume $c < c_1.$
     
-    The function $f(x) = \tan(3x) - \sqrt{2x + 1}$ is continuous $\left[0,  \frac{\pi}{6} \right),$ so it is continuous on $(c, c_1).$.
+    The function $f(x)$ is continuous $\left[0,  \frac{\pi}{6} \right),$ so it is continuous on $[c, c_1].$
     $f$ is differentiable on $\left[0,  \frac{\pi}{6} \right),$ thus it is differentiable on $(c, c_1).$
-
     By the Mean-Value Theorem there exists some real number $d \in (c,c_1)$ such that 
     \[
-        f'(d) = \frac{f(c_1) - f(c)}{c_1 - c} = 0 \quad (**)
+        f'(d) = \frac{f(c_1) - f(c)}{c_1 - c} = \frac{0-0}{c_1 - c} = 0, \text{\ a contradiction since } f'(x) > 0,\ \forall x \in I.
     \]
     
-    (**) contradicts (*), thus $c \not \in \left[0,  \frac{\pi}{6} \right)$ \quad (1)  
+    Thus $c_1 \not \in \left[0,  \frac{\pi}{6} \right).$
 
-    \textit{Case 2:} If $c \in \left(\frac{\pi}{6}, 1 \right].$ 
+    \textit{Case 2:} If $c_1 \in \left(\frac{\pi}{6}, 1 \right].$ 
+
     Note that $f(1) = \tan(3) - \sqrt{3} \approx -1.874 < -1.87.$
-
-    Since $f$ is continuous on $[c_1, 1],$ differentiable on $[c_1, 1],$ by the Mean-Value Theorem there exists some real number $d \in (c_1, 1)$ such that:
+    Since $f$ is continuous on $[c_1, 1],$ differentiable on $(c_1, 1),$ by the Mean-Value Theorem there exists some real number $d \in (c_1, 1)$ such that:
     \[
-        f'(d) = \frac{f(1) - f(c_1)}{1 - c_1} < \frac{-1.87 - c_1}{1-c_1} < 0 \quad (***)
+        f'(d) = \frac{f(1) - f(c_1)}{1 - c_1} < \frac{-1.87 - c_1}{1-c_1} < 0, \text{\ a contradiction since } f'(x) > 0,\ \forall x \in I.
     \]
 
-    (***) contradicts (*), thus $c \not \in \left(\frac{\pi}{6}, 1 \right]$ \quad (2)
+    Thus $c_1 \not \in \left(\frac{\pi}{6}, 1 \right].$
     
-    From (1) and (2), there is no such $c_1 \ne c$: $f(c_1) = c_1.$
+    From both cases, there is no such $c_1 \ne c$: $f(c_1) = c_1.$
     Hence, $c$ is a unique solution.
 \end{soln}
 
