@@ -1,0 +1,491 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Derivative II}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem*}[1a]
+    Let $I$ be an open interval. Let $f$ be a function defined on $I.$ Let $a \in I.$
+    Assume that $f$ is continuous at $a$ and that $f$ is differentiable near $a$ (except possibly at $a$).
+    
+    We know that $f$ has a vertical tangent line at $a$ when $\lim_{x \rightarrow a} \frac{f(x) - f(a)}{x - a} = \infty$ or $-\infty.$
+    
+    Is each of the following claims true or false? If it is true, prove it directly.
+    
+    If it is false, provide a counterexample and justify that it satisfies the required conditions.
+
+    (a) If $\lim_{x \rightarrow a} = \infty$ or $-\infty,$ then $f$ has a vertical tangent line at $a.$
+\end{problem*}
+
+\begin{proof}
+    By L'Hopital Rule,
+    \[
+        \lim_{x \rightarrow a} \frac{f(x) - f(a)}{x - a} = \lim_{x \rightarrow a} \frac{f'(x)}{1} = \lim_{x \rightarrow a} f'(x) = \infty \text{\ or\ } -\infty. 
+    \]
+
+    Therefore by definition, $f$ has a vertical tangent line at $a.$ The given statement is TRUE.
+\end{proof}
+
+\newpage
+
+\begin{problem*}[1b]
+    (b) If $f$ has a vertical tangent line at $a,$ then $\lim_{x \rightarrow a} f'(x) = \infty$ or $-\infty.$
+\end{problem*}
+
+\begin{soln}
+    We show a counterexample. Let $f: \RR \rightarrow \RR$
+    \[
+        f(x) = 
+        \begin{cases}
+            \sqrt{|x|} + |x| \cos \left( \dfrac{1}{|x|} \right),\ \text{if}\ x \ne 0\\
+            0,\ \text{if}\ x = 0
+        \end{cases}
+    \]
+
+    We prove that $f$ satisfies the required conditions.
+    \begin{claim*}
+        $f$ is a continuous function.
+    \end{claim*}
+    \begin{subproof}
+        If $x \ne 0,$ since $|x|, \sqrt{|x|}$ and $\cos \left( \dfrac{1}{|x|} \right)$ are continuous functions
+        so $f(x) = \sqrt{|x|} + |x| \cos \left( \dfrac{1}{|x|} \right)$ is continuous at every $x \ne 0.$
+    
+        Now, we prove that $f$ is continuous at $0.$
+    
+        For $\epsilon > 0,$ since $x$ is near $0$ let's assume that $|x| < 1.$ 
+        Let $\delta = \left(\half \epsilon \right)^2,$ then
+        \[
+            \begin{aligned}
+                &|x - 0| < \delta \Rightarrow |x| < \left(\half \epsilon \right)^2 \\
+                &|f(x) - f(0)| = \sqrt{|x|} + |x| \left| \cos \left( \dfrac{1}{|x|} \right) \right| \le \sqrt{|x|} + |x| < 2 \sqrt{|x|} < \epsilon.
+            \end{aligned}
+        \]
+    
+        Therefore $f$ is a continuous function.
+    \end{subproof}
+
+    \begin{claim*}
+        $f$ is differentiable at $x$ where $x \ne 0.$
+    \end{claim*}
+    \begin{subproof}
+        For $x >0,$ $f$ is differentiable, since $x, \sqrt{x},$ and $\cos \left( \dfrac{1}{x} \right)$ are differentiable, so is $f.$
+
+        Since $f(-x) = f(x),$ so $f$ is also differentiable for $x < 0.$
+
+        Thus $f$ is differentiable at every $x \ne 0.$
+    \end{subproof}
+
+    Now we prove that the limit $\lim_{x \rightarrow 0} f'(x)$ does not exist. 
+
+    Note that for $x \ne 0,$
+    \[
+        f(x) = \sqrt{x} + x\cos \left( \dfrac{1}{x} \right) \Rightarrow f'(x) = \frac{1}{2\sqrt{x}} + \frac{1}{x} \sin\left( \frac{1}{x} \right) + \cos\left( \frac{1}{x} \right) 
+    \]
+
+    Consider two sequences $(a_n)$ and $(bn)$, where $a_n = \dfrac{1}{\frac{\pi}{2} + 2n\pi},\ b_n = \dfrac{1}{\frac{3\pi}{2} + 2n\pi},\ \forall n \in \ZZ^{+}.$
+    Then
+    \[
+        \begin{aligned}
+            &\sin\left( \frac{1}{a_n} \right) = \sin\left( \frac{\pi}{2} + 2n\pi \right) = 1,\ \cos\left( \frac{1}{a_n} \right) = \cos\left( \frac{\pi}{2} + 2n\pi \right) = 0\\
+            &\sin\left( \frac{1}{b_n} \right) = \sin\left( \frac{3\pi}{2} + 2n\pi \right) = -1,\ \cos\left( \frac{1}{b_n} \right) = \cos\left( \frac{3\pi}{2} + 2n\pi \right) = 0\\
+        \end{aligned}
+    \]
+
+    Therefore
+    \[
+        \begin{aligned}
+            &f'(a_n) = \frac{1}{2\sqrt{a_n}} + \frac{1}{a_n} > \frac{1}{a_n},\ \lim_{n \rightarrow \infty} \frac{1}{a_n}, = \infty 
+            \Rightarrow \lim_{n \rightarrow \infty} f'(a_n) = \infty\\
+            &f'(b_n) = \frac{1}{2\sqrt{b_n}} - \frac{1}{b_n} < 1 - \frac{1}{\sqrt{b_n}} ,\ \lim_{n \rightarrow \infty} - \frac{1}{b_n}, = - \infty 
+            \Rightarrow \lim_{n \rightarrow \infty} f'(b_n) = -\infty\\
+        \end{aligned}
+    \]
+
+    Hence, $\lim_{n \rightarrow \infty} f'(a_n)  \ne \lim_{n \rightarrow \infty} f'(b_n)  \Rightarrow \not \exists \lim_{x \rightarrow 0} f'(x).$
+    The given statement is FALSE.
+\end{soln}
+
+\newpage
+
+\begin{problem*}[2]
+    Let $f$ be a function with domain $(a, b).$ Assume $f$ is (strictly) increasing and bounded on $(a, b).$
+    Let $S$ be the supremum of $f,$ i.e. $S = \sup{f(x):\ x \in (a,b)}.$ Prove that
+    \[
+        \lim_{x \rightarrow b^{-}} f(x) = S
+    \]
+    
+    Notes: You will need to use the definition of supremum of a function and the definition of $\lim_{x \rightarrow b^{-}} f(x).$
+    Do not make any unwarranted assumptions about the function $f;$
+    for example, do not assume that $f$ is continuous or that $\lim_{x \rightarrow b^{-}} f(x)$ exists.
+\end{problem*}
+
+\begin{proof}
+    Let $epsilon > 0.$ We show that there exists $\delta > 0,$ such that
+    \[
+        \forall x:\ b-\delta < x < b \Rightarrow|f(x) - S| < \epsilon.
+    \]
+
+    Note that,
+    \[
+        |f(x) - S| < \epsilon \Leftrightarrow S - \epsilon < f(x) < S + \epsilon.
+    \]
+
+    Since $S$ is an upper bound for $f$ on $(a, b)$ therefore:
+    \[
+        f(x) \le S < S + \epsilon \quad (*)
+    \]
+
+    $S$ is the supremum of $f$, thus $S - \epsilon < S$ is not an upper bound for $f$ on $(a, b),$ so $\exists x_0 \in (a, b):\ f(x_0) > S - \epsilon.$
+    \[
+        f\ \text{increases on}\ (a, b) \Rightarrow \forall x \in (x_0, b): f(x) > f(x_0) > S-\epsilon \quad (**)
+    \]
+
+    Now, let choose $\delta = b - x_0 > 0,$ then from (*) and (**)
+    \[
+        \forall x:\ x_0 = b-\delta < x < b \Rightarrow S-\epsilon < f(x_0) < f(x) < S + \epsilon \Rightarrow|f(x) - S| < \epsilon.
+    \]
+
+    Thus,
+    \[
+        \lim_{x \rightarrow b^{-}} f(x) = S
+    \]
+\end{proof}
+
+\newpage
+
+\begin{problem*}[3a]
+    Let $f$ be a function defined on $[a, b].$ Assume $\forall \epsilon > 0,\ \exists \delta > 0$ such that $\forall x, y \in [a,b]$
+    \[
+        |x-y| < \delta \Rightarrow |f(x) - f(y)| < \epsilon
+    \]
+    
+    Prove that $f$ is integrable on $[a,b].$
+    
+    To prove this statement, you need to prepare several pieces and then put all pieces together.
+
+    (a) First, you must prove the function is continuous on $[a, b],$ i.e. for any $k \in [a, b],$ $f$ is continuous at $x=k.$
+    Note that when $k=a$ or $k=b,$ it means $f$ is continuous from the right at $x=a$ and continuous from the left at $x = b.$
+
+    Hint: Recall the $\epsilon-\delta$ definition of the function $f$ is continuous at $x = k.$
+\end{problem*}
+
+\begin{proof}
+    First, for $a < k <b,$ let $\epsilon > 0,$ by the given condition $\exists \delta > 0$
+    \[
+        \forall x:\ |x-k| < \delta \Rightarrow |f(x) - f(k)| < \epsilon.
+    \]
+    
+    This means that $\lim_{x \rightarrow k} f(x) = f(k),$ or $f$ is continuous at $x=k.$
+
+    Second, for $k=a,$ again $\forall \epsilon > 0,\ \exists \delta > 0$
+    \[
+        \forall x:\ |x-a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon
+    \]
+
+    Rewriting 
+    \[
+        \forall x:\ a < x < a + \delta \Rightarrow |f(x) - f(a)| < \epsilon
+    \]
+
+    This means that $\lim_{x \rightarrow a^{+}} f(x) = f(a),$ or $f$ is continuous from the right at $x=a.$
+
+    Third, similarly with $k=b,$ $\forall \epsilon > 0,\ \exists \delta > 0$
+    \[
+        \forall x:\ |x-b| < \delta \Rightarrow |f(x) - f(b)| < \epsilon
+    \]
+
+    Rewriting 
+    \[
+        \forall x:\ b - \delta < x < b \Rightarrow |f(x) - f(b)| < \epsilon
+    \]
+
+    This means that $\lim_{x \rightarrow b^{-}} f(x) = f(b),$ or $f$ is continuous from the left at $x = b.$
+
+    Therefore $f$ is continuous on $[a, b].$
+\end{proof}
+
+\newpage
+
+\begin{problem*}[3b]
+    (b) Second, you must verify the function is bounded on [a, b].
+\end{problem*}
+
+\begin{proof}
+    Let $\epsilon > 0,$ then $\exists \delta > 0$
+    \[
+        \forall x:\ |x-y| < \delta \Rightarrow |f(x) - f(y)| < \epsilon
+    \]
+
+    \textit{Case 1:} If $\delta \ge b-a,$ then
+    \[
+        \begin{aligned}
+            \forall x \in \left[a, \frac{a+b}{2} \right] \Rightarrow |x-a| \le \left| \half(b-a) \right| < \delta \Rightarrow |f(x) - f(a)| < \epsilon \Rightarrow f(a) - \epsilon < f(x) < f(a) + \epsilon\\
+            \forall x \in \left[\frac{a+b}{2}, b \right] \Rightarrow |x-b| \le \left| \half(b-a) \right| < \delta \Rightarrow |f(x) - f(b)| < \epsilon \Rightarrow f(b) - \epsilon < f(x) < f(b) + \epsilon\\
+        \end{aligned}
+    \]
+    
+    Thus 
+    \[
+        \forall x \in [a, b]:\ \max(f(a), f(b)) - \epsilon < f(x) < \min(f(a), f(b)) + \epsilon.
+    \]
+
+    In other words, $f$ is bounded.
+
+    \textit{Case 2:} If $\delta < b-a,$ then let $n = \floor{\frac{2(b-a)}{\delta}} + 1$ so
+    \[
+        \frac{2(b-a)}{\delta} < n \le \frac{2(b-a)}{\delta} + 1 \Rightarrow \frac{n-1}{2}\delta \le b-a < \frac{n}{2}\delta
+        \Rightarrow a + \frac{n-1}{2}\delta \le b < a + \frac{n}{2}\delta.
+    \]
+    
+    Thus, let's divide the interval $[a, b]$ into $n$ sub-intervals as follow:
+    \[
+        [a, b] = \left[ a, a + \half\delta \right] \cup \left[ a + \half\delta, a + (2)\half\delta \right] \cup \cdots \cup \left[ a + (n-1)\half\delta, b \right]
+    \]
+
+    Now, let $a_1 = a, a_2 = a + \half\delta, \ldots, a_{n-1} = a + (n-1)\half\delta, a_n = b,$ then for $1 \le i \le n-1,$
+    \[
+        \forall x \in \left[ a_i, a_{i+1} \right] \Rightarrow |x-a_| \le \half\delta < \delta \Rightarrow |f(x) - f(a_i)| < \epsilon \Rightarrow f(a_i) - \epsilon < f(x) < f(a_i) + \epsilon
+    \]
+
+    Therefore
+    \[
+        \forall x \in [a, b]:\ \max_{i \in \{1,2,\ldots, n\}} f(a_i) - \epsilon < f(x) < \min_{i \in \{1,2,\ldots, n\}} f(a_i) + \epsilon.
+    \]
+    
+    In other words, $f$ is bounded.
+\end{proof}
+
+\newpage
+
+\begin{problem*}[3c]
+    (c) Third, you establish a sufficient condition for integrability. Prove:
+
+    Let $f$ be a bounded function on $[a, b].$
+
+    IF $\forall \epsilon > 0,$ there exists a partition $P$ of $[a,b]$ such that $U_P(f) - L_P(f) < \epsilon$
+
+    THEN $f$ is integrable on $[a, b].$
+\end{problem*}
+
+\begin{proof}
+    Let $\epsilon > 0,$ and choose a partition $P$ that satisfies the condition. 
+    Then since
+    \[
+        \begin{aligned}
+            &\begin{cases}
+                &L_P(f) \le \underline{{I_a}^b}(f) = \sup \{ L_P(f) \mid P \text{\ is a partition of\ } [a, b]\}\\
+                &\overline{{I_a}^b}(f) = \inf\{U_P(f) \mid P \text{\ is a partition of\ } [a, b]\} \le U_P(f)\\
+            \end{cases}\\
+            &\Rightarrow 0 \le \overline{{I_a}^b}(f)  - \underline{{I_a}^b}(f) \le U_P(f) - L_P(f) < \epsilon \quad (*)
+        \end{aligned}
+    \]
+
+    Since (*) hold for every $\epsilon >0,$ we must have $\overline{{I_a}^b}(f)  - \underline{{I_a}^b}(f) = 0,$
+    which means that $f$ is integrable.
+\end{proof}
+
+\begin{problem*}[3d]
+    (d) Finally, use the results of part(a), (b) and (c) to prove the statement.
+\end{problem*}
+
+\begin{proof}
+    Let $f$ be a function defined on $[a, b].$ Assume $\forall \epsilon > 0,\ \exists \delta > 0$ such that $\forall x, y \in [a,b]$
+    \[
+        |x-y| < \delta \Rightarrow |f(x) - f(y)| < \epsilon
+    \]
+
+    By (a) $f$ is continuous on $[a, b].$
+
+    By (b) $f$ is bounded on [a, b].
+
+    Now, let $\epsilon > 0,$ then $\exists \delta$ such that
+    \[
+        \forall x, y \in [a,b]:\ |f(x) - f(y)| < \frac{\epsilon}{b-a}.
+    \] 
+
+    Let $n$ be an integer such that $n > \frac{b-a}{\delta}$ 
+    Let chose a partition $P = \{I_1, I_2, \ldots, I_n \}$ of $[a,b]$ such that
+    \[
+        I_k = [a + (k-1) \frac{b-a}{n}, a + (k) \frac{b-a}{n}],\ \forall k=1,2,\ldots,n
+        \Rightarrow |I_k| = \frac{b-a}{n} < \delta.
+    \]
+
+    Since $f$ is bounded, then $\exists U_k = \sup \{ f(x) | x \in I_k \},\ \exists L_k = \inf \{ f(x) | x \in I_k \},$ and
+    \[
+        \forall x, y \in I_k:\ |x-y| \le |I_k| < \delta \Rightarrow U_k - L_k < \frac{\epsilon}{b-a}
+    \]
+
+    Therefore, for $\epsilon > 0,$ there exists a partition $P$ of $[a,b]$ such that:
+    \[
+        U_P(f) - L_P(f) = \sum_{k=1}^{n} (U_k - L_k)\cdot|I_k| < \frac{\epsilon}{b-a} \sum_{k=1}^{n} |I_k| = \epsilon.
+    \]
+
+    By (c) $f$ is integrable.
+\end{proof}
+
+\newpage
+
+\begin{problem*}[4a]
+    In this question, we will prove a theorem from one of the videos:
+    
+    \textbf{Theorem 1.} \textit{If $f$, $g$ are bounded, integrable functions on $[a, b],$ then so is $f + g$ and:}
+    \[
+        \int_{a}^{b} (f(x) + g(x)) dx = \int_{a}^{b} f(x) dx + \int_{a}^{b} g(x) dx
+    \]
+
+    (a) Prove that $f+ g$ is bounded on $[a, b].$
+\end{problem*}
+
+\begin{proof}
+    $f$, $g$ are bounded on $[a, b]$, then
+    \[
+        \begin{cases}
+            &\sup_{x \in [a, b]} (f(x) + g(x)) \le \sup_{x \in [a, b]} f(x) +  \sup_{x \in [a, b]} g(x)\\
+            &\inf_{x \in [a, b]} (f(x) + g(x)) \ge \inf_{x \in [a, b]} f(x) +  \inf_{x \in [a, b]} g(x)\\
+        \end{cases}
+    \]
+
+    Hence, $f+ g$ is bounded on $[a, b].$
+\end{proof}
+
+\begin{problem*}[4b]
+    (b) Prove that for any partition $P,$
+    \[
+        U_P(f+g) \le U_P(f) + U_P(g) \quad \text{and} \quad L_P(f) + L_P(g) \le L_P(f+g).
+    \]
+\end{problem*}
+
+\begin{proof}
+    Let $P = \{I_1, I_2, \ldots, I_n \}$ be a partition of $[a,b],$ then
+    \[
+        U_P(f+g) = \sum_{k=1}^{n} \sup_{x \in I_k} (f(x) + g(x)) \cdot |I_k|
+        \le \sum_{k=1}^{n} \sup_{x \in I_k} f(x) \cdot |I_k| + \sum_{k=1}^{n} \sup_{x \in I_k} g(x) \cdot |I_k|
+        = U_P(f) + U_P(g)
+    \]
+
+    Similarly 
+    \[
+        L_P(f+g) = \sum_{k=1}^{n} \inf_{x \in I_k} (f(x) + g(x)) \cdot |I_k|
+        \ge \sum_{k=1}^{n} \inf_{x \in I_k} f(x) \cdot |I_k| + \sum_{k=1}^{n} \inf_{x \in I_k} g(x) \cdot |I_k|
+        = L_P(f) + L_P(g)
+    \]
+\end{proof}
+
+\newpage
+
+\begin{problem*}[4c]
+    (c) Prove that 
+    \[
+        \underline{{I_a}^b}(f) + \underline{{I_a}^b}(g) \le \underline{{I_a}^b}(f+g) 
+        \le \overline{{I_a}^b}(f+g) \le \overline{{I_a}^b}(f) + \overline{{I_a}^b}(g).
+    \]
+
+    \textit{Hint:} you may use the result of part (b) and the properties of the lower sums and upper sums.
+\end{problem*}
+
+\begin{proof}
+    Let $\epsilon > 0,$ since $\overline{{I_a}^b}(f)$ is the infimum of the upper sums, there are partition $Q, R$ such that
+    \[
+        U_Q(f) \le \overline{{I_a}^b}(f) + \half \epsilon \quad \text{and} \quad 
+        U_R(g) \le \overline{{I_a}^b}(g) + \half \epsilon\\
+    \]
+
+    Let $P = Q \cup R,$ then by the properties of the upper sums,
+    \[
+        U_P(f) < \overline{{I_a}^b}(f) + \half \epsilon \quad \text{and} \quad U_P(g) < \overline{{I_a}^b}(g) + \half \epsilon
+    \]
+
+    Therefore
+    \[
+        U_P(f) + U_P(g) < \overline{{I_a}^b}(f) + \overline{{I_a}^b}(g) + \epsilon.
+    \]
+
+    Thus, by (b),
+    \[
+        U_P(f+g) \le U_P(f) + U_P(g) < \overline{{I_a}^b}(f) + \overline{{I_a}^b}(g) + \epsilon.
+    \]
+
+    And since 
+    \[
+        \overline{{I_a}^b}(f+g) \le U_P(f+g).
+    \]
+
+    Hence,
+    \[
+        \overline{{I_a}^b}(f+g) < \overline{{I_a}^b}(f) + \overline{{I_a}^b}(g) + \epsilon.
+    \]
+
+    Since the inequality holds for arbitrary $\epsilon > 0,$ we must have
+    \[
+        \overline{{I_a}^b}(f+g) \le \overline{{I_a}^b}(f) + \overline{{I_a}^b}(g) \quad (1)
+    \]
+
+    Similarly 
+    \[
+        \underline{{I_a}^b}(f) + \underline{{I_a}^b}(g) \le \underline{{I_a}^b}(f+g) \quad (2)
+    \]
+
+    By the properties of the lower sums and upper sums,
+    \[
+        \underline{{I_a}^b}(f+g) \le \overline{{I_a}^b}(f+g) \quad (3)
+    \]
+
+    From (1), (2), and (3),
+    \[
+        \underline{{I_a}^b}(f) + \underline{{I_a}^b}(g) \le \underline{{I_a}^b}(f+g) 
+        \le \overline{{I_a}^b}(f+g) \le \overline{{I_a}^b}(f) + \overline{{I_a}^b}(g).
+    \]
+\end{proof}
+
+\newpage
+
+\begin{problem*}[4d]
+    (d) Conclude that $f + g$ is integrable on $[a, b]$ and that
+    \[
+        \int_{a}^{b} (f(x) + g(x)) dx = \int_{a}^{b} f(x) dx + \int_{a}^{b} g(x) dx
+    \]
+\end{problem*}
+
+\begin{proof}
+    For integrable $f$ and $g$ on $[a, b],$
+    \[
+        \overline{{I_a}^b}(f) + \overline{{I_a}^b}(g) = \underline{{I_a}^b}(f) + \underline{{I_a}^b}(g).
+    \]
+
+    From (c)
+    \[
+        \begin{aligned}
+            &\overline{{I_a}^b}(f+g) \le \overline{{I_a}^b}(f) + \overline{{I_a}^b}(g) = \underline{{I_a}^b}(f) + \underline{{I_a}^b}(g) \le \underline{{I_a}^b}(f+g)\\
+            &\Rightarrow \overline{{I_a}^b}(f+g) = \underline{{I_a}^b}(f+g).
+        \end{aligned}
+    \]
+
+    Thus $f+g$ is integrable and since:
+    \[
+        \begin{aligned}
+            &\int_{a}^{b} (f(x) + g(x)) dx = \overline{{I_a}^b}(f+g) = \underline{{I_a}^b}(f+g)\\
+            &\int_{a}^{b} f(x) dx + \int_{a}^{b} g(x) dx = \overline{{I_a}^b}(f) + \overline{{I_a}^b}(g) = \underline{{I_a}^b}(f) + \underline{{I_a}^b}(g)\\
+        \end{aligned}
+    \]
+
+    Hence,
+    \[
+        \int_{a}^{b} (f(x) + g(x)) dx = \int_{a}^{b} f(x) dx + \int_{a}^{b} g(x) dx.
+    \]
+\end{proof}
+
+\end{document}
