@@ -1,0 +1,217 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Solving Forty Two Problems by the Induction Principle - Part II}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}[Problem Six]
+    Let $f:\ \ZZ^+ \rightarrow \ZZ$ be a function such that:
+    \[
+        f(f(n)) + f(n) = 2n.
+    \]
+
+    Prove that $f(n) = n,\ \forall n \in \ZZ^+.$
+\end{problem}
+
+\begin{soln}
+    For the inductive step, let $f(k) = k, \forall k < n.$ Then
+    \[
+        f(f(n)) + f(n) = 2n
+    \]
+
+    \textit{Case 1:} if $f(n) = k < n,$ then 
+    \[ 
+        f(f(n)) = f(k) = k \Rightarrow f(f(n)) + f(n) = f(k) + k = 2k < 2n.
+    \]
+    
+    \textit{Case 2:} if $f(n) = k > n,$ then $f(f(n)) = 2n - k < n.$ By the hypothesis 
+    \[
+        f(f(f(n))) + f(f(n)) = 2f(n).
+    \] 
+
+    However, $f(f(n)) < n,$ so $f(f(f(n))) = f(n),$ thus $f(f(f(n))) + f(n) < 2f(n),$ a contradiction.
+
+    Therefore $f(n) = n.$ The hypothesis follows.
+\end{soln}
+
+\begin{problem}[Problem Seven]
+    Let $a_1, a_2, \ldots, a_n$ be any real numbers and $b_1, b_2, \ldots, b_n$ be any positive real numbers, prove that:
+    \[
+        \frac{a_1^2}{b_1} + \frac{a_2^2}{b_2} + \cdots + \frac{a_n^2}{b_n} \ge \frac{(a_1 + a_2 + \cdots + a_n)^2}{b_1 + b_2 + \cdots + b_n}.
+    \]
+
+    Let $a_1, a_2, \ldots, a_n$ be any positive real numbers, then:
+    \[
+        \frac{a_1+a_2+\cdots+a_n}{n} \ge \sqrt[n]{a_1a_2 \cdots a_n}.
+    \]
+\end{problem}
+
+\begin{soln}
+    The base case of $n=1$ is clear. Let prove the case $n=2$ in order to reuse it in the inductive step.
+    \[
+        \frac{a_1^2}{b_1} + \frac{a_2^2}{b_2}  \ge \frac{(a_1 + a_2)^2}{b_1 + b_2}
+        \Leftrightarrow (a_1^2b_2 + a_2^2b_1)(b_1+b_2) \ge (a_1+a_2)^2b_1b_2
+        \Leftrightarrow a_1^2b_2^2 + a_2^2b_1^2 \ge 2a_1a_2b_1b_2.
+    \]
+
+    It is easy to verify the last inequality.
+    Now, for the inductive step,
+    \[
+        \begin{aligned}
+            \frac{a_1^2}{b_1} + \frac{a_2^2}{b_2} + \cdots + \frac{a_n^2}{b_n} + \frac{a_{n+1}^2}{b_{n+1}} 
+            &\ge \frac{(a_1 + a_2 + \cdots + a_n)^2}{b_1 + b_2 + \cdots + b_n} + \frac{a_{n+1}^2}{b_{n+1}}\\
+            &\ge \frac{((a_1 + a_2 + \cdots + a_n)+a_{n+1})^2}{((b_1 + b_2 + \cdots + b_n)+b_{n+1})}
+        \end{aligned}
+    \]
+
+    The last inequality is an application of the case $n=2$ for two pairs of numbers $(a_1+a_2+\cdots+a_n),a_{n+1}$ and $(b_1 + b_2 + \cdots + b_n),b_{n+1}.$
+    Hence the hypothesis follows.
+\end{soln}
+
+\begin{problem}[Problem Eight]
+    Let $a_1, a_2, \ldots, a_n$ be any positive real numbers, then:
+    \[
+        \frac{a_1+a_2+\cdots+a_n}{n} \ge \sqrt[n]{a_1a_2 \cdots a_n}.
+    \]
+\end{problem}
+
+\begin{soln}[Solution One]
+    For the case $n \rightarrow 2n,$
+    \[
+        \begin{aligned}
+            &\frac{a_1 + a_2 + \cdots + a_{2n}}{2n} = \frac{1}{2} \left( \frac{a_1+a_2+\cdots+a_n}{n} + \frac{a_{n+1}+a_{2+1}+\cdots+a_{2n}}{n} \right)\\
+            &\ge \sqrt{\sqrt[n]{a_1 a_2 \cdots a_n} \cdot \sqrt[n]{a_{n+1} a_{n+2} \cdots a_{2n}}} = \sqrt[2n]{a_1 a_2 \cdots a_{2n}}.
+        \end{aligned}
+    \]
+
+    The case $n \rightarrow n-1$ is as follow,
+    \[
+        \begin{aligned}
+            &\frac{a_1+a_2+\cdots+a_{n-1}}{n-1} = \frac{a_1+a_2+\cdots+a_{n-1} + \frac{a_1+a_2+\cdots+a_{n-1}}{n-1}}{n}\\
+            &\ge \sqrt[n]{a_1 a_2 \cdots a_{n-1} \left(\frac{a_1+a_2+\cdots+a_{n-1}}{n-1}\right)}\\
+            &\Rightarrow \left( \frac{a_1+a_2+\cdots+a_{n-1}}{n-1} \right)^n \ge a_1 a_2 \cdots a_{n-1} \left(\frac{a_1+a_2+\cdots+a_{n-1}}{n-1}\right)\\
+            &\Rightarrow \frac{a_1+a_2+\cdots+a_{n-1}}{n-1} \ge \sqrt[n-1]{a_1 a_2 \cdots a_{n-1}}
+        \end{aligned}
+    \]
+
+    Hence, by the base case and following $n \rightarrow 2n \rightarrow 2n-1 \rightarrow \cdots \rightarrow n+1$ chain of applications, the hypothesis follows.
+\end{soln}
+
+\begin{soln}[Solution Two]
+    We prove the following claim
+    \begin{claim*}
+        For $0< x_1, x_2, \ldots, x_n,$ where $x_1 x_2 \cdots x_n = 1,$ 
+        \[
+            x_1 + x_2 + \cdots + x_n \ge n \quad (*)
+        \]
+    \end{claim*}
+    \begin{subproof}
+        For $0< x_1 \le 1 \le x_2,$ then
+        \[
+            x_2 - x_1x_2 \ge 1 - x_1 \Rightarrow x_1 + x_2 \ge x_1x_2 + 1.
+        \]
+        
+        Let's assume that (*) stand for $n-1.$ Then $x_1 x_2 \cdots x_n = 1.$
+        The trivial case when all $x_i$ is $1$ is obvious.
+        WLOG, since the roles of $x_i$ are interchangeable, let's assume that $x_{n-1} \le 1 \le x_{n}.$
+
+        From the case $n=2$
+        \[
+            x_1 + x_2 + \cdots + x_n = (x_1 + x_2 + \cdots + x_{n-2})  + (x_{n-1}+x_n) 
+            \ge x_1 + x_2 + \cdots + x_{n-2} + (x_{n-1}x_n) + 1
+        \]
+
+        By the hypothesis,
+        \[
+            x_1 + x_2 + \cdots + x_{n-2} + (x_{n-1}x_n) \ge n-1 \Rightarrow x_1 + x_2 + \cdots + x_n \ge n.
+        \]
+    \end{subproof}
+    
+    By applying $x_k = \frac{a_k}{\sqrt{\prod_{i=1}^{n} a_i}},\ k=1,2,\ldots,n,$
+    Then $x_1 x_2 \cdots x_n = 1,$ thus 
+    \[
+        \sum_{k=1}^{n} \frac{a_k}{\sqrt{\prod_{i=1}^{n} a_i}} \ge n \Rightarrow \frac{a_1+a_2+\cdots+a_n}{n} \ge \sqrt[n]{a_1a_2 \cdots a_n}.
+    \]
+\end{soln}
+
+\begin{problem}[Problem Nine]
+    \label{problem:23-24-s5-o-p7}
+    Let $a_1, a_2, \ldots, a_n$ be any real numbers satisfying $a_{i+j} \le a_i + a_j,\ \forall i, j \in \ZZ^+.$ Prove that:
+    \[
+        a_1 + \frac{a_2}{2} + \frac{a_3}{3} + \cdots + \frac{a_n}{n} \ge a_n,\ \forall n \ge 1.
+    \]
+\end{problem}
+
+\begin{soln}
+    The base case $n=1$ is trivial. Let's now list all the inequalities for $1 \le k \le n.$
+    \[
+        \begin{cases}
+            a_1 &\ge a_1\\
+            a_1 + \frac{a_2}{2} &\ge a_2\\
+            a_1 + \frac{a_2}{2} + \frac{a_3}{3} &\ge a_3\\
+            &\ldots\\
+            a_1 + \frac{a_2}{2} + \frac{a_3}{3} + \cdots + \frac{a_{n-1}}{n-1} &\ge a_{n-1}\\
+            a_1 + \frac{a_2}{2} + \frac{a_3}{3} + \cdots + \frac{a_{n-1}}{n-1} + \frac{a_n}{n} &\ge a_n
+        \end{cases}
+    \]
+    
+    By summing up
+    \[
+        n \cdot a_1 + (n-1) \cdot \frac{a_2}{2} + \cdots + 1 \cdot \frac{a_n}{n} \ge a_1 + a_2 + \cdots + a_n.
+    \]
+
+    By adding $a_1 + a_2 + \cdots + a_n$ to both sides, and note that $a_i + a_{n+1-i} \ge a_{n+1},$
+    \[
+        \begin{aligned}
+            &(n+1) \left( a_1 + \frac{a_2}{2} + \cdots + \frac{a_n}{n} \right) \ge (a_1+a_{n}) + (a_2+a_{n-1}) + \cdots + (a_n+a_1) \ge na_{n+1}\\
+            &\Rightarrow a_1 + \frac{a_2}{2} + \cdots + \frac{a_n}{n} \ge \frac{n}{n+1} a_{n+1}
+            \Rightarrow a_1 + \frac{a_2}{2} + \cdots + \frac{a_n}{n} + \frac{a_{n+1}}{n+1} \ge a_{n+1}
+        \end{aligned}
+    \]
+
+    The hypothesis follows.
+\end{soln}
+
+\begin{problem}[Problem Ten]
+    Let $k \ge 3$ be an integer. Show that there exist odd integer $x$ and $y$ such that 
+    \[
+        2^k = 7x^2 + y^2.
+    \]
+\end{problem}
+
+\begin{soln}
+    For $k=3,$ $2^3 = 7 \cdot 1^2 + 1^2.$ So $(1,1)$ is a solution for $k=3.$
+
+    Let assume that $(x_k, y_k)$ is a solution for $2^k = 7x^2 + y^2.$
+
+    Now,
+    \[
+        2^{k+1} = 2(7x_k^2 + y_k^2)= 7\left(\frac{x_k \pm y_k}{2}\right)^2 + \left(\frac{7x_k \mp y_k}{2}\right)^2.
+    \]
+
+    It is easy to see that if $x_k, y_k$ both odd, then $\dfrac{x_k + y_k}{2},$ or $\left| \frac{x_k - y_k}{2} \right|$ is odd (their sum is $x_k$ or $y_k$).
+
+    If $\dfrac{x_k + y_k}{2}$ is odd, then we can choose $x_{k+1} = \dfrac{x_k + y_k}{2},$ $y_{k+1} = \left| \dfrac{7x_k - y_k}{2} \right|,$ and both are odd.
+    
+    If $\dfrac{x_k + y_k}{2}$ is even, then we can choose $x_{k+1} = \left| \dfrac{x_k - y_k}{2} \right|,$ $y_{k+1} = \dfrac{7x_k + y_k}{2},$ and both are odd.
+
+    Thus, there exists a pair of odd integers $(x_{k+1}, y_{k+1}),$ which is a solution for $2^{k+1} = 7x^2 + y^2.$
+    
+    Therefore, the hypothesis is true for $k+1.$ Hence, it is true for all $k$.
+\end{soln}
+
+\end{document}

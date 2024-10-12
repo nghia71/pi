@@ -1,0 +1,173 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{The Induction Principle for Beginners - Part II}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{example}[Example Six]
+    Show that for all $n \ge 1,$
+    \[
+        \frac{1 \cdot 3 \cdot 5 \cdots (2n-1)}{2 \cdot 4 \cdot 6 \cdots 2n} \le \frac{1}{\sqrt{2n+1}}.
+    \]
+\end{example}
+
+\begin{soln}
+    Our hypothesis is that for all $n \ge 1,$
+    \[
+        \frac{1 \cdot 3 \cdot 5 \cdots (2n-1)}{2 \cdot 4 \cdot 6 \cdots 2n} \le \frac{1}{\sqrt{2n+1}}.
+    \]
+
+    For the base case $n=2,$ it is easy to verify that
+    \[
+        \frac{1}{2} < \frac{1}{\sqrt{3}}.
+    \]
+    
+    Now, for the Inductive step, let's assume that the hypothesis is true for $n,$ or
+    \[
+        \frac{1 \cdot 3 \cdot 5 \cdots (2n-1)}{2 \cdot 4 \cdot 6 \cdots 2n} \le \frac{1}{\sqrt{2n+1}}. \quad (*)
+    \]
+
+    We shall prove that
+    \[
+        \frac{1 \cdot 3 \cdot 5 \cdots (2n+1)}{2 \cdot 4 \cdot 6 \cdots (2n+2)} \le \frac{1}{\sqrt{2n+3}}. \quad (**)
+    \]
+
+    By the assumption (*),
+    \[
+        \frac{1 \cdot 3 \cdot 5 \cdots (2n+1)}{2 \cdot 4 \cdot 6 \cdots (2n+2)}
+        = \frac{1 \cdot 3 \cdot 5 \cdots (2n-1)}{2 \cdot 4 \cdot 6 \cdots 2n} \cdot \frac{2n+1}{2n+2} 
+        < \frac{1}{\sqrt{2n+1}} \cdot \frac{2n+1}{2n+2} 
+        = \frac{\sqrt{2n+1}}{2n+2}
+    \]
+    
+    Since 
+    \[
+        \frac{\sqrt{2n+1}}{2n+2} < \frac{1}{\sqrt{2n+3}}
+        \Leftrightarrow (2n+1)(2n+3) < (2n+2)^2
+        \Leftrightarrow 4n^2 + 8n + 3 < 4n^2+ 8n + 4, \text{\ which is true.}
+    \]
+    Thus the hypothesis is true for $n+1,$ therefore it is true for all $n \ge 2.$
+\end{soln}
+
+\newpage
+
+\begin{example}[Example Seven]
+    Prove that every positive integer can be represented as a sum of several distinct powers of 2.
+\end{example}
+
+\begin{soln}
+    Our hypothesis is that every positive integer can be represented as a sum of several distinct powers of 2.
+
+    It is easy to verify the base cases $n=1$ and $n=2.$ 
+    
+    Now, for the Inductive step, let's assume that the hypothesis is true for $n$ or let's assume that
+    every positive integer less than or equal to $n$ can be represented as a sum of several distinct powers of 2.
+
+    We shall prove that $n+1$ can be represented as a sum of several distinct powers of 2.
+
+    Now, for $n+1 \ge 4,$ there exists an positive integer $m$ such that 
+    \[
+        2^m \le (n+1) < 2^{m+1}.
+    \]
+    
+    If $n+1= 2^m,$ then we are done, if not then $n+1 = 2^m + (n+1-2^m),$
+    where $n+1 - 2^m < n$ and can be represented as a sum of several distinct powers of 2.
+    It is easy to see that any power of 2 in the sum representing $n+1-2^m$ is less than $2^m,$
+    otherwise $n+1 > 2^{m+1}.$
+    
+    Thus the hypothesis is true for $n+1,$ therefore it is true for all $n \ge 2.$
+\end{soln}
+
+\begin{example}[Example Eight]
+    There are $n \ge 1$ real numbers with non-negative sum written on a circle.
+    Prove that one can enumerate them $a_1, a_2, \ldots, a_n$ such that they are consecutive on the circle and
+    \[
+        a_1 \ge 0, a_1 + a_2 \ge 0, \ldots, a_1 + a_2 + \cdots + a_{n-1} \ge 0, a_1 + a_2 + \cdots + a_{n-1} \ge 0.
+    \]
+\end{example}
+
+\begin{soln}
+    Our hypothesis is based on $n$.
+
+    It is easy to verify the base cases when $n=1$ or we have only one number.
+    
+    For the Inductive step, let's assume that the hypothesis is true for $n-1.$ We shall prove for $n.$
+
+    As the sum of these numbers are non-negative, there are non-negative numbers.
+    If all of them are non-negative, we can chose any number to be $a_1$ and then enumerate the rest clockwise,
+    and we have the desired inequalities.
+    
+    Now, let's assume that there exists $a_n < 0,$ then by applying the hypothesis for 
+    \[
+        a_1, a_2, \ldots, a_{n-2}, a_{n-1} + a_n\ (\text{note that the last number is a sum})
+    \]
+    we can find $a_j$ such that
+    \[
+        a_j, a_j + a_{j+1}, \ldots, a_j + \ldots a_{n-2}, a_j + \ldots a_{n-1} + a_n, \ldots \text{\ are all non-negative.} 
+    \]
+
+    Since $a_n < 0,$ thus $ a_j + \ldots a_{n-1} > 0,$
+    therefore this sum plus $n-1$ of the above sums are the $n$ desired sums with $a_j$ as the first number in the re-enumeration.
+\end{soln}
+
+\newpage
+
+\begin{example}[Example Nine]
+    The sequence $a_1, a_2, \ldots, a_n, \ldots$ is defined as follow,
+    \[
+        a_1 = 3, a_2 = 5, a_{n+1} = 3a_n - 2a_{n-1}, \text{\ for\ } n \ge 2.
+    \]
+
+    Prove that $a_n = 2^n + 1,$ for all $n$ positive integer.
+\end{example}
+
+\begin{soln}
+    Our hypothesis is that $a_n = 2^n + 1,$ for all $n$ positive integer
+
+    It is easy to verify the base cases when $n=1$ and $n=2$.
+    
+    For the Inductive step, let's assume that the hypothesis is true for all positive integers less than or equal to $n.$
+    We shall prove for $n+1.$
+
+    It is easy to verify that $a_{n+1} = 3a_n - 2a_{n-1} = 3(2^{n-1}+1) - 2(2^{n-2}+1) = 2^{n} + 1.$
+    Thus the hypothesis is true for $n+1,$ therefore it is true for all $n \ge 1.$
+\end{soln}
+
+\begin{example}[Example Ten]
+    A bank has an unlimited supply of 3-peso and 5-peso notes. Prove that it can pay any number of pesos greater than 7.
+\end{example}
+
+\begin{soln}
+    Our hypothesis is that any positive integer larger than 7 can be expressed a sum of 3s and 5s.
+
+    It is easy to verify the base cases of 8, 9, and 10:
+    \[
+        8 = 3 + 5, 9 = 3 + 3 + 3, 10 = 5 + 5.
+    \]
+    
+    For the Inductive step, let's assume that the hypothesis is true for $k, k+1, k+2.$
+    We can easily add 3 to any of the number to prove for $k+3, k+4, k+5.$
+
+    This means that this induction proof with a compound base may be split into three standard inductions using the following schemes:
+    \[
+        8 \rightarrow 11 \rightarrow 14 \rightarrow \cdots,
+        9 \rightarrow 12 \rightarrow 15 \rightarrow \cdots,
+        10 \rightarrow 13 \rightarrow 16 \rightarrow \cdots
+    \]
+\end{soln}
+
+\end{document}

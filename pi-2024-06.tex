@@ -1,0 +1,187 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Solving Forty Two Problems by the Induction Principle - Part IV}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}[Problem Sixteen]
+    Prove that for $n \ge 1,$ the number $n!$ has the following property: to any divisor of $n!,$ except $n!,$
+    we can add another divisor of $n!$ so that their sum is a divisor of $n!.$
+\end{problem}
+
+\begin{soln}
+    Consider an induction based on $n \ge 2$ The case $n=2$ is obvious $1+1 = 2!.$
+    
+    Now, for the inductive step. 
+    
+    Let $k \mid (n+1)!,$ then there exist $a,b$ so that $k = ab,$ where $a \mid n!, b \mid n+1.$
+
+    \textit{Case 1:} $a <n!,$ then by induction hypothesis,
+    \[
+        \exists c \mid n!,\ a+c \mid n! \Rightarrow k+cb = ab+cb =(a+c)b \mid n!(n+1) = (n+1)!.
+    \]
+
+    \textit{Case 2:} $a =n!,$ then $b < n+1.$
+    
+    \textit{Case 2a:} $n+1$ is composite, then
+    \[
+        \begin{aligned}
+            &\exists c > 1,\ n+1 = bc \Rightarrow c < n \Rightarrow \frac{n!}{c} \mid n! \Rightarrow \exists d,\  \frac{n!}{c}+d \mid n!\\
+            &\Rightarrow k + (n+1)d = n!b + (n+1)d = \frac{(n+1)!}{c} + (n+1)d  =  \left( \frac{n!}{c} + d \right) (n+1) \mid n!(n+1) = (n+1)!
+        \end{aligned}
+    \]
+\end{soln}
+
+\begin{problem}[Problem Seventeen]
+    On a circular route, there are $n$ identical cars. Together they have enough gas for one car to make a complete tour.
+    Prove that there is a car that can make a complete tour by taking gas from all the cars that is encounters.
+\end{problem}
+
+\begin{soln}[Solution One]
+    We will prove this by induction on $n.$ It is clearly true for $n=1.$
+
+    Consider $n+1$ cars. Clearly there is a car, say $A$ has enough gas to reach another car, say $B.$ (Why there is such $A$? Prove by contradiction can help.)
+    The consider a configuration without $B.$ $A$ now has the total amount of the gas of $A$ and $B.$ It is clear that this configuration satisfies the induction hypothesis.
+    Thus, there is a car $C$ which can make a complete tour by taking gas from all the cars that is encounters.
+    Now, if $C$ is $A$ then it is equivalent to the case $A$ goes to $B$ and takes $B$ gas and then continue.
+    If $C$ is not $A,$ then $C$ will be able to reach $A,$ which then has enough gas to reach $B,$ and then the next car, which is not $A$.
+\end{soln}
+
+\begin{soln}[Solution Two]
+    Let the cars be $C_1, C_2, \ldots, C_n.$ Let's imagine that we have a similar car $Z$ with a huge tank that has more than enough gas to complete a tour.
+    Let this car $Z$ start from the location of some car $C_i$ on the circular route, and takes all the gas from all cars $C_1, \ldots , C_n$ it encounters,
+    and complete the tour.
+    
+    WLOG, let $C_1$ be a car where the level of gas in the car $Z$ is the lowest when $Z$ encounters $C_1.$
+    We claim that if the car $C_1$ is the starting point and travel in the same direction as the car $Z,$ then it will be able to
+    complete a tour by taking gas from all the cars that it encounters on its way. 
+    
+    Suppose not, that $C_1$ runs out of gas when getting from car $C_j$ to car $C_{j+1}$ for some $1 \le j \le n - 1.$
+    Then the amount of gas required to travel from car $C_1$ to car $C_{j+1}$ is more than the total amount of gas from cars $C_1, C_2, \ldots, C_{j+1}.$
+    That implies that the level of gas in the car $Z$ when meeting car $C_j$ is strictly lower than its level of gas when $Z$ encountered $C_1,$
+    which is a contradiction to the minimality of the level of gas when $Z$ encounters $C_1.$
+    Therefore, $C_1$ can make a complete tour.
+\end{soln}
+
+\begin{problem}[Problem Eightteen]
+    Santa Claus has $n \ge 2$ different presents and several identical bags. Each bag contains exactly two objects:
+    either two bags, or a bag and a presents, or two presents. In particular, the big bag of presents Santa Claus has contains two objects.
+    How many ways are there to split the presents into bags?
+\end{problem}
+
+\begin{soln}
+    We show by induction that the number of ways is $(2n-3)!! = 1 \cdot 3 \cdot 5 \cdots (2n-3),$ and the number of needed bags is $n-1.$
+    For $n=2$ we put two presents into a bag. There is no other way.
+
+    Lets assume we have $n+1$ present, and we find a ways to put them in bags as required.
+    Then the $(n=1)^{1^\text{st}}$ present is in a bag with another a bag, or another present.
+    Let's remove the $(n=1)^{1^\text{st}}$ present, the bag that contains it, but not the content of the bag.
+    Then the remaining configuration is a valid way.
+    Conversely, given a valid way to distribute $n$ presents,
+    we just need to add the $(n=1)^{1^\text{st}}$ present to any of the existing objects - a bag or a present into a new bag.
+
+    Now, by induction, for $n$ present we use  $2n-1$ objects: $n$ present and $n-1$ bags, thus $2n-1$ objects.
+    To add a new object we have $2n-1$ choices for any of these $2n-1$ objects and perform the procedure as described above.
+    Thus the number of valid ways now is $(2n-3)!! \cdot (2n-1) = \boxed{(2n-1)!!.}$
+\end{soln}
+
+\begin{problem}[Problem Nineteen]
+    Prove that if the graph $G$ is a tree with $n$ vertices then it has exactly $n-1$ edges.
+\end{problem}
+
+\begin{soln}
+    Suppose we select a vertex of $G$ and start to walk on the edges from that vertex, forming a trail $v_1, v_2, \ldots$
+    The trail cannot self-intersect, as then we would have a circle, which contradicts the existence of the tree.
+    Thus the walk should eventually stop ar some vertex of degree 1, otherwise it is still possible to continue the walk.
+
+    Now we prove that the tree contains $n-1$ edges. The case is clear if $n=1.$
+    Suppose we have a tree with $n+1$ vertices. As above, we shall find a vertex with degree 1.
+    By removing that vertex together with the edge connecting it,
+    we obtain again a graph with $n$ vertices. The graph is still connected, and contains no cycle, thus it is a tree.
+    Therefore the number of edges before removing the vertex is $n-1+1=n$.
+\end{soln}
+
+\begin{problem}[Problem Twenty]
+    There are $n \ge 3$ distinct points on the plane, not all of them collinear.
+    Prove that these point determine at least $n$ lines (each line through at least two points.)
+\end{problem}
+
+\begin{soln}
+    We prove the given statement by induction. For $n=3,$ the statement is obvious.
+    For $n > 3,$ by Sylvester-Gallai theorem, there is a ;ine passing through only two out of $P_1, P_2, \ldots, P_{n+1}$ points.
+    WLOG, let that be the line through $P_nP_{n+1},$ If all $P_1, P_2, \ldots, P_{n}$ are collinear,
+    then we have $n$ line through $P_{n+1}$ and each of the points $P_1, P_2, \ldots, P_{n},$ thus altogether $n+1$ lines.
+    Otherwise we have $n$ distinct lines through pairs of $P_1, P_2, \ldots, P_{n}.$ These, together with the line $P_nP_{n+1},$ make $n+1$ lines.
+\end{soln}
+
+\begin{problem}[Problem Twenty One]
+    Let $A_1, A_2, \ldots, A_n$ ($n \ge 4$) be a convex polygon. Denote by $R_i$ the radius of the circumcircle of the triangle $A_{i-1}A_{i}A_{i+1}$ ($i=2,3,\ldots,n$ and $A_{n+1} = A_1$.)
+    Prove that if $R_2 = R_3 = \ldots = R_n$ then one can draw a circumcircle for the polygon $A_1A_2\ldots A_n.$
+\end{problem}
+
+\begin{lemma*}[Lemma 1]
+    If the convex quadrilateral $MNPK$ cannot be inscribed in a circle, but the radii of the circumcircles of the triangles $MNP$ and $MNK$ are equal,
+    then $\angle MPN + \angle MKN = 180\dg.$
+\end{lemma*}
+
+\begin{lemma*}[Lemma 2]
+    Let $ABCDE$ be a convex pentagon such that $R_B = R_C = R_D,$ where $R_B, R_C,$ and $R_D$ denote the radii of the circumcircles of the triangles $ABC,$ $BCD,$ and $CDE,$ respectively.
+    Then at least one of the quadrilaterals $ABCD$ or $BCDE$ can be inscribed in a circle.
+\end{lemma*}
+
+\begin{lemma*}[Lemma 3]
+    Let $ABCDE$ be a convex pentagon such that $R_B = R_C = R_D = R_E$ where $R_B,$ $R_C,$ $R_D,$ and $R_E$
+    denote the radii of the circumcircles of the triangles $ABC,$ $BCD,$ $CDE,$ and $DEA,$ respectively.
+    Then at least one of the quadrilaterals $ABCD$ or $CDEF$ can be inscribed in a circle.
+\end{lemma*}
+
+\begin{soln}
+    We leave the proofs of the lemmas for the students. We prove the given statement by induction.
+    The case $n=$ is handled by the lemmas. For $n=5,$ applying Lemma 2 and Lemma 3 ($A=F$) we see that at least two of the quadrilaterals
+    $A_1A_2A_3A_4,$ $A_2A_3A_4A_5,$ $A_3A_4A_5A_1$ can be inscribed in a circle.
+    From this it follows that it is possible to draw a circumcircle for the pentagon $A_1A_2A_3A_4A_5.$
+    
+    For the induction step, we show that for $n \ge 5,$ then the case $n+1$ stands.
+    Consider the quadrilaterals $A_1A_2A_3A_4,$ $A_2A_3A_4A_5,$ $A_3A_4A_5A_6,$ and  $A_4A_5A_6A_7,$ (with $n=6,$ consider $A_7=A_1$.)
+    Using Lemma 2 and Lemma 3 we have that a pair of consecutive quadrilaterals in the list can be inscribed in a circle.
+
+    Assume that these are $A_1A_2A_3A_4,$ $A_2A_3A_4A_5$ (the argument is basically same for other cases).
+    Then it can be verified that the convex $n-$gon $A_1 A_2 A_4 A_5 \ldots A_n A_{n+1}$ satisfy the conditions, thus can be inscribed in a circle.
+    Moreover $A_3$ is also on that circle. This completes our proof.
+\end{soln}
+
+\begin{problem}[Problem Twenty Two]
+    Let $I$ be an interval, $f,g:\ I \rightarrow \RR$ be two $n$ times differentiable functions. Prove that
+    \[
+        (fg)^{(n)} = \binom{n}{0}f^{(n)}g + \binom{n}{1}f^{(n-1)}g^{(1)} + \cdots + \binom{n}{n-1}f^{(1)}g^{(n-1)} + \binom{n}{n}fg^{(n)}
+    \]
+    where $f^{(k)}$ denotes the $k^{\text{th}}$ derivative of $f.$
+\end{problem}
+
+\begin{soln}
+    The key is the rule for derivative of a product
+    \[
+        (fg)' = f'g + fg'.
+    \]
+
+    The rest is simple with the Pascal Identity
+    \[
+        \binom{n}{k-1} + \binom{n}{k} = \binom{n+1}{k}.
+    \]
+\end{soln}
+
+\end{document}

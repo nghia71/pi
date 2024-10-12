@@ -1,0 +1,253 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Solving Forty Two Problems by the Induction Principle - Part I}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}[Problem One]
+    $n \ge 3$ is a positive integer. Prove that $n!$ can be written as a sum of $n$ distinct divisors of itself.
+\end{problem}
+
+\begin{soln}
+    Our hypothesis is a \textit{stronger} version of the problem's statement:
+    for all $n \ge 3,$ $n!$ can be written as a sum of $n$ distinct divisors of itself with the smallest divisor is $1,$
+    in other words there exists positive integer $k$ such that
+    \[
+        n! = d_1 + d_2 + \cdots + d_k,\ \text{where}\ d_i \mid n!,\ i=1,2,\ldots,k,\ \text{and}\ d_1 = 1 < d_2 = n-1 < \ldots < d_k \quad (*)
+    \]
+
+    For the base case $n=3,$ 
+    \[
+        3! = 6 = 1 + 2 + 3,\ 1 \mid 3!, 2 \mid 3!, 3 \mid 3!.
+    \]
+    
+    Now, let's assume that the hypothesis is true for $n,$ or (*) stands, then $\exists d_1 = 1 < d_2 = n-1 < \ldots < d_k.$
+    \[
+        (n+1)! =  (n+1)(d_1 + d_2 + \cdots + d_k) = (n+1)(1 + d_2 + \cdots + d_k) 
+        = 1 + n + d_2 + \cdots + d_k
+    \]
+
+    Thus there exists $\ell = k+1,$ and $e_1 = 1, e_2 = n, e_3 = (n+1)d_2, \ldots, e_{k+1} = (n+1)d_k,$ such that
+    \[
+        (n+1)! = e_1 + e_2 + \cdots + e_{\ell},\ \text{where}\ e_i \mid (n+1)!,\ i=1,2,\ldots,\ell,\ \text{and}\ 1 = e_1 < n = e_2 < \ldots < e_{\ell}
+    \]
+
+    Thus the hypothesis (*) is true for $n+1,$ therefore it is true for all $n \ge 3.$
+    Hence, the weaker hypothesis of the problem follows.
+\end{soln}
+
+\begin{problem}[Problem Two]
+    $n \ge 1$ is a positive integer. Prove that:
+    \[
+        \begin{aligned}
+            x_n = \frac{1}{1} + \frac{1}{2^1} + \cdots + \frac{1}{2^n} < 2 \quad \text{and} \quad
+            y_n = \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} < \frac{7}{10}.
+        \end{aligned}
+    \]
+\end{problem}
+
+\begin{soln}
+    For the first question, by the formula for a geometric series
+    \[
+        x_n = \frac{1}{1} + \frac{1}{2^1} + \cdots + \frac{1}{2^n} = \frac{1-\frac{1}{2^{n+1}}}{1-\frac{1}{2}} = 2 - \frac{1}{2^n} < 2.
+    \]
+
+    For the second question, we prove a \textit{stronger} inequality, for $n \ge 4,$
+    \[
+        y_n + \frac{1}{4n} < \frac{7}{10}
+    \]
+
+    It is easy to verify that given inequality for $n \le 3,$ or $y_n < \frac{7}{10},\ \forall n \le 3,$ and for $n=4,$
+    \[
+        y_4 + \frac{1}{4\cdot 4} = \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} + \frac{1}{16} = \frac{1171}{1680} \approx 0.697 < 0.7 = \frac{7}{10}.
+    \]
+
+    For the inductive step, if for $n \ge 4,$
+    \[
+        \begin{aligned}
+            &y_n + \frac{1}{4n} < \frac{7}{10}
+            \Rightarrow
+            y_{n+1} + \frac{1}{4(n+1)} - y_n - \frac{1}{4n} 
+            = \left(\frac{1}{2n+1} + \frac{1}{2n+2} - \frac{1}{n+1}\right) + \left(\frac{1}{4(n+1)} - \frac{1}{4n}\right)\\
+            &= \frac{1}{(2n+1)(2n+2)} - \frac{1}{4n(n+1)} = - \frac{1}{4n(n+1)(2n+1)} < 0
+            \Rightarrow  y_{n+1} + \frac{1}{4(n+1)} < \frac{7}{10}
+        \end{aligned}
+    \]
+
+    Thus the hypothesis (*) is true for $n+1,$ therefore it is true for all $n \ge 1.$
+    Hence, the weaker hypothesis of the problem follows.
+\end{soln}
+
+\begin{problem}[Problem Three]
+    $n \ge 1$ is a positive integer. $(f_n)$ is the Fibonacci sequence: $f_0 = f_1 = 1, f_{n+1} = f_n + f_{n-1}.$ Prove that:
+    \[
+        f_{2n+1} = f_{n+1}^2 + f_{n}^2 \quad (*)
+    \]
+\end{problem}
+
+\begin{soln}[Solution One]
+    We consider a \textit{stronger} hypothesis, for $m, n$ non-negative integers:
+    \[
+        f_{m+n+1} = f_{m+1}f_{n+1} +f_{m}f_{n} \quad (**)
+    \]
+
+    We prove it by induction based on $n \ge 0.$ 
+
+    The base case is trivial for $n=0,$ which means $f_{m+1} = f_{m+1},$
+    and for $n=1$, which becomes $f_{m+2} = f_{m+1} + f_{m}$ that is the formula for the Fibonacci sequence.
+
+    For the inductive step, with the assumption that (**) is true for all $k=0,1,\ldots,n$,
+    \[
+        \begin{aligned}
+            f_{m+n+2} &= f_{m+n+1} + f_{m+n} = (f_{m+1}f_{n+1} +f_{m}f_{n}) + (f_{m+1}f_{n} +f_{m}f_{n-1})\\
+            &= f_{m+1}(f_{n+1}+f_{n}) + f_{m}(f_{n}+f_{n-1}) = f_{m+1}f_{n+2} + f_{m}f_{n+1}
+        \end{aligned}
+    \]
+
+    Thus the hypothesis (*) is true for $n+1,$ therefore it is true for all $n \ge 0.$
+
+    The desired identity is the case of (**) when $m=n$
+    \[
+        f_{2n+1} = f_{(n)+(n)+1} = f_{(n)+1}f_{(n)+1} +f_{(n)}f_{(n)} = f_{n+1}^2 + f_{n}^2.
+    \]
+\end{soln}
+
+\begin{soln}[Solution Two]
+    Let $\alpha_1 = \frac{1+\sqrt{5}}{2},$ $\alpha_2 = \frac{1+\sqrt{5}}{2},$ 
+    the generic formula (closed-form) of a Fibonacci number is
+    \[
+        f_n = \frac{1}{\sqrt{5}} (\alpha_1^n - \alpha_2^n)
+    \]
+
+    Note that
+    \[
+        \alpha_1 \alpha_2 = -1 \Rightarrow \alpha_1 + \frac{1}{\alpha_1} = \alpha_1 - \alpha_2 = \sqrt{5}, \alpha_2 + \frac{1}{\alpha_2} =  \alpha_2 - \alpha_1 = -\sqrt{5}
+    \]
+
+    Therefore
+    \[
+        \begin{aligned}
+            f_{n+1}^2 + f_{n}^2 &= \frac{1}{5} \left[ (\alpha_1^{2n+2} - 2(\alpha_1 \alpha_2)^{n+1} + \alpha_2^{2n+2}) + (\alpha_1^{2n} - 2(\alpha_1 \alpha_2)^n + \alpha_2^{2n})  \right]\\
+            &=\frac{1}{5} \left[ \alpha_1^{2n+1}  \left( \alpha_1 + \frac{1}{\alpha_1} \right) + \alpha_2^{2n+1}  \left( \alpha_2 + \frac{1}{\alpha_2} \right)  \right]
+            =\frac{1}{5} \left( \alpha_1^{2n+1} \sqrt{5} + \alpha_2^{2n+1} (-\sqrt{5}) \right)\\
+            &= \frac{1}{\sqrt{5}} (\alpha_1^{2n+1} - \alpha_2^{2n+1}) = f_{2n+1}
+        \end{aligned}
+    \]
+\end{soln}
+
+\begin{problem}[Problem Four]
+    $n \ge 1$ is a positive integer. Prove that
+    \[
+        \binom{n}{0}^{-1} + \binom{n}{1}^{-1} + \cdots + \binom{n}{n}^{-1} = \frac{n+1}{2^{n+1}} \left(\frac{2}{1} + \frac{2^2}{2} + \cdots +\frac{2^{n+1}}{n+1}\right)
+    \]
+\end{problem}
+
+\begin{soln}
+    Let 
+    \[
+        a_n = \binom{n}{0}^{-1} + \binom{n}{1}^{-1} + \cdots + \binom{n}{n}^{-1},\ b_n = \frac{n+1}{2^{n+1}} \left(\frac{2}{1} + \frac{2^2}{2} + \cdots +\frac{2^{n+1}}{n+1}\right)
+    \]
+
+    We prove that for all $n\ge 1,$
+    \[
+        \begin{cases}
+            &a_{n+1} = \frac{n+2}{2(n+1)} a_n + 1 \quad (*)\\
+            &b_{n+1} = \frac{n+2}{2(n+1)} b_n + 1 \quad (**)
+        \end{cases}
+    \]
+
+    For the first identity (*), consider a term of $a_{n},$ for $i=0,1,\ldots n,$
+    \[
+        \begin{aligned}
+            &\binom{n}{i}^{-1} = \frac{i! (n-i)!}{n!} = \frac{n+1}{n+2} \cdot \frac{(n+2)i!(n-i)!}{(n+1)!} = \frac{n+1}{n+2} \cdot  \frac{((i+1) + (n+1-i))i!(n-i)!}{(n+1)!}\\
+            &= \frac{n+1}{n+2} \cdot  \left(\frac{(i+1)!(n-i)!}{(n+1)!} + \frac{i!(n+1-i)!}{(n+1)!} \right)
+            = \frac{n+1}{n+2} \cdot \left(\binom{n+1}{i+1}^{-1} + \binom{n+1}{i}^{-1}  \right)
+        \end{aligned}
+    \]
+
+    By summing up
+    \[
+        a_n = \frac{n+1}{n+2} \cdot \left( 2a_{n+1} - \binom{n+1}{n+1}^{-1} - \binom{n+1}{0}^{-1} \right) = \frac{n+1}{n+2} \cdot (2a_{n+1} - 2)
+        \Rightarrow a_{n+1} = \frac{n+2}{2(n+1)} a_n + 1.
+    \]
+
+    For (**)
+    \[
+        \frac{2^{n+2}}{n+2} b_{n+1} = \frac{2}{1} + \frac{2^2}{2} + \cdots + \frac{2^{n+1}}{n+1} + \frac{2^{n+2}}{n+2} = \frac{2^{n+1}}{n+1} b_{n} + \frac{2^{n+2}}{n+2}
+        \Rightarrow b_{n+1} = \frac{n+2}{2(n+1)} b_n + 1.
+    \]
+
+    Starting with $a_1 = b_1,$ applying the Induction Principle on both sequences $(a_n)$ and $(b_n)$ at the same time,
+    it is easy arrive at the conclusion that $a_n = b_n$ for all $n$.
+\end{soln}
+
+\begin{problem}[Problem Five]
+    Let $f:\ \ZZ^+ \rightarrow \ZZ$ be a function with the following properties: 
+    \begin{enumerate}[topsep=0pt, partopsep=0pt, itemsep=0pt]
+        \ii $f(2) = 2;$
+        \ii $f(mn) = f(m)f(n),\ \forall m, n;$ 
+        \ii $f(m) > f(n),\ \forall m > n.$ 
+    \end{enumerate}
+    
+    Prove that $f(n) = n,\ \forall n \in \ZZ^+.$
+\end{problem}
+
+\begin{soln}[Solution One]
+    By (3): 
+    \[
+        f(2) = f(2 \cdot 1) = f(2) f(1) \Rightarrow f(1) = 1
+    \]
+
+    Thus the base cases of $n=1,2$ are proven.
+    
+    For the inductive step, let's assume that for all $k \le 2n,$ $f(k) = k.$ We shall prove that 
+    \[
+        f(2n+1) = 2n+1, f(2n+2) = 2n+1.
+    \]
+
+    Note that
+    \[
+        f(2n+2) = f(2)f(n+1) = 2(n+1) \Rightarrow 2n = f(2n) < f(2n+1) < f(2n+2) = 2n+2 \Rightarrow f(2n+1) = 2n+1.
+    \]
+    
+    Thus for all $n,$ $f(n) = n.$
+\end{soln}
+
+\begin{soln}[Solution Two]
+    By (3): 
+    \[
+        f(2) = f(2 \cdot 1) = f(2) f(1) \Rightarrow f(1) = 1
+    \]
+    
+    Thus the base cases of $n=1,2$ are proven.
+
+    For the inductive step, let's assume that for all $k < n,$ $f(k) = k.$
+    
+    \textit{Case 1:} $n$ is composite, then 
+    \[
+        \exists a,b \in \ZZ^+:\ 1 < a, b < n, n = ab \Rightarrow f(n) = f(ab) = f(a)f(b) = ab = n
+    \]
+
+    \textit{Case 2:} $n$ is prime, then $n-1$ and $n+1$ are composite. Following the same reasoning as in the previous case
+    \[
+        f(n-1)= n-1, f(n+1)=n+1 \Rightarrow n-1=f(n-1)<f(n)<f(n+1) = n+1 \Rightarrow f(n) = n.
+    \]
+
+    The hypothesis follows.
+\end{soln}
+
+\end{document}
