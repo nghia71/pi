@@ -1,0 +1,365 @@
+\documentclass[8pt,xcolor=table,dvipsnames]{beamer}
+\usepackage{pgfpages}
+\usepackage{yhmath}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\providecommand{\half}{\frac{1}{2}}
+\newcommand{\dg}{^\circ}
+\newcommand{\arc}[1]{\wideparen{#1}}
+\usetheme{Madrid}
+
+\title{Combinatorial Geometry}
+\subtitle{UMC K1, 2024}
+\author{Nghia Doan}
+\institute{MCC Club \& Competitions}
+\date{\today}
+
+\begin{document}
+
+\section{Points, segments, and lines}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Points, segments, and lines - Example 1}
+    \begin{example}[HC-2021-SM2-R3-P11]
+        On the blackboard six segments are drew. Every two segments intersect one another at a point.
+        The $1^{\text{st}}$ segment contains three of the intersections, the $2^{\text{nd}}$ segment contain $4$ of the intersections,
+        the $3^{\text{rd}},$ $4^{\text{th}},$ and $5^{\text{th}}$ segments each contains five intersections.
+        What segments does the $6^{\text{th}}$ segment intersect with?
+    \end{example}
+    
+    \begin{center}
+        \includegraphics[width=5cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/hc-2021-2-3-11.pdf}
+    \end{center}
+
+    \onslide<2->Each of the $3^{\text{rd}},$ $4^{\text{th}},$ and $5^{\text{th}}$ are to intersect all the remaining segments.
+
+    \onslide<3->Therefore the $1^{\text{st}}$ segment intersects with the $3^{\text{rd}},$ $4^{\text{th}},$ and $5^{\text{th}}$ segments only.
+    
+    \onslide<4->Thus, the $2^{\text{nd}}$ segment intersect with the $3^{\text{rd}},$ $4^{\text{th}},$ $5^{\text{th}},$ and $6^{\text{th}}$ segments.
+
+    \onslide<5->Hence, the $6^{\text{th}}$ intersects with the \framebox{$2^{\text{nd}},$ $3^{\text{rd}},$ $4^{\text{th}},$ and $5^{\text{th}}$} segments.
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Points, segments, and lines - Example 2}
+    \begin{example}[PCT 2021/Mar/MT/3]
+        There are $9$ distinct lines on the plane, no two of them are parallel, and no three of them meet at a single point.
+        How many non-overlapping regions they divide the plane into?
+    \end{example}
+    
+    \bigbreak
+    \onslide<2->Count the regions by adding one line each time.
+    With one line, the plane is divided into two non-overlapping regions.
+
+    \bigbreak
+    \onslide<3->Let assume there are $n-1$ lines on the plane and we add the $n^{\text{th}}$ line.
+    When adding a new line, it should intersect all $n-1$  existing lines, therefore it is cut into $n$ parts.
+
+    \bigbreak
+    \onslide<4->These newly added parts divide $n$ existing regions, adding $n$ new regions.
+    Therefore, the number of regions is \[ 2+2+3+4+\cdots+n=1+\frac{1}{2}{n(n+1){2}} = \frac{n^2+n+2}{2}. \]
+
+    \onslide<5->For $n=9,$ \[ \frac{n^2+n+2}{2} = \frac{81+9+2}{2} = \boxed{46.} \]
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Points, segments, and lines - Example 3}
+    \begin{example}[AMC 12 2019/A/8]
+        For a set of four distinct lines in a plane, there are exactly $N$ distinct points that lie on two or more of the lines.
+        What is the sum of all possible values of $N$?
+    \end{example}
+
+    \begin{overprint}
+        \onslide<2>The problem is equivalent to find the possible numbers of intersection of $4$ distinct lines. 
+
+        \bigbreak
+        The maximum number of intersections of $4$ lines is the number of pairs of lines can be chosen from 4 lines, or $\binom{4}{2}=6$. 
+        The minimum number of intersections of $4$ lines, obviously, is $0.$
+        \begin{center}
+            \includegraphics[width=5cm]{../Learning-Problem-Solving-2nd-Edition/png/amc-12-2019-a-8.png}
+        \end{center}
+        The diagram shows examples for any number between $0$ and $6$, except $2$.
+    
+        \onslide<3>Now, assume that there are two intersections $A$ and $B$ so that all four lines go through them.
+
+        \bigbreak
+        \textit{Case 1:} if there is no line through both $A$ and $B$. The two lines that intersecting at $A$ must be pairwise parallel
+        with the two lines that intersecting at $B$. In that case there will be more intersections among the non-parallel pairs.
+    
+        \bigbreak
+        \textit{Case 2:} if there is a line through both $A$ and $B$. The other line passing through $A$ must be parallel
+        with the other lines passing through $B$. The fourth line shall pass through only $A$ or $B$ and cannot be parallel
+        with those parallel lines. In that case more intersection points shall exist.
+    
+        \bigbreak
+        Hence, the sum of possible numbers of intersections is \framebox{$0+1+3+4+5+6=19.$}
+    \end{overprint}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Points, segments, and lines - Example 4}
+    \begin{example}[HC-2022-SM1-R10-P6]
+        A \textit{close path} $A_1A_2 \ldots A_5$ contains $5$ segments $A_1A_2, A_2A_3, \ldots, A_5A_1$
+        that has $5$ \textit{self-intersection} points .
+        This close path has the \textit{maximum} number of self-intersection points.
+        
+        Find the \textit{maximum} number of self-intersection points
+        for a $9-$segment close path $A_1A_2 \ldots A_9.$
+    \end{example}
+    \begin{center}
+        \includegraphics[width=5.5cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/hc-2022-1-10-6.pdf}
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Points, segments, and lines - Example 4}
+    For two consecutive points, says $A_i$ and $A_{i+1},$ 
+    except $A_{i-1} A_i, A_i A_{i+1},$ and $A_{i+1} A_{i+2}$ (where $A_0 \equiv A_n,$ and $A_{n+1} \equiv A_1$)
+    the remaining $n-3$ segments of the path $A_1 A_2 \ldots A_n A_1$ 
+    can intersect with $A_i A_{i+1}$ at at most $n-3$ points. 
+    \onslide<2->Thus the maximum number of intersections is $\half n(n-3).$
+    For a $n=9$, the maximum number of intersections is $\boxed{27.}$
+    \begin{center}
+        \includegraphics[width=6cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/hc-2022-1-10-6-2.pdf}
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Points, segments, and lines - Example 5}
+    \begin{example}[MIC-2022-SM2-R1-S9]
+        On a straight line there are $10$ distinct points.
+        For every pair of points,
+        Anna \textit{marks} the midpoint of the segment connected them.
+        What is the minimal number of distinct \textit{marked} points?
+    \end{example}
+    \begin{overprint}
+        \onslide<2>Let $A$ and $B$ be the points with the greatest distance between them.
+        Connect point $A$ by segments with all other points except $B$.
+        The midpoints of the obtained $10 - 2 = 8$ segments do not coincide, 
+        otherwise the second endpoints of the segments would coincide too,
+        and are situated inside a circle centred at $A$ with radius $\frac{AB}{2}.$
+        \textit{In the diagram below an example is shown with the given points colored red and
+        the midpoints slightly moved out of their positions for better visualization.}    
+        \begin{center}
+            \includegraphics[width=8cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/hc-2022-1-1-13.pdf}
+        \end{center}
+        \onslide<3>Similarly there are $8$ distinct midpoints situated in a circle centred at $B$ of radius
+        with radius $\frac{AB}{2}.$ The two circles have exactly one common point,
+        which is the midpoint of the segment $AB.$ Thus, together with the midpoint of $AB,$
+        we have implicitly constructed $8 + 8 + 1 = \boxed{17}$ midpoints.
+        \begin{center}
+            \includegraphics[width=8cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/hc-2022-1-1-13.pdf}
+        \end{center}
+        \textit{All given points lie on the same straight line at $0, 2, 4, \ldots, 18,$ so with a constant step between them. 
+        It is easy to see that there are exactly $17$ distinct midpoints at $1, 2, 3, \ldots, 17.$}
+    \end{overprint}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Points, segments, and lines - Example 6}
+    \begin{example}[PCT 2021/Mar/MT/12]
+        The main diagonal of the $5 \times 3$ rectangle passes through $7$ squares.
+        The main diagonal of the $6 \times 4$ rectangle passes through $8$ squares.
+       What is the number of squares passed through by the main diagonal of a $42 \times 30$ rectangle?
+    \end{example}
+    \onslide<2->When the diagonal passes from one square to the next,
+    it passes from one row to the next or from one column to the next if it does not pass through a corner.
+
+    \onslide<3->For an $m \times n$ rectangle, if the diagonal passes through no corner, then it passes through the top left square,
+    then $m-1$ squares (one for each remaining row), and then $n-1$ squares (one for each remaining column), in total
+    \[
+        1+(m-1)+(n-1)=m+n-1
+    \]
+    \onslide<4->If the diagonal passes through one corner, then we must subtract one from the above sum.
+    The number of corners depends on the common factors of $m$ and $n$.
+    
+    \onslide<5->In fact it is one less than the greatest common divisor of them. Hence the number of squares the diagonal passes through is,
+    \[
+        m+n-1-(\gcd(m,\ n)-1)=m+n-\gcd(m,\ n)
+    \]
+    \onslide<6->With $(m,n)=(42,30)$, the answer is \framebox{$42+30-\gcd(42,\ 30)=72-6=66.$}
+\end{frame}
+
+\section{Circles}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Circles - Example 1}
+    \begin{example}[MIC-2022-SM2-R3-J2]
+        Twelve points are equally spaced on the circumference of a circle.
+        How many chords can be drawn that connect pairs of these points
+        and which are longer than the radius of the circle but shorter than its diameter?  
+    \end{example}
+    \begin{overprint}
+        \onslide<2>We must first determine which diagonals are greater than the radius of the circle and less than the diameter.
+        Diagonals such as $AC$ are equal in length to the radius.
+        This can be seen by noting that $ACEGIK$ is a regular hexagon,
+        and the sides of a regular hexagon are equal in length to the radius of the circumscribed circle.
+        Diagonals such as $AG$ are diameters of the the circle.
+        \begin{center}
+            \includegraphics[width=4cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/mic-2022-2-r3-2.pdf}
+        \end{center}
+        \onslide<3>This leaves diagonals like $AD$, $AE$, and $AF$, which are longer than $AC$ and shorter than $AG$.
+        \begin{center}
+            \includegraphics[width=4cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/mic-2022-2-r3-2.pdf}
+        \end{center}
+        From each vertex there are $6$ such diagonals, for a total of $6(12)=72$.
+        Hence, there are $\frac{72}{2}=\boxed{36}$ diagonals longer than the radius of the circle
+        and less than the diameter. 
+    \end{overprint}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Circles - Example 2}
+    \begin{example}[HC-2022-SM2-R2-P9]
+        In a ceremony of the guild, the master asked the members to form $10$ lines,
+        each line consists of $9$ persons, so that he can stand in \textit{a place that has the same distance to every row.}    
+        The guild has $81$ members., including the master.
+        How can they do that?
+    \end{example}
+    \onslide<2->The key here is that \textit{the master is equidistant from each row}, not each member.
+    
+    \onslide<3->Thus, there should be $10$ rows, all are at the same distant from a point.
+    Thus these are $10$ chords of a circle with the same length.
+    \onslide<4->\textit{To arrange $80$ persons into $10$ chords, each has $9$ persons, 
+    we create a regular polygon with $9$ persons on each side.}
+    \begin{center}
+        \includegraphics[width=4.2cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/hc-2022-2-2-9.pdf}
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Circles - Example 3}
+    \begin{example}[MIC-2021-SM2-R1-P7]
+        $10$ vertices are placed on a circle.
+        What is the maximum number of line segments, connecting two of the given vertices,
+        that can be drawn such that no two intersect each other, except at the vertices?
+    \end{example}
+    \onslide<2->The $10$ sides and $d$ diagonals divide the $10-$gon into $k$ triangles.
+    
+    \onslide<3->If we count the segments by the triangles, each triangles has three segments as sides,
+    each segment is counted once if it is a side of the $10-$gon,
+    and twice if it is a diagonal (shared by two triangles), so
+    \[
+        3k = 10 + 2d \quad(1)
+    \]
+    
+    \onslide<4->On the other hand, by connecting the segments, we create a so-called \textit{planar graph},
+    by Euler's graph formula $E-V+F=2$ for $10$ vertices, $d+10$ edges, and $k+1$ faces:
+    \[
+        10 - (d+10) + (k+1) = 2 \Rightarrow k = d+1 \quad(2)
+    \]
+    Therefore, from (1) and (2), $d=7,\ k=8.$
+    
+    \onslide<5->Thus, the number of segment is \framebox{$d+10=17.$}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Circles - Example 4}
+    \begin{example}[IMO 1975/5]
+        Can $1975$ distinct points be drawn on a circle of radius $1$,
+        so that the distance (measured on the chord) between any two points is a rational number?
+    \end{example}
+    \begin{overprint}
+        \onslide<2>We prove that $n$ ($n\ge 2$) distinct points can be placed on a circle of radius $1$,
+        such that the distance between any two points is a rational number.
+    
+        \bigbreak
+        For 2 points, it is simple to see that the two vertices of diameter is such a pair of points.
+        
+        \bigbreak
+        For 3 points, for a Pythagorean triple $(a_1,b_1,c_1)$ of integers: $c_1^2=a_1^2+b_1^2$,
+        a point $P_1$ can be chosen on the semicircle $\arc{AB}$ diameter 2, 
+        such that both $P_1A$ and $P_1B$ are rational:
+        \[
+            AB=2,\ P_1A=\frac{2a}{c},\ P_1B=\frac{2b}{c} \Rightarrow P_1A^2+P_1B^2 = \frac{4(a^2+b^2)}{c^2}=AB^2
+            \Rightarrow P_1 \in \arc{AB}.
+        \]
+        \onslide<3>Therefore, by using $n \ge 1$ distinct Pythagorean triples $(a_i,b_i,c_i)$, where
+        $\forall i=1,\ldots,n,\ c_i^2=a_i^2+b_i^2$,
+        $n$ distinct points $P_1,P_2,\ldots,P_n$ can be chosen on the semicircle $\arc{AB}$,
+        so that all $P_iA$, $P_iB$ are rationals.
+        \begin{center}
+            \includegraphics[width=4cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/imo-1975-5-1.pdf}
+        \end{center}
+        For any $1 \le i \ne j \le n$, $ABP_jP_i$ is a cyclic quadrilateral,
+        by the Ptolemy Theorem,
+        \[
+            AB,\ P_iA,\ P_iB,\ P_iA,\ P_jB\ \text{are rational}\ \Rightarrow
+            P_iP_j = \frac{P_iB \cdot P_jA - P_iA \cdot P_jB}{AB} \text{are rational}
+        \]
+    \end{overprint}
+\end{frame}
+
+\section{Topology}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Topology - Example 1}
+    \begin{example}[HC-2022-SM2-R3-P11]
+        Find the minimal value $m$ so that no matter how you partition
+        a unit square into two distinct sets of points,
+        the diameter of one of the sets is at least $m.$ 
+        \textit{Diameter of a set of points is the largest distance between two points of the set.}
+    \end{example}
+    \begin{overprint}
+        \onslide<2>Let $ABCD$ be the unit square, $E$ and $F$ be the midpoints of $CD$ and $DA.$
+        We prove that $m$ is equal to the length of $AE.$
+        Let assume that $ABCD$ can be divided into two sets $\mathcal{G}$ and $\mathcal{R}$ such that
+        \textit{none of the sets has a diameter larger than or equal to $AE.$}
+        \begin{center}
+            \includegraphics[width=7cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/hc-2022-2-3-11-2.pdf}
+        \end{center}    
+        \onslide<3>WLOG, let $A \in \mathcal{G},$ then $E \not \in \mathcal{G},$ thus $E \in \mathcal{R},$
+        therefore $B \in \mathcal{G},$ so $F \in \mathcal{R},$ hence $C \in \mathcal{G},$
+        but then the diameter of $\mathcal{G}$ is at least $AC > AE.$
+        Contradiction.
+        \begin{center}
+            \includegraphics[width=7cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/hc-2022-2-3-11-2.pdf}
+        \end{center}    
+        The diagram on the right of the figure above shows
+        the case when such diameter is equal to $AE$
+        Therefore one of the sets has a diameter larger than or equal to $AE.$
+    \end{overprint}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Topology - Example 2}
+    \begin{example}[LPS V2B/2.44]
+        Prove that there exist three consecutive vertices $A,B,C$ in every convex $n-$gon ($n \ge 3$),
+        such that the circumcircle of $\triangle ABC$ covers the whole $n-$gon.
+    \end{example}
+    \begin{overprint}
+        \onslide<2>Consider all circles through three vertices of the $n-$gon. There is a finite number of such circles.
+        Let $\Omega$ be the maximal such circle. We will prove the following statements:
+        (1) $\Omega$ covers the whole $n-$gon; (2) $\Omega$ passes through three consecutive vertices.
+
+        For the first statement, suppose that vertex $A'$ lies outside $\Omega.$
+        \begin{center}
+            \includegraphics[width=6cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/lps-v2b-2-44.pdf}
+        \end{center}
+        Because $\Omega$ is the circumcircle of $\triangle ABC$, where $A,B,C$ are denoted such that $A,B,C,A'$ form convex quadrilateral.
+        Easy to see that the circumcircle of $\triangle A'BC$ is larger than $\Omega$, see the left diagram.
+        This is contradiction.
+        \onslide<3>For the second statement, let $A,B,C$ be vertices on $\Omega$.
+        Suppose there exists vertex $A'$ between $B$, $C$ and $A'$ not on $\Omega$.
+        \begin{center}
+            \includegraphics[width=6cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/lps-v2b-2-44.pdf}
+        \end{center}
+        Because of the first statement, $\Omega$ covers the whole $n-$gon, so $A'$ is inside $\Omega.$
+        Hence the circumcircle of $\triangle A'BC$ is larger than $\Omega,$ see the right diagram.
+        This is a contradiction.    
+    \end{overprint}
+\end{frame}
+
+\end{document}
