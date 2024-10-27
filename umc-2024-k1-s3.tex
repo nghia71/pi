@@ -362,4 +362,92 @@
     \end{overprint}
 \end{frame}
 
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Topology - Example 3}
+    \begin{example}[IMO 1972/2]
+        Given $n>4$, prove that every cyclic quadrilateral can be dissected into $n$ cyclic quadrilaterals.
+    \end{example}
+    \begin{overprint}
+        \onslide<2>First, we prove a minor claim:
+        any cyclic quadrilateral can be divided into four cyclic quadrilaterals,
+        and at least one of them is an isosceles trapezoid.
+        \begin{center}
+            \includegraphics[width=4cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/imo-1972-2-1.pdf}
+        \end{center}
+        The diagram above shows how to divide a cyclic quadrilateral
+        into four cyclic quadrilaterals: $A_1D_1 \parallel AD$, $AA_1A_3A_2$ is isosceles trapezoid,
+        and $B_1C_1$ chosen such that $A_2B_1C_1D$ is cyclic.
+        \onslide<3>By the claim, first the given cyclic quadrilateral can be divided into four cyclic quadrilaterals.
+        \begin{center}
+            \includegraphics[width=4cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/imo-1972-2-1.pdf}
+        \end{center}
+        Among the cyclic quadrilateral there is an isosceles trapezoid,
+        so by drawing a segment parallel to its bases,
+        an additional isosceles trapezoid can be gained, which is also a cyclic quadrilateral.
+        By repeated this operation $n-5$ times more, there are $n$ cyclic quadrilaterals.
+    \end{overprint}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Topology - Example 4}
+    \begin{example}[IMO 1969/5]
+        Given $n>4$ points in the plane, no three collinear.
+        Prove that there are at least $\binom{n-3}{2}$ convex quadrilaterals with vertices amongst the $n$ points.
+    \end{example}
+    \begin{overprint}
+        \onslide<2>WLOG, \textit{assume that $AB\ldots$ is the convex hull} of all $n$ given points.
+        Now, since no three points collinear, there exists a point $C$, such that for all other points $D_1,\ldots,D_{n-3}$,
+        \begin{center}
+            \includegraphics[width=3.5cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/imo-1969-5-1.pdf}
+            \quad
+            \includegraphics[width=3.5cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/imo-1969-5-2.pdf}
+        \end{center}
+        \[ 
+            \angle BAC < \min \{ \angle BAD_k \mid \forall k \in \{ 1,\ldots, n-3 \} \}.
+        \]
+        Thus, \textit{line through $AC$ divides the plane into two separate half-planes},
+        one of which contains only $B$, the other contains $n-3$ remaining points $D_1,\ldots,D_{n-3}.$
+        \onslide<3>Consider any two distinct points $P_i,P_j$, $i,j \in \{ 1,\ldots, n-3 \}.$
+        \begin{center}
+            \includegraphics[width=3.3cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/imo-1969-5-1.pdf}
+            \quad
+            \includegraphics[width=3.3cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/imo-1969-5-2.pdf}
+        \end{center}
+        \textit{Case 1:} Line $D_iD_j$ does not intersect any sides of $\triangle ABC$
+        (it may intersects the extensions of those segments), then $ACD_iD_j$ is convex, see the left diagram.
+    
+        \textit{Case 2:} Line $D_iD_j$ intersects two sides $AC,BC$ of $\triangle ABC$
+        and divides the plane into two half-planes, WLOG, separating $A$, $B$ and $C$, then $BCD_jD_i$ is convex, see the right diagram.
+    
+        Hence, there are at least $\binom{n-3}{2}$  convex quadrilaterals with vertices amongst the $n$ points. 
+    \end{overprint}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Combinatorial Geometry}
+    \framesubtitle{Topology - Example 5}
+    \begin{example}[IMO SL 1972/2]
+        We are given $3n$ points $A_1,A_2, \ldots , A_{3n}$ in the plane, no three of them collinear.
+        Prove that one can construct $n$ disjoint triangles with vertices at the points $A_i.$
+    \end{example}
+    \begin{overprint}
+        \onslide<2>Lets prove by induction. For $n=1$ it is obvious. Assume that the hypothesis is true for $n$. 
+        WLOG, \textit{assume that $A_1A_2\ldots A_m$ is the convex hull} of $A_1,A_2, \ldots, A_{3n+3}$ given points.
+        \begin{center}
+            \includegraphics[width=4cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/imo-sl-1972-2-1.pdf}
+        \end{center}
+        Since no three points collinear,
+        $\exists A_i,\ \angle A_iA_1A_2 = \min \{ \angle A_kA_1A_2 \mid \forall k \in \{ 3,\ldots, 3n+3 \} \}.$
+        \onslide<3>The line through $A_1A_2$ divides the plane into two separate half-planes.
+        \begin{center}
+            \includegraphics[width=4cm]{../Learning-Problem-Solving-2nd-Edition/asy/pdf/imo-sl-1972-2-1.pdf}
+        \end{center}
+        One half-plane contains only $A_2$, the other contains $3n$ remaining points,
+        which form $n$ disjoint triangles. These and $\triangle A_1A_2A_i$ form $n+1$ disjoint triangles.
+        Thus, the hypothesis is proved.
+    \end{overprint}
+\end{frame}
+
 \end{document}

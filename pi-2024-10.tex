@@ -1,0 +1,261 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Word Problems}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+In this session we discuss solving words problem, that is, how to establish equations or systems of equations, and solve them.
+
+\begin{example}[Example One]
+    In eight years Henry will be three times the age that Sally was last year. Twenty five years ago their ages added to 83. How old is Henry now?
+\end{example}
+
+\begin{soln}
+    Let $h$ represent Henry's current age, the $s$ represent Sally's current age. In 8 years, Henry will have age $h+8.$
+    Last year Sally had age $s-1.$ Thus 
+    \[
+        h+8 = 3(s-1) \Rightarrow h = 3s -11 \quad (*)
+    \]
+
+    25 years ago their ages were $h-25$ and $s-25.$ Thus
+    \[
+        (h-25) + (s-25) = 83 \Rightarrow h + s = 133 \Rightarrow h = 133 - s \quad (**)
+    \]
+
+    Therefore, from (*) and (**)
+    \[
+        3s - 11 = 133 - s \Rightarrow 4s = 144 \Rightarrow s = 36,\ h = 133-36 = \boxed{97.}
+    \]
+\end{soln}
+
+\begin{remark*}
+    It is always important to test your answers. Here's how can you do it for the solution above.
+
+    Let's test if these are the correct answers. In eight years, Henry will be $97 + 9 =105,$ which is $105 = 3\times 35,$ or 3 times $36-1=35,$
+    which is Sally's age last year. 25 years agon Henry was $97-25=72$ and Sally was $36-15=11,$ thus their sum of ages was $72+11=83.$
+    All given conditions are satisfied.
+\end{remark*}
+
+\begin{example}[Example Two]
+    The lengths of the diagonals of a rhombus are, in inches, two consecutive integers.
+    The area of the rhombus is 210 square inches. Find its perimeter, in inches.
+\end{example}
+
+\begin{soln}
+    Let $x$ and $x+1$ be the lengths of the two diagonals. Then, from the formula of the area for rhombus,
+    \[
+        \half x(x+1) = 210 \Rightarrow x(x+1) = 420 = 20 \times 21 \Rightarrow x = 20.
+    \]
+
+    The side length $s$ of the rhombus is the hypotenuse of a right triangle with legs $10$ and $\frac{21}{2},$
+    or
+    \[
+        \sqrt{10^2 + \left(\frac{21}{2}\right)^2 } = \sqrt{\frac{400 + 441}{4}} = \frac{29}{2}.
+    \]
+
+    Therefore the perimeter is $4 \times \frac{29}{2} = \boxed{58}.$
+\end{soln}
+
+\begin{example}[Example Three]
+    How many gallons of a solution which is 15\% alcohol do we have to mix with a solution that is 35\% alcohol
+    to make 250 gallons of a solution that is 21\% alcohol?
+\end{example}
+
+\begin{soln}
+    Let $x$ represent the number of gallons of 15\% alcohol solution that we need to mix.
+    To make 250 gallons, we need to mix the $x$ gallons of 15\% alcohol solution with $250-x$ gallons of the 35\% alcohol solution.
+    
+    The mix will then contain $(0.15)(x) + (0.35)(250-x)$ gallons of alcohol solution which should be 21\% of the total 250 gallons,
+    in other words $(0.21)(250),$ therefore
+    \[
+        \begin{aligned}
+            &(0.15)(x) + (0.35)(250-x) = (0.21)(250) \Rightarrow 15x + 35(250-x) = 21(250)\\
+            &\Rightarrow 35(250) - 20x = 21(250) \Rightarrow 20 x = 14(250) \Rightarrow x = \boxed{175}.
+        \end{aligned}
+    \]
+\end{soln}
+
+\begin{example}[Example Four]
+    A rectangle has area of 1100. If the length is increased by ten percent and the width is decreased by ten percent, what is the area of the rectangle?
+\end{example}
+
+\begin{soln}
+    Let $l$ and $w$ be the length and width of the rectangle, then $lw = 1100.$
+    Now, if the length is increased by ten percent and the width is decreased by ten percent, then the area of the modified rectangle is,
+    \[
+        1.1 l \cdot 0.9 w = (1.1 \cdot 0.9)lw = 0.99 lw = 0.99 \cdot 1100 = \boxed{1089.}
+    \]
+\end{soln}
+
+\begin{example}[Example Five]
+    A week ago, Sandy's seasonal Little League batting average was 360.
+    After five more at bats this week, Sandy's batting average is up to 400.
+    What is the smallest number of hits that Sandy could have had this season?
+\end{example}
+
+\begin{remark*}
+    \textit{Batting average} is a statistic in cricket, baseball, and softball that measures the performance of batters.
+    In baseball, the batting average is defined by the number of hits divided by at bats.
+    It is usually reported to three decimal places and read without the decimal:
+    A player with a batting average of $.300$ is \textit{batting three-hundred.}
+\end{remark*}
+
+\begin{soln}
+    Suppose that a week ago Sandy had been at bat $x$ times. Then Sandy would have made $(0.360)x$ hits.
+    Suppose that Sandy made $y$ more hits in the next five times at bat.
+    That makes a total of $(0.360)x+y$ hits after $x+5$ times at bat, which gives a batting average of 400, thus
+    \[
+        \frac{(0.360)x+y}{x+5} = 0.400 \Rightarrow (0.360)x+y = (0.4)(x+5) \Rightarrow y = 0.04 x + 2
+    \]
+    
+    We want to find the smallest number of hits, which is 
+    \[
+        0.36 x + 0.04 x + 2 = 0.4x + 2.
+    \]
+
+    Thus we want to find the smallest possible integer $x$ such that both $0.36 x$ and $0.04 x + 2$ are integers.
+    Obviously the least possible integer value for the second expression is $3,$ which means $x = 25.$
+    Then the least number of hits is $(0.4)25 + 2 = \boxed{12.}$
+\end{soln}
+
+\begin{example}[Example Six]
+    Fill in numbers in the boxes below so that the sum of the entries in each three consecutive boxes is 2005.
+    What is the number that goes into the leftmost box?
+\end{example}
+
+\begin{figure}[h]
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+    \hline
+    &  & 999 &  &  &  &  & 888 & \\ \hline
+    \end{tabular}
+\end{figure}
+
+\begin{soln}
+    Suppose that four adjacent boxes contain the numbers $a,b,c,$ and $d$ as read from left to right, see the diagram below.
+    \begin{figure}[h]
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+        \hline
+         &  & 999 & $a$ & $b$ & $c$ & $d$ & 888 & \\ \hline
+        \end{tabular}
+    \end{figure}
+
+    Then 
+    \[
+        \begin{cases}
+            &a+b+c = 2005\\
+            &b+c+d = 2005
+        \end{cases}
+        \Rightarrow a = d
+    \]
+
+    In order words, the number in the boxes repeat every three boxes as shown below
+    \begin{figure}[h]
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+        \hline
+         $a$ & $b$ & 999 & $a$ & $b$ & $c$ & $a$ & 888 & $c$ \\ \hline
+        \end{tabular}
+    \end{figure}
+
+    Therefore $b=888,$ $c=999,$ and $a = 2005-(888+999)=\boxed{118.}$
+\end{soln}
+
+\begin{example}[Example Seven]
+    Bill's age is one third larger than Tracy's age. In 30 years Bill's age will be one eighth larger than Tracy's age. How many years old is Bill?
+\end{example}
+
+\begin{proof}
+    Let Bill's current age be $b$ and Tracy's current age be $t.$ Then 
+    \[
+        \begin{cases}
+            &b = t \left(1 + \frac{1}{3}\right)\\
+            &(b+30) = (t+30)\left(1 + \frac{1}{8}\right)\\
+        \end{cases}
+        \Rightarrow
+        \begin{cases}
+            &3b = 4t\\
+            &8b+240 = 9t+270\\
+        \end{cases}
+        \Rightarrow 
+        8b = 9\left( \frac{3}{4}\right) b + 30 
+        \Rightarrow \frac{5}{4} b =30 \Rightarrow b = \boxed{24.}
+    \]
+\end{proof}
+
+\begin{example}[Example Eight]
+    At a movie theater tickets for adults cost 4 dollars more than tickets for children.
+    One afternoon the theater sold 100 more child tickets than adult tickets for a total sales amount of 1475 dollars.
+    How much money would the theater have taken in if the same tickets were sold,
+    but the costs of the child tickets and adult tickets were reversed?
+\end{example}
+
+\begin{soln}
+    Let $x$ be the cost of a child ticket, and let $a$ be the number of adult tickets sold.
+    Then the cost of an adult ticket is $x+4$ and the number of child tickets sold is $a+100.$
+    This means that
+    \[
+        (x+4)a + x(a+100) = 1475 \Rightarrow 2xa + 4a + 100x = 1475.
+    \]
+
+    If the cost of the tickets were reversed, then the theater would have taken in
+    \[
+        xa + (x+4)(a+100) = 2xa + 4a + 100x + 400 = 1475 + 400 = \boxed{1875.}
+    \]
+\end{soln}
+
+\begin{example}[Example Nine]
+    A rogue spaceship escapes. 54 minutes later the police leave in a spaceship in hot pursuit.
+    If the police spaceship travels 12\% faster than the rogue spaceship along the same route,
+    how many minutes will it take for the police to catch up with the rogues?
+\end{example}
+
+\begin{soln}
+    Let $x$ be the number of minutes it will take the police to catch the rogues, and let $r$ be the rate at which the rouges are traveling.
+    Then the police are traveling at a rate of $1.12r,$ and the rogues will have traveled for $54+x$ minutes.
+    Since distance $=$ time $\times$ rate, thus
+    \[
+        (54 + x)r = x (1.12r) \Rightarrow 54r = (.12)xr \Rightarrow x = \frac{54}{.12} = \boxed{450.}
+    \]
+\end{soln}
+
+\begin{example}[Example Ten]
+    The sizes of the freshmen class and the sophomore class are in the ratio 5:4.
+    The sizes of the sophomore class and the junior class are in the ratio 7:8.
+    The sizes of the junior class and the senior class are in the ratio 9:7.
+    If these four classes together have a total of 2158 students, how many of the students are freshmen?
+\end{example}
+
+\begin{soln}
+    Let the sizes of the freshman, sophomore, junior, and senior classes be $w, x, y,$ and $z,$ respectively.
+    Then
+    \[
+        4w = 5x,\ 8x = 7y,\ 7y= 9z,\ w+x+y+z = 2158
+    \]
+
+    By computing $x, y, z$ based on $w$ using the first three equations and substitute those into the last one:
+    \[
+        \begin{aligned}
+            &x = \frac{4}{5}w,\ y=\ \frac{8}{7}x = \frac{8}{7} \cdot \frac{4}{5}w , z = \frac{7}{9} \frac{8}{7} \cdot \frac{4}{5}w\\
+            &\Rightarrow 2158 = w + \frac{4}{5}w + \frac{32}{35}w + \frac{32}{45}w = \frac{1079}{315} w 
+            \Rightarrow w = \frac{315 \cdot 2158}{1079} = \boxed{630.}
+        \end{aligned}
+    \]
+\end{soln}
+
+\end{document}
