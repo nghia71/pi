@@ -165,7 +165,7 @@
     \onslide<2->{By tangent segments from $A, B,$ and $C$ to $\omega_A,$
     $AB_2 = AC_2, BA_2 = BC_2, CA_2 = CB_2.$ Thus:
     \[
-        AB + AB_2 = AB + BC_2 = AC_2 = AB_2 = AC + CB_2 = AC + CA_2.
+        AB + BA_2 = AB + BC_2 = AC_2 = AB_2 = AC + CB_2 = AC + CA_2.
     \]}
     \onslide<3->{The sum of both sides equals the perimeter of $\triangle ABC,$
     so if $s$ denotes the semi-perimeter: \[ BA_2 = s - AB.\]}
@@ -204,7 +204,7 @@
     then \[ XB^2 - XC^2 + XC^2 - XA^2 + XA^2 - XB^2 = 0.\]}
 
     \onslide<3->{Now for ($\Leftarrow$), let $PB^2 - PC^2 + QC^2 - QA^2 + RA^2 - RB^2 = 0.$ Let $X = \ell_P \cap \ell_Q.$
-    Then by ($\Rightarrow$) $XB^2 - XC^2 + XC^2 - XA^2 + RA^2 - RB^2 = 0,$ or $XB^2 - XA^2 = RA^2 - RB^2,$
+    Then by ($\Rightarrow$) $XB^2 - XC^2 + XC^2 - XA^2 + RA^2 - RB^2 = 0,$ or $XB^2 - XA^2 = RB^2 - RA^2,$
     so by the Perpendicularity Lemma $XR \perp AB,$ hence $\boxed{X \in \ell_R.}$}
 \end{frame}
 
@@ -231,7 +231,7 @@
     \begin{center}
         \begin{overprint}
             \onslide<1>\centering\includegraphics[width=5cm]{./svg/pdf/24-25-s7-g3-p3-0.pdf}
-            \onslide<2>\centering\includegraphics[width=5cm]{./svg/pdf/24-25-s7-g3-p3.pdf}
+            \onslide<2->\centering\includegraphics[width=5cm]{./svg/pdf/24-25-s7-g3-p3.pdf}
         \end{overprint}        
     \end{center}  
     \onslide<2->{Since $AE = EC, CD = DB,$ and $FB=FA,$ therefore \[ AE^2 - AF^2 + BF^2 - BD^2 + CD^2 - CE^2 = 0. \]}
@@ -246,7 +246,7 @@
     \framesubtitle{Carnot's Extended Theorem - Example 2}
     \begin{example}
         Let $I_a, I_b,$ and $I_c$ be the excenters of triangle $ABC$ opposite the vertices $A, B$ and $C,$ respectively.
-        Let $A_1, B_1,$ and $C_1$ be the tangent points of the $A-, B-,$ and $C-$excircle with the sides $BC, CA,$ and $AB,$ respectively.
+        Let $A_1, B_1,$ and $C_1$ be the tangent points of the $A-, B-,$ and $C-$excircles with the sides $BC, CA,$ and $AB,$ respectively.
         Prove that the lines $I_a A_1, I_b B_1,$ and $I_c C_1$ are concurrent.    
     \end{example}
 
@@ -264,7 +264,7 @@
     \end{center}
     \begin{overprint}
         \onslide<2>The three perpendiculars are concurrent if and only if, by Carnot's Extended Theorem,
-        \[ {I_aB}^2 - {I_aC}=^2 + {I_bC}^2 - {I_bA}^2 + {I_cA}^2 - {I_cB}^2 = 0. \]
+        \[ {I_aB}^2 - {I_aC}^2 + {I_bC}^2 - {I_bA}^2 + {I_cA}^2 - {I_cB}^2 = 0. \]
         \onslide<3>By the theorem Tangent Segments of The Excircles, $BA_1 = s - c = AB_1,$
         where $s$ is the semi-perimeter of $\triangle ABC.$ Similarly with other sides.
         Let $x = s-c, y =s-b,$ and $z = s-a.$
@@ -433,7 +433,7 @@
     \framesubtitle{The Butterfly Theorem - Example 1}
     \begin{example}
         $(O)$ and $(I)$ are circumcircle and incircle, respectively, of $\triangle ABC.$
-        Lines through $BI$ and $CI$ intersect $(O)$ at $E$ and $F,$respectively.
+        Lines through $BI$ and $CI$ intersect $(O)$ at $E$ and $F$, respectively.
         Let $K$ and $D$ be the intersections of $AI$ with $EF$ and $BC.$
         If $AB + AC = 2BC,$ prove that $IK = ID.$
     \end{example}
@@ -451,7 +451,7 @@
         \includegraphics[width=5cm]{./svg/pdf/24-25-s2-g3-p5-2.pdf}
     \end{center}
     \begin{overprint}
-        \onslide<2>Let $M$ be the intersection of $AI$ and the circle $(O),$ $M \equiv A.$ See above on the right.
+        \onslide<2>Let $M$ be the intersection of $AI$ and the circle $(O),$ $M \not \equiv A.$ See above on the right.
         \[
             \angle AMC = \angle ABD, \angle BAD = \angle CAM \Rightarrow \triangle BAD \sim \triangle MAC \Rightarrow \frac{MC}{MA} = \frac{BD}{BA}.
         \]
@@ -496,10 +496,10 @@
         \onslide<2>Let $H$ and $K$ be the second intersections of $CD$ and $EF$ with $\gamma$ and $omega,$ respectively.
         Let $S = CQ \cap AB,$ $S' = EF \cap AB,$ and $M = DK \cap AB.$
         \onslide<3>Consider the circle $\omega,$ chords $CD$ and $KQ$ intersecting at $O.$ A line through $O$ intersects $CQ$ and $KD$ at $S$ and $M,$ respectively.
-        Since $OA = OA,$ by the \textit{Butterfly Theorem} $OS = OM.$ 
+        Since $OA = OB,$ by the \textit{Butterfly Theorem} $OS = OM.$ 
         \onslide<4>Now, the radii of the circles $\omega$ and $\gamma$ have the same length,
         thus $O$ is midpoint of $PD$ ($\triangle IOP \cong \triangle I'OD$) and $KE.$
-        Therefore $PKDE$ is a parallelogram, so $OS' = OM.$
+        Therefore $PKDE$ is a parallelogram, so $OS' = OM.$ So $OS = OS'.$
         
         Hence, $AB,$ $CQ,$ and $EP$ are concurrent.
     \end{overprint}        
