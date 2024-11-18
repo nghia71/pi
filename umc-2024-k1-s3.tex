@@ -220,8 +220,8 @@
     \framesubtitle{Circles - Example 2}
     \begin{example}[HC-2022-SM2-R2-P9]
         In a ceremony of the guild, the master asked the members to form $10$ lines,
-        each line consists of $9$ persons, so that he can stand in \textit{a place that has the same distance to every row.}    
-        The guild has $81$ members., including the master.
+        each line consists of $9$ persons, so that he can stand in \textit{a place that has the same distance to every line.}    
+        The guild has $81$ members, including the master.
         How can they do that?
     \end{example}
     \onslide<2->The key here is that \textit{the master is equidistant from each row}, not each member.
@@ -253,7 +253,7 @@
     \]
     
     \onslide<4->On the other hand, by connecting the segments, we create a so-called \textit{planar graph},
-    by Euler's graph formula $E-V+F=2$ for $10$ vertices, $d+10$ edges, and $k+1$ faces:
+    by Euler's graph formula $V-E+F=2$ for $10$ vertices, $d+10$ edges, and $k+1$ faces:
     \[
         10 - (d+10) + (k+1) = 2 \Rightarrow k = d+1 \quad(2)
     \]
@@ -277,7 +277,7 @@
         For 2 points, it is simple to see that the two vertices of diameter is such a pair of points.
         
         \bigbreak
-        For 3 points, for a Pythagorean triple $(a_1,b_1,c_1)$ of integers: $c_1^2=a_1^2+b_1^2$,
+        For 3 points, for a Pythagorean triple $(a, b, c)$ of integers: $c^2=a^2+b^2$,
         a point $P_1$ can be chosen on the semicircle $\arc{AB}$ diameter 2, 
         such that both $P_1A$ and $P_1B$ are rational:
         \[
@@ -306,9 +306,9 @@
     \frametitle{Combinatorial Geometry}
     \framesubtitle{Topology - Example 1}
     \begin{example}[HC-2022-SM2-R3-P11]
-        Find the minimal value $m$ so that no matter how you partition
+        Find the maximal value $m$ so that no matter how you partition
         a unit square into two distinct sets of points,
-        the diameter of one of the sets is at least $m.$ 
+        the length of the diameter of one of the sets is at least $m.$ 
         \textit{Diameter of a set of points is the largest distance between two points of the set.}
     \end{example}
     \begin{overprint}
@@ -430,7 +430,7 @@
     \framesubtitle{Topology - Example 5}
     \begin{example}[IMO SL 1972/2]
         We are given $3n$ points $A_1,A_2, \ldots , A_{3n}$ in the plane, no three of them collinear.
-        Prove that one can construct $n$ disjoint triangles with vertices at the points $A_i.$
+        Prove that one can construct $n$ disjoint triangles.
     \end{example}
     \begin{overprint}
         \onslide<2>Lets prove by induction. For $n=1$ it is obvious. Assume that the hypothesis is true for $n$. 
