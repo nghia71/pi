@@ -27,7 +27,7 @@
     Victoria, BC, Canada
     \bigbreak
     \bigbreak
-    (1) \textbf{January 5}: Geometric Transformations II: Half Turns. Sum of Half Turns.
+    (1) \textbf{January 5}: Geometric Transformations II: Translations. Half Turns. Sum of Half Turns.
 
     \bigbreak
     (2) \textbf{January 19}: Geometric Transformations III: Rotations by an Angle. Reflections over a Line.
@@ -36,13 +36,108 @@
     (3) \textbf{February 9}: Geometric Transformations IV: Homothety.
 \end{frame}
 
+\section{Translations}
+
+\begin{frame}[t]
+    \frametitle{Geometric Transformations II}
+    \framesubtitle{Translation - Example 1}
+    \begin{example}
+        Given circles $\omega_1$, $\omega_2,$ and line $\ell.$
+        \bigbreak
+        Construct a segment $AB$ parallel with $\ell$ with a given length $AB=c$, such that $A \in \omega_1$ and $B \in \omega_2.$
+    \end{example}
+    \bigbreak
+    \begin{center}
+        \includegraphics[width=6cm]{./svg/pdf/translation-5.pdf}
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Geometric Transformations II}
+    \framesubtitle{Translation - Example 1 - Solution}
+    \textbf{Translate} the circle $\omega_1$ to $\omega'$ by a distance $O_1O' = c$ and $O_1O' \parallel \ell.$
+    \bigbreak
+    The intersections (if any) $\omega_2$ and $\omega'$ are $B$ and $B'$.
+    \bigbreak
+    They are the images of the translation of points $A$ and $A'$.
+    Thus $AB = A'B' = c.$
+    \begin{center}
+        \includegraphics[width=6cm]{./svg/pdf/translation-5-1.pdf}
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Geometric Transformations II}
+    \framesubtitle{Translation - Example 2}
+    \begin{example}
+        $ABCD$ is a quadrilateral such that $AD = BC.$ $M$ and $N$ are midpoints of $AB$ and $CD$, respectively.
+        \bigbreak
+        $E$ is the intersection of (the extensions of) $AB$ and $CD.$
+        \bigbreak
+        Prove that $MN$ is parallel to the line $\ell,$ the angle bisector of $\angle AEB.$
+    \end{example}
+    \bigbreak
+    \begin{center}
+        \includegraphics[width=6cm]{./svg/pdf/translation-4.pdf}
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Geometric Transformations II}
+    \framesubtitle{Translation - Example 2 - Solution}
+    \textbf{Translate} $AD$ and $BC$ to $MM_1$ and $MM_2$, respectively.
+    Then $DM_1$ and $CM_2$ are the images of $AM$ and $BM$ by the translation, thus $DM_1 \parallel CM_2$ and $DM_1 = CM_2$.
+    Thus, $DM_1CM_2$ is a parallelogram.
+    \bigbreak
+    $\triangle NDM_1 \cong \triangle NCM_2$, thus $M_1, N, M_2$ are collinear. Therefore $NM_1 = NM_2.$
+    \bigbreak
+    $MM_1M_2$ is an isosceles triangle, thus the median $MN$ is the angle bisector, which is parallel to the angle bisector of $\angle AEB.$
+    \begin{center}
+        \includegraphics[width=6cm]{./svg/pdf/translation-4-1.pdf}
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Geometric Transformations}
+    \framesubtitle{Translation - Example 3}
+    \begin{example}
+        The point $O$ is situated inside the parallelogram $ABCD$ such that $\angle AOB+\angle COD=180^{\circ}$.
+        Prove that $\angle OBC=\angle ODC$.
+    \end{example}
+
+    \bigbreak
+    \begin{center}
+        \includegraphics[width=8cm]{./svg/pdf/canada-mo-1997-4-0.pdf}
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Geometric Transformations}
+    \framesubtitle{Translation - Example 3 - Solution}
+    \begin{center}
+        \begin{overprint}
+            \onslide<1>\centering\includegraphics[width=8cm]{./svg/pdf/canada-mo-1997-4-0.pdf}
+            \onslide<2->\centering\includegraphics[width=8cm]{./svg/pdf/canada-mo-1997-4-1.pdf}
+        \end{overprint}        
+    \end{center}
+    \onslide<2->{The translation by $\overrightarrow{AD}$ maps $A$ to $D$, $B$ to $C$, and $O$ to $O'$.}
+
+    \bigbreak
+    \onslide<3->{$ABCD$ is a parallelogram, $AD \parallel BC, AD = BC.$
+    By the translation, $OO' \parallel AD, OO' = AD,$ thus $OO' \parallel BC, OO' = BC.$ 
+    Therefore $OBCO'$ is a parallelogram. It implies that $\angle OBC = \angle OO'C.$}
+
+    \bigbreak
+    \onslide<4->{Since $\angle AOB+\angle COD=180^{\circ}$, so $\angle DO'C + \angle COD = 180\dg,$ or $CODO'$ is cyclic.
+    Therefore $\angle ODC = \angle OO'C.$ Hence, $\boxed{\angle OBC = \angle ODC.}$}
+\end{frame}
+
 \section{Half Turns}
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
     \framesubtitle{Half Turns - Example 1}
     \begin{example}
-        $A$ is point an intersection point of circles $\omega_1$ and $\omega_2$.
         Construct a line through $A$ intersecting line $\ell$ and circle $\omega$ at $P$ and $Q$, respectively,
         such that $AP = AQ.$
     \end{example}
@@ -54,7 +149,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Half Turns - Example 1}
+    \framesubtitle{Half Turns - Example 1 - Solution}
     Rotate the line $\ell$ half turn around $A$.
     Assume that $\ell'$, the image of $\ell$, intersects $\omega$ at $Q$.
     Draw a line through $A, Q$ intersects $\ell$ at $P$, then:
@@ -90,7 +185,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Half Turns - Example 2}
+    \framesubtitle{Half Turns - Example 2 - Solution}
     \begin{overprint}
         \onslide<1>Let \textbf{rotate} $\omega_2$ \textbf{half turn} ($180\dg$) around (or reflect $\omega_2$ over point) $P$.
         \bigbreak
@@ -100,7 +195,7 @@
             \frac{1}{2}\ \text{turn}: B \rightarrow A.
         \]
         \bigbreak
-        We have: (1) $A$ is on $\omega_1$ ($\cap \omega_2'$), (2) $B$ is on $\omega_2$, (3) $P, A,$ $B$ are collinear,
+        We have: (1) $A$ is on $\omega_1$ ($\cap\ \omega_2'$), (2) $B$ is on $\omega_2$, (3) $P, A,$ $B$ are collinear,
         and (4) $AP = PB$.
         \onslide<2>How many solutions?
         \begin{enumerate}
@@ -131,7 +226,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Half Turns - Example 3}
+    \framesubtitle{Half Turns - Example 3 - Solution}
     If \textbf{$M$ is the midpoint of $AP$, then $\angle OMP = 90\dg$ and $MP = PB$}.
     Thus $M$ is the intersection of $\omega_2'$, the image of $\omega_2$, and the circle $\gamma$ diameter $O_1P.$
     \begin{center}
@@ -149,7 +244,7 @@
     \frametitle{Geometric Transformations II}
     \framesubtitle{Half Turns - Example 4}
     \begin{example}
-        $AB$ and $CD$ are chords of circle $\omega$. $J$ is a point on $CD$. Find point $X$ on the circumference of $\omega$ such that $JG = GF,$
+        $AB$ and $CD$ are chords of circle $\omega$. $J$ is a point on $CD$. Find point $X$ on the circumference of $\omega$ such that $JG = JF,$
         where $G$ and $F$ are intersections of $CD$ with $XA$ and $XB$, respectively.
     \end{example}
 
@@ -160,9 +255,9 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Half Turns - Example 4}
+    \framesubtitle{Half Turns - Example 4 - Solution}
     \begin{overprint}
-        \onslide<1>The condition $GJ=JF$ give us the idea to rotate $X$ \textbf{half turn} about $I$ to $X'$.
+        \onslide<1>The condition $GJ=JF$ give us the idea to rotate $X$ \textbf{half turn} about $J$ to $X'$.
         
         \bigbreak
         $\triangle XGJ \cong \triangle XFJ$ shows that $\angle XGJ = \angle JFX,$ thus $FX' \parallel XA.$
@@ -206,7 +301,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Half Turns - Example 5 - Solution by Geometric Transformations}
+    \framesubtitle{Half Turns - Example 5 - Solution}
     \begin{overprint}
         \onslide<1>Assume that the figure $\mathcal{F}$ has two centers of symmetry, $O_1$ and $O_2$.
 
@@ -244,7 +339,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Sum of Half Turns - Example 4}
+    \framesubtitle{Sum of Half Turns - Example 1}
     \begin{example}
         $n$ is a positive integer. Let $O_1, O_2, \ldots, O_{2n}$ be points on the plane and $AB$ is an arbitrary segment.
         Let segment $A_1B_1$ be obtained from $AB$ by half turn about $O_1$, let $A_2B_2$ be obtained from $A_1B_1$ by half turn about $O_2$, $\ldots,$
@@ -261,7 +356,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Sum of Half Turns - Example 4}
+    \framesubtitle{Sum of Half Turns - Example 1 - Solution}
     \begin{overprint}
         \onslide<1>First, it is easy to see that \textbf{the sum of two half turns} around $O_1$ and $O_2$ is \textbf{a translation}:
         \[ 
@@ -285,7 +380,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Sum of Half Turns - Example 5}
+    \framesubtitle{Sum of Half Turns - Example 2}
     \begin{example}
         $n$ is a positive odd integer. Let $O_1, O_2, \ldots, O_{n}$ be points on the plane.
         Let an arbitrary point $A$ be moved successively by half turns about $O_1, O_2, \ldots, O_{n}$
@@ -302,17 +397,17 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Sum of Half Turns - Example 5}
+    \framesubtitle{Sum of Half Turns - Example 2 - Solution}
     \onslide<1->Since the \textbf{sum of an odd number of half turns} is \textbf{a half turn}, the point $A_n$, obtained from $A$ by the $n$
     successive half turns about the points $O_1, O_2, \ldots, O_{n}$ can also be obtained from $A$ by a single half turn about some point $O$.
     \begin{center}
         \includegraphics[width=2.8cm]{./svg/pdf/translation-2b.pdf}
         \qquad \qquad
-        \onslide<2->\includegraphics[width=3cm]{./svg/pdf/translation-2c.pdf}
+        \onslide<2->\includegraphics[width=6cm]{./svg/pdf/translation-2d.pdf}
     \end{center}
     \onslide<2->It is important to note that \textbf{$O$ depends on $O_1, O_2, \ldots, O_{n}$ only} and not $A$.
     \onslide<3>\begin{center}
-        \includegraphics[width=4.3cm]{./svg/pdf/translation-2d.pdf}
+        \includegraphics[width=4.3cm]{./svg/pdf/translation-2c.pdf}
     \end{center}
     The point $A_{2n}$ is obtained from $A_n$, by these same $n$ half turns;
     therefore it can also be obtained from $A_n$, by the single half turn about the point $O$.
@@ -323,7 +418,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Sum of Half Turns - Example 6}
+    \framesubtitle{Sum of Half Turns - Example 3}
     \begin{example}
         $A_1A_2 \ldots A_{2n}$ is a $2n-$gon. $M_1, M_2, \ldots, M_{2n}$ are the midpoints of $A_1A_2,$ $A_2A_3,\ \ldots,$ $A_{2n}A_1$, respectively.
         Prove that there exists a $n-$gon whose sides are equal and parallel to the segments $M_1M_2,$ $M_3M_4,$ $\ldots$, $M_{2n-1}M_{2n}$
@@ -337,7 +432,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Sum of Half Turns - Example 6}
+    \framesubtitle{Sum of Half Turns - Example 3 - Solution}
     Note that by $2n$ half turns around $M_1, M_2, \ldots, M_{2n}$:
     \[
         A_1 \rightarrow A_2 \rightarrow A_3 \rightarrow  \cdots \rightarrow  A_{2n} \rightarrow A_1.
@@ -360,7 +455,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Half Turns - Example 6}
+    \framesubtitle{IMO 2005 SL}
     \begin{example}
         Given a triangle $ABC$ satisfying $AB+BC=3 AC$.
         The incircle of triangle $ABC$ has center $I$ and touches the sides $AB$ and $BC$ at the points $D$ and $E$, respectively.
@@ -376,11 +471,11 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations II}
-    \framesubtitle{Half Turns - Example 6}
+    \framesubtitle{IMO 2005 SL - Solution}
     \begin{overprint}
         \onslide<1>What do we have?
         \[ 
-            AB+BC=3AC \Rightarrow \half{AB+BC-CA} = CA.
+            AB+BC=3AC \Rightarrow \half(AB+BC-CA) = CA.
         \]
         This means that the tangent segment $BD$ and $BE$ is equal to $CA$!
         \bigbreak
