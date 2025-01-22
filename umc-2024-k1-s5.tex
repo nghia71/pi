@@ -57,7 +57,7 @@
     \frametitle{Geometric Transformations III}
     \framesubtitle{Rotations by an Angle - Example 2}
     \begin{example}
-        Three concentric circles $\omega_1$, $\omega_2,$ and $\omega_3$ are given. $A$ is a point on the line $\omega_1$.
+        Three concentric circles $\omega_1$, $\omega_2,$ and $\omega_3$ are given. $A$ is a point on $\omega_1$.
         
         \bigbreak
         How can we determine points $B$ and $C$ on $\omega_2$ and $\omega_3$, respectively, such that $ABC$ is an equilateral triangle.
@@ -105,6 +105,7 @@
     \bigbreak
     Rotate $\omega_2$ by $60\dg$ about $A$ to obtain $\omega_2'$.
     The intersection of $\omega_2'$ with $\omega_3$ is the position for $C.$
+
     $B$ can be constructed easily as the intersection of circle centred at $A$ radius $AC.$
     \begin{center}
         \includegraphics[width=5cm]{./svg/pdf/rotation-5b.pdf}
@@ -116,7 +117,52 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations III}
-    \framesubtitle{Rotations by an Angle - Example 3}
+    \framesubtitle{Rotations by an Angle - Example 4}
+    \begin{example}
+        Let $E$ be a point in the square $ABCD$ such that $\angle EAB = \angle EBA = 15\dg.$
+        Prove that $\triangle CDE$ is equilateral.
+    \end{example}
+    \begin{overprint}
+        \onslide<1>\begin{center}
+            \includegraphics[width=4cm]{./svg/pdf/rotation-11-2.pdf}
+        \end{center}
+        \onslide<2->\begin{center}
+            \includegraphics[width=4cm]{./svg/pdf/rotation-11.pdf}
+        \end{center}
+    \end{overprint}
+    \onslide<2->Let $F$ be a point inside $ABCD$ such that $\triangle ABF$ is equilateral.
+    \bigbreak
+    \onslide<3->The rotation about $A$ by $30\dg$ clockwise sends $D$ to $F$,
+    and the rotation about $B$ by $30\dg$ clockwise sends $F$ to $C$.
+    \bigbreak
+    \onslide<4->Thus the sum of rotation is a rotation about $O$ by $60\dg$ sends $D$ to $C$, where
+    $O$ is the point such that $OC = OD,$ $\angle DOC = 60\dg,$ and $\angle OAB = OBA = 15\dg.$
+    \onslide<5->Hence, $O \equiv E.$
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Geometric Transformations III}
+    \framesubtitle{Rotations by an Angle - Example 5}
+    \begin{example}
+        Let $ABGF$ and $ACDE$ be squares outside $\triangle ABC.$ Let $H$ be the midpoint of $DG$. 
+        Show that $HB = HC$ and $HB \perp HC.$
+    \end{example}
+
+    \begin{center}
+        \includegraphics[width=5cm]{./svg/pdf/rotation-10.pdf}
+    \end{center}
+    \onslide<2->Since $CD = CA$ and $\angle DCA = 90\dg$, so the rotation about $C$ by $90\dg$ anti-clockwise sends $D$ to $A$.
+    Also, the rotation about $B$ by $90\dg$ anti-clockwise sends $A$ to $G$.
+    \bigbreak
+    \onslide<3->Thus the sum of rotation is a rotation about $O$ by $180\dg$ sends $D$ to $G$, where
+    $O$ is the point such that $\angle OCB = 45\dg$ and $\angle OBC = 45\dg.$
+    \bigbreak
+    \onslide<4->A rotation of about $O$ by $180\dg$ sends $D$ to $G$ means that $OD = OG$, thus $O \equiv H.$
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Geometric Transformations III}
+    \framesubtitle{Rotations by an Angle - Example 6}
     \begin{example}
         On the sides of an arbitrary triangle $ABC,$ exterior to it, construct isosceles triangles $BCA_1$ $ACB_1$, $CAB_1$
         with angles at the vertices $A_1$, $B_1$, and $C_1$, respectively equal to $\alpha$, $\beta$ and $\gamma$.
@@ -132,7 +178,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations III}
-    \framesubtitle{Rotations by an Angle - Example 3}
+    \framesubtitle{Rotations by an Angle - Example 6}
     \begin{overprint}
         \onslide<1>First, point $A$ is taken into itself by the sum of three rotations through the angles $\beta$, $\alpha$, and $\gamma$
         ($\alpha + \beta + \gamma = 360\dg$) about the centers $B_1, A_1, C_1$:
@@ -159,7 +205,7 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations III}
-    \framesubtitle{Rotations by an Angle - Example 4}
+    \framesubtitle{Rotations by an Angle - Example 7}
     \begin{example}
         In triangle $ABC$, the angle bisector at vertex $C$ intersects the circumcircle
         and the perpendicular bisectors of sides $BC$ and $CA$ at points $R$, $P$, and $Q$, respectively.
@@ -175,14 +221,14 @@
 
 \begin{frame}[t]
     \frametitle{Geometric Transformations III}
-    \framesubtitle{Rotations by an Angle - Example 4}
+    \framesubtitle{Rotations by an Angle - Example 7}
     \begin{overprint}
         \onslide<1>WLOG, assume $AC<BC$. Let $ACB=\gamma$.
         From the right triangles $CLQ$ and $CKP$, 
         \[
             \angle OPQ=\angle OQP=90\dg - \frac{\gamma}{2}.
         \]
-        Thus, $OPQ$ is isosceles, $OP=OQ$, and $\angle POQ=2\left(90\dg - \frac{\gamma}{2}\right)= \gamma$.
+        Thus, $OPQ$ is isosceles, $OP=OQ$, and $\angle POQ=180\dg - 2\left(90\dg - \frac{\gamma}{2}\right)= \gamma$.
         \begin{center}
             \includegraphics[width=4.5cm]{./svg/pdf/imo-2007-4-2.pdf}
         \end{center}
@@ -233,16 +279,16 @@
 \begin{frame}[t]
     \frametitle{Geometric Transformations III}
     \framesubtitle{Symmetry - Example 1}
-    Let $B'$ be the image of $B$ over $OM,$ then:
-    \[
-        \angle B'XA = \angle B'XB + \angle YXZ,\  \angle B'XB = 2\angle OXZ = 2(\angle XZY - \angle MON)
-        \Rightarrow \angle B'XA = 180\dg - \angle MON.
-    \]
-
     \begin{center}
         \includegraphics[width=5cm]{./svg/pdf/symmetry-1b.pdf}
     \end{center}
-    Thus, $X$ is the intersection of $OM$ with the arc constructed on the chord $AB',$ that subtends an angle equal to $180\dg - \angle MON.$
+    Let $B'$ be the image of $B$ over $OM,$ \onslide<2->then:
+    \[
+        \angle B'XA = \angle B'XB + \angle YXZ,\  \onslide<3->\angle B'XB = 2\angle OXZ = 2(\angle XZY - \angle MON)
+        \onslide<4->\Rightarrow \angle B'XA = 180\dg - 2\angle MON.
+    \]
+
+    \onslide<5->Thus, $X$ is the intersection of $OM$ with the arc constructed on the chord $AB',$ that subtends an angle equal to $180\dg - 2\angle MON.$
 \end{frame}
 
 \begin{frame}[t]
@@ -375,7 +421,7 @@
         \end{center}
         \onslide<2>\textbf{Case 2:} $A, O, O'$ are not collinear.
         Let $B$ be the point symmetric to $A$ with respect to $O,$ let $A'$ the point symmetric to $A$ with respect to $O',$
-        and let $B''$ the point symmetric to $B$ with respect to $O$ (see the diagram below).
+        and let $B'$ the point symmetric to $B$ with respect to $O'$ (see the diagram below).
         \begin{center}
             \includegraphics[width=7cm]{./svg/pdf/24-25-s1-g4-p13-3.pdf}
         \end{center}
@@ -456,7 +502,7 @@
     \[ 
         \sum_{k=1}^{n} \overrightarrow{PA_k} + \overrightarrow{PB_k} = \textbf{0},\ 
         \sum_{k=1}^{n} \overrightarrow{PA_k} = \sum_{k=1}^{n} \overrightarrow{PB_k}
-        \Rightarrow \sum_{k=1}^{n} \overrightarrow{PA_1} = \textbf{0}.
+        \Rightarrow \sum_{k=1}^{n} \overrightarrow{PA_k} = \textbf{0}.
     \]
     \onslide<5->By the same reasoning, we also have $\overrightarrow{QA_1} + \overrightarrow{QA_2} + \ldots + \overrightarrow{QA_n} = \textbf{0}.$
     Subtracting, 
