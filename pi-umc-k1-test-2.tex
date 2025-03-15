@@ -1,0 +1,125 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\newtheorem{hint}{Hint}
+
+\title{Test Problems fore UMC K1 - Second Semester}
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}[Problem One]
+    $ABCD$ is a unit square. Points $P, Q, M,$ and $N$ are on sides $AB, BC, CD$, and $DA,$ respectively, such that:
+    \[ 
+        CM + AN + AP + CQ = 2.
+    \]
+    
+    Prove that $PM \perp QN.$
+\end{problem}
+
+\begin{proof}
+    Consider the rotation $\mathcal{R}(A, 90\dg)$ around $A$ anti-clockwise by $90\dg$, shown as below:
+    \[
+        \mathcal{R}(A, 90\dg)(B)= D,\ \mathcal{R}(A, 90\dg)(C)=C',\ \mathcal{R}(A, 90\dg)(D)=D',\ \mathcal{R}(A, 90\dg)(Q)=Q',\ \mathcal{R}(A, 90\dg)(N)=N'.
+    \]
+    \begin{center}
+        \includegraphics[width=7cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/umc-k1-sm2-t-p3.pdf}
+    \end{center}
+
+    By the property of the rotation:
+    \[
+        AN = AN',\ CQ = C'Q' \implies PN' = PA + AN' = PA + AN = 2 - (CM+CQ) = CC' - CM - C'Q' = MQ'.
+    \]
+    
+    Thus, $PMQ'N'$ is a parallelogram, therefore $Q'N' \parallel MP.$ By the property of the rotation, $QN \perp MP.$
+\end{proof}
+
+\newpage
+
+\begin{problem}[Problem Two]
+    In $\triangle ABC$, $AB > AC.$ An external angle bisector of $\angle BAC$ intersects the circumcircle of $\triangle ABC$ at $E$.
+    Let $F$ be the foot of of the perpendicular from $E$ to line $AB$. Prove that:
+    \[
+        2AF = AB - AC.
+    \]
+\end{problem}
+
+\begin{proof}
+    Consider the rotation $\mathcal{R}(E, \angle CEB)$ around $E$ clockwise by $\angle CEB$.
+    \[ 
+        \angle EBC = \angle EAT = \angle EAB = \angle ECB \implies EC = EB \implies \mathcal{R}(E, \angle CEB)(C)=B.
+    \]
+    \begin{center}
+        \includegraphics[width=7cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/umc-k1-sm2-t-p1-1.pdf}
+    \end{center}
+
+    Let $\mathcal{R}(E, \angle CEB)(A)=D.$ Since $\angle CAB = \angle CEB$ and $AB > AC$, thus $D \in AB.$
+    Therefore:
+    \[
+        \mathcal{R}(E, \angle CEB)(\triangle AEC)= \triangle DEB.
+    \]
+    \begin{center}
+        \includegraphics[width=7cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/umc-k1-sm2-t-p1-2.pdf}
+    \end{center}
+
+    Furthermore
+    \[ 
+        \angle DAE = \angle EAT = \angle EDA \implies \triangle AED\ \text{is isosceles}.
+    \]
+
+    Now $EF \perp AD$, hence $2AF = AD = AB-BD = AB-AC.$
+\end{proof}
+
+\newpage
+
+\begin{problem}[Problem Three]
+    Let $ABC$ be a triangle such that $AB > AC$. Let $M$ and $N$ be the intersections of the median and the angle bisector, respectively, from $A$ to $BC$.
+    Let $Q$ and $P$ be the points where the perpendicular at $N$ to $NA$ meets $MA$ and $BA$, respectively.
+    Let $O$ be the point where the perpendicular at $P$ to $BA$ meets $AN$.
+    Prove that $QO \perp BC.$
+\end{problem}
+
+\begin{proof}
+    Let $AN$ intersect the circumcircle of $\triangle ABC$ at $D$. Then 
+    \[
+        \angle DBC = \angle DAC = \half \angle BAC = \angle DAB = \angle DCB
+        \implies DB = DC \implies MD \perp BC.
+    \]
+    \begin{center}
+        \includegraphics[width=7.5cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/umc-k1-sm2-t-p2-1.pdf}
+        \quad
+        \includegraphics[width=7.5cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/umc-k1-sm2-t-p2-2.pdf}
+    \end{center}
+
+    Consider the homothety with center $A$ with factor $k=\frac{AO}{AD}$:
+    \[
+        \mathcal{H_{(A, k)}}(\triangle DBC) = \triangle OB'C' \implies OB' = OC',\ BC \parallel B'C'.
+    \]
+
+    Let $B'C' \cap PN = K,$ then:
+    \[
+        \angle OB'K = \angle DBC = \angle DAB = 90\dg - \angle AOP = \angle OPK \implies P, B', O, K\ \text{are concyclic}.
+    \]
+    \begin{center}
+        \includegraphics[width=7.5cm]{../Learning-Problem-Solving-2nd-Edition/svg/pdf/umc-k1-sm2-t-p2-3.pdf}
+    \end{center}
+
+    Thus:
+    \[
+        \angle B'KO = \angle B'PO = 90\dg \implies B'K = C'K \implies K \in MA\ (BC \parallel B'C') \implies K \equiv Q.
+    \]
+
+    Now $\angle B'KO = 90\dg$ implies that $QO \equiv KO \perp B'C'$, hence $QO \perp BC$. 
+\end{proof}
+
+\end{document}
