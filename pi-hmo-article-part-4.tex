@@ -1,0 +1,137 @@
+\documentclass{article}
+
+\usepackage[main=english,vietnamese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{matchsticks}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\begin{otherlanguage*}{vietnamese}
+\title{Các Kỳ Thi Toán Học Tại Hungary\\ \quad \\Phần 4 - Quy trình tuyển chọn đội tuyển Olympic Toán Quốc tế IMO, MEMO, EGMO của Hungary}
+\end{otherlanguage*}
+
+\author{Nghia Doan}
+\date{\today}
+
+\begin{document}
+
+\begin{otherlanguage*}{vietnamese}
+
+\maketitle
+
+Hungary có một hệ thống tuyển chọn nghiêm ngặt để chọn ra những học sinh xuất sắc nhất đại diện quốc gia tại các kỳ thi toán quốc tế như IMO,
+Olympiad Toán học Nữ Châu Âu (European Girls' Mathematical Olympiad - EGMO \cite{EGMO}),
+và Olympiad Toán học Trung Âu (Middle European Mathematical Olympiad - MEMO \cite{MEMO}).
+Hungary là một trong những quốc gia có truyền thống mạnh trong các kỳ thi này, với nhiều huy chương vàng và thành tích xuất sắc trong lịch sử IMO.
+
+Hệ thống các kỳ thi toán học tại Hungary vô cùng phong phú và đa dạng, đến mức \textbf{học sinh gần như có thể tham gia một cuộc thi mỗi tuần} \cite{naptar_minden}.
+
+Quy trình này được thiết kế nhằm đánh giá toàn diện năng lực thí sinh thông qua nhiều kỳ thi khác nhau, đảm bảo rằng đội tuyển được tuyển chọn từ những học sinh có thành tích tốt nhất.
+Điểm đặc biệt là thông tin xếp hạng các học sinh được công khai và được cập nhật tức thời tại: \cite{allas}.
+
+\textbf{Các kỳ thi quan trọng trong quá trình tuyển chọn}
+Quá trình tuyển chọn dựa trên thành tích của học sinh trong các kỳ thi toán học quan trọng \cite{szabalyok}. Để đủ điều kiện tham gia các vòng tuyển chọn,
+học sinh phải đang theo học trung học phổ thông tại Hungary và có thành tích nổi bật trong các kỳ thi toán học cấp quốc gia hoặc các cuộc thi quốc tế trước đó.
+
+\begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
+    \ii \textbf{Kỳ thi Kürschák József} \cite{Kurschak}: Một trong những kỳ thi toán lâu đời nhất thế giới, dành cho học sinh trung học và sinh viên năm nhất.
+    Kỳ thi gồm 3 bài toán khó, yêu cầu lời giải chi tiết. Thành tích trong kỳ thi này có ảnh hưởng đáng kể đến điểm tuyển chọn.
+    \ii \textbf{Kỳ thi KöMaL (A \& B)} \cite{KoMaL}: Được tổ chức hàng tháng bởi Tạp chí Toán học Trung học Hungary (Középiskolai Matematikai Lapok), gồm hai hạng mục:
+    \begin{itemize}
+        \ii Cuộc thi "A" với các bài toán nâng cao, yêu cầu chứng minh chi tiết.
+        \ii Cuộc thi "B" phù hợp với nhiều học sinh hơn, với bài toán đơn giản hơn.
+    \end{itemize}
+    \ii \textbf{Các kỳ thi tuyển chọn quốc gia (Válogatóversenyek)}: Bao gồm bốn kỳ thi tuyển chọn chính, được tổ chức từ tháng 11 đến tháng 4,
+    đóng vai trò quyết định trong việc chọn đội tuyển IMO, EGMO và MEMO \cite{naptar_csapat}.
+\end{itemize}
+
+\textbf{Các vòng tuyển chọn và cách tính điểm}
+Việc tính điểm và xếp hạng thí sinh được thực hiện dựa trên kết quả từ các kỳ thi trên. Mỗi thí sinh tích lũy điểm theo công thức:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Vòng thi} & \textbf{Thời gian} & \textbf{Số bài toán} & \textbf{Điểm tối đa} \\
+        \hline
+        V1 (Vòng tuyển chọn thứ nhất) & Tháng 11 & 4 bài & 28 điểm \\
+        \hline
+        V2 (Vòng tuyển chọn thứ hai/Surányi János Memorial) & Tháng 3 & 3 bài & 21 điểm \\
+        \hline
+        V3 (Vòng tuyển chọn thứ ba) & Tháng 4 & 3 bài & 21 điểm \\
+        \hline
+        V4 (Vòng tuyển chọn thứ tư) & Tháng 4 & 3 bài & 21 điểm \\
+        \hline
+    \end{tabular}    
+\end{center}
+
+Ngoài ra, học sinh còn có thể nhận điểm thưởng từ:
+\begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
+    \ii \textbf{Kỳ thi Kürschák (Kü)}: Điểm số dựa vào thành tích đạt được
+    (10 điểm cho giải nhất, 7 điểm cho giải nhì, 4 điểm cho giải ba, 2 điểm cho giải khuyến khích, 0 điểm nếu không đạt giải).
+    \ii \textbf{Điểm KöMaL (Kö1, Kö2)}: Được tính dựa trên tỷ lệ phần trăm số bài toán giải đúng từ cuộc thi KöMaL trong hai năm liên tiếp, với tối đa 4 điểm cho mỗi năm.
+\end{itemize}
+
+Sau khi tính tổng điểm, 6 học sinh có điểm cao nhất sẽ được chọn vào đội tuyển IMO.
+Trong trường hợp có hai học sinh có cùng điểm số, ban tuyển chọn có thể xem xét thêm kết quả từ các kỳ thi trước đó hoặc tổ chức một bài kiểm tra bổ sung để quyết định thứ hạng cuối cùng.
+Các học sinh có điểm cao tiếp theo (thường xếp hạng 7-12) có thể được cân nhắc tham gia MEMO.
+
+\textbf{Tuyển chọn đội tuyển EGMO}
+
+Hungary cũng cử đội tuyển tham gia kỳ thi EGMO dành riêng cho nữ sinh.
+Hungary đã có thành tích ấn tượng tại EGMO, với nhiều năm giành huy chương vàng, bạc và đồng, khẳng định năng lực của các nữ sinh trong đấu trường toán học quốc tế.
+Quá trình tuyển chọn đội tuyển EGMO dựa trên kết quả của vòng tuyển chọn IMO đầu tiên (V1) và thành tích trong Kürschák \& KöMaL.
+Bốn nữ sinh có điểm cao nhất sẽ được chọn vào đội tuyển chính thức, với khả năng có 1-2 thí sinh dự bị.
+
+\textbf{Tuyển chọn đội tuyển MEMO}
+
+Đội tuyển MEMO gồm 6 học sinh, thường là những học sinh có điểm cao nhưng không lọt vào top 6 IMO. Quá trình tuyển chọn dựa vào các kỳ thi tuyển chọn quốc gia (V1-V4), Kürschák và KöMaL.
+Những thí sinh xếp hạng 7-12 thường có cơ hội được chọn.
+
+\textbf{Yêu cầu và quy định}
+
+\begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]
+    \ii \textbf{Đăng ký tham gia}: Học sinh phải đăng ký trước cho các kỳ thi tuyển chọn và kỳ thi Kürschák.
+    \ii \textbf{Quy định trong kỳ thi}: Chỉ được sử dụng compa, thước kẻ và bút viết. Không được dùng máy tính hoặc tài liệu hỗ trợ.
+\end{itemize}
+
+\textbf{Tóm tắt quy trình tuyển chọn}
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Kỳ thi} & \textbf{Số thí sinh} & \textbf{Cách tuyển chọn} \\
+        \hline
+        IMO & 6 học sinh & Tổng điểm cao nhất từ V1 + V2 + V3 + V4 + Kürschák + KöMaL \\
+        \hline
+        EGMO & 4 nữ sinh & Điểm cao nhất từ V1 + thành tích trong Kürschák \& KöMaL \\
+        \hline
+        MEMO & 6 học sinh & Điểm cao nhưng không lọt vào top 6 IMO (thường là hạng 7-12) \\
+        \hline
+    \end{tabular} 
+\end{center}
+
+\textbf{Kết luận}
+
+Hệ thống tuyển chọn đội tuyển toán Hungary đảm bảo tính công bằng, minh bạch và toàn diện.
+Việc kết hợp nhiều nguồn điểm giúp chọn ra những học sinh có năng lực tốt nhất, không chỉ dựa vào một kỳ thi duy nhất mà đánh giá qua cả quá trình học tập và thi đấu.
+Nhờ quy trình này, Hungary luôn có đội tuyển mạnh tại các kỳ thi toán quốc tế, khẳng định vị thế của mình trên đấu trường IMO, EGMO và MEMO.
+
+\newpage
+
+\section*{Tham khảo}
+
+\begin{thebibliography}{99}
+    \bibitem{EGMO} European Girls' Mathematical Olympiad, \url{https://www.egmo.org}
+    \bibitem{MEMO} Middle European Mathematical Olimpiad, \url{https://www.memo-official.org/MEMO/}
+    \bibitem{naptar_minden} Lịch tất cả các kỳ thi toán, \url{http://agondolkodasorome.hu/versenynaptar/}
+    \bibitem{naptar_csapat} Lịch các kỳ thi chọn các đội tuyển quốc gia, \url{https://cms.renyi.hu/olimpiak/hu/naptar}
+    \bibitem{szabalyok} Quy định lựa chọn thành viên cho các đội tuyển quốc gia,\\ \url{https://cms.renyi.hu/olimpiak/hu/valogato_szabalyok}
+    \bibitem{allas} Bảng xếp hạng,\\ \url{https://cms.renyi.hu/olimpiak/hu/allas}
+    \bibitem{KoMaL} A KöMaL pontversenyei, \url{https://www.komal.hu/verseny.h.shtml}
+    \bibitem{Kurschak} Kürschák József Matematikai Tanulóverseny,\\ \url{https://www.bolyai.hu/versenyek-kurschak-jozsef-matematikai-tanuloverseny/}
+\end{thebibliography}
+
+\end{otherlanguage*}
+
+\end{document}
